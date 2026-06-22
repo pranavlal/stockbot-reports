@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industower Report</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --heading-color: #0f172a;
+            --link-color: #1d4ed8;
+            --link-hover: #1e40af;
+            --border-color: #cbd5e1;
+            --blockquote-bg: #f8fafc;
+            --blockquote-border: #475569;
+            --table-header-bg: #e2e8f0;
+            --table-stripe: #f1f5f9;
+            --code-bg: #f8fafc;
+            --code-text: #0f172a;
+            --accent-color: #0f766e;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #cbd5e1;
+                --heading-color: #f8fafc;
+                --link-color: #38bdf8;
+                --link-hover: #0ea5e9;
+                --border-color: #475569;
+                --blockquote-bg: #1e293b;
+                --blockquote-border: #94a3b8;
+                --table-header-bg: #1e293b;
+                --table-stripe: #1e293b;
+                --code-bg: #1e293b;
+                --code-text: #f8fafc;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin: 0;
+            padding: 32px 16px;
+        }
+
+        header, main, footer {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 { 
+            font-size: 2.2rem; 
+            margin-top: 0.2em; 
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 12px;
+        }
+        h2 { font-size: 1.65rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+        h3 { font-size: 1.3rem; }
+        h4 { font-size: 1.1rem; }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: none;
+        }
+
+        a:focus {
+            outline: 3px solid var(--link-color);
+            outline-offset: 2px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+            padding-left: 2em;
+        }
+
+        li {
+            margin-bottom: 0.4em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 2.5em 0;
+        }
+
+        blockquote {
+            background-color: var(--blockquote-bg);
+            border-left: 5px solid var(--blockquote-border);
+            padding: 14px 24px;
+            margin: 1.2em 0;
+            font-style: italic;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        caption {
+            font-size: 0.85rem;
+            padding: 8px;
+            color: var(--text-color);
+            caption-side: bottom;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--heading-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-stripe);
+        }
+
+        pre, code {
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+        }
+
+        code {
+            padding: 2px 5px;
+            font-size: 0.9em;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 10px;
+            background: var(--link-color);
+            color: white;
+            padding: 10px 16px;
+            z-index: 100;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        nav.index-nav {
+            margin-bottom: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+        <nav class="index-nav" aria-label="Breadcrumb">
+            <a href="index.html">← Back to Index Directory</a>
+        </nav>
+    </header>
+    <main id="main-content">
+        <h1>Indus Towers Ltd. (INDUSTOWER)</h1>
+<p><strong>Date Range:</strong> 2026-03-19 to 2026-06-19 | <strong>Starting Capital:</strong> ₹100,000</p>
+<h2>📊 Executive Summary</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Attribute</th>
+        <th scope="col" role="columnheader">Value</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell"><strong>Rating</strong></td>
+        <td role="cell"><strong>NEUTRAL</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Conviction Score</strong></td>
+        <td role="cell"><strong>49/100</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Trend</strong></td>
+        <td role="cell"><strong>Neutral / Bullish</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Sector Rank</strong></td>
+        <td role="cell"><strong>2/20</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Suitable Horizon</strong></td>
+        <td role="cell"><strong>Swing &amp; Positional &amp; Long-Term</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Action</strong></td>
+        <td role="cell"><strong>Wait for a clear directional breakout or regime change.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<h2>🎯 Actionable Trading Guidance</h2>
+<h3>📈 Direct Stock Setup Outlook</h3>
+<p>No active intraday setup detected for the next session.</p>
+<h3>⌥ Options Strategy Recommendation</h3>
+<p><strong>Recommended Vehicle:</strong> <strong>Iron Condor</strong></p>
+<p><strong>Reason:</strong> Volatility-adjusted options edge (EV/Risk Ratio of 3.189) with defined risk and high capital efficiency (6.0% expected return on margin), utilizing the stock's 26.3% Implied Volatility Rank.</p>
+<ul>
+  <li><strong>Volatility Dashboard:</strong> Realized Vol (RV): 20.7% | Implied Vol (IV): 22.0% | IV Rank: 26.3% | IV Percentile: 7.3%</li>
+  <li><strong>Directional Probabilities:</strong> P(up): 10% | P(down): 10% | P(flat): 80%</li>
+  <li><strong>Expected Return Distribution:</strong> Median: +2.28% (10th: -10.07%, 90th: +10.83%) | Expected Move: 0.01 ATR</li>
+</ul>
+<h5>Expected Value (EV) Payoff Matrix:</h5>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Strategy</th>
+        <th scope="col" role="columnheader">Expected Value (EV)</th>
+        <th scope="col" role="columnheader">Capital (Margin)</th>
+        <th scope="col" role="columnheader">Expected Return on Margin</th>
+        <th scope="col" role="columnheader">Risk</th>
+        <th scope="col" role="columnheader">EV / Risk</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Iron Condor</td>
+        <td role="cell">₹1678.62</td>
+        <td role="cell">₹28,002.40</td>
+        <td role="cell">6.0%</td>
+        <td role="cell">₹526.33</td>
+        <td role="cell">3.189</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bull Put Spread</td>
+        <td role="cell">₹4068.81</td>
+        <td role="cell">₹42,003.60</td>
+        <td role="cell">9.7%</td>
+        <td role="cell">₹7620.08</td>
+        <td role="cell">0.534</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Futures</td>
+        <td role="cell">₹-775.06</td>
+        <td role="cell">₹210,017.99</td>
+        <td role="cell">-0.4%</td>
+        <td role="cell">₹68284.53</td>
+        <td role="cell">-0.011</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Cash Equity</td>
+        <td role="cell">₹-3400.29</td>
+        <td role="cell">₹1,400,119.97</td>
+        <td role="cell">-0.2%</td>
+        <td role="cell">₹70850.66</td>
+        <td role="cell">-0.048</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Synthetic Future</td>
+        <td role="cell">₹-25245.83</td>
+        <td role="cell">₹210,017.99</td>
+        <td role="cell">-12.0%</td>
+        <td role="cell">₹56044.80</td>
+        <td role="cell">-0.450</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Covered Call</td>
+        <td role="cell">₹-25255.46</td>
+        <td role="cell">₹1,400,119.97</td>
+        <td role="cell">-1.8%</td>
+        <td role="cell">₹56044.80</td>
+        <td role="cell">-0.451</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Calendar Spread</td>
+        <td role="cell">₹-25295.46</td>
+        <td role="cell">₹42,003.60</td>
+        <td role="cell">-60.2%</td>
+        <td role="cell">₹56084.80</td>
+        <td role="cell">-0.451</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Ratio Spread</td>
+        <td role="cell">₹-25295.46</td>
+        <td role="cell">₹140,012.00</td>
+        <td role="cell">-18.1%</td>
+        <td role="cell">₹56084.80</td>
+        <td role="cell">-0.451</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>🛠️ Systematic Execution Plan (Generic Framework)</h3>
+<ul>
+  <li><strong>Stop Loss:</strong> 1.5 × ATR from entry</li>
+  <li><strong>Profit Targets:</strong> Target 1 (1R) for 50% scale-out, trail remainder.</li>
+</ul>
+<hr>
+<h2>🔮 Expected Outcomes &amp; Suitability</h2>
+<h3>Expected 1 Month Outcome</h3>
+<ul>
+  <li>🟢 <strong>Bullish:</strong> 10.0%</li>
+  <li>🟡 <strong>Neutral:</strong> 80.0%</li>
+  <li>🔴 <strong>Bearish:</strong> 10.0%</li>
+</ul>
+<h3>Expected Return Range</h3>
+<ul>
+  <li><strong>Median:</strong> +2.28%</li>
+  <li><strong>25th percentile:</strong> -4.05%</li>
+  <li><strong>75th percentile:</strong> +6.49%</li>
+</ul>
+<h3>👤 Portfolio Suitability</h3>
+<p><strong>Suitable For:</strong></p>
+<ul>
+  <li>✓ Swing Traders</li>
+  <li>✓ Positional Traders</li>
+  <li>✓ Long-Term Growth Investors</li>
+  <li>✓ Low Volatility Portfolios</li>
+</ul>
+<p><strong>Not Suitable For:</strong></p>
+<ul>
+  <li>✗ Income Investors</li>
+</ul>
+<hr>
+<h2>📁 Sector &amp; Regime Context</h2>
+<ul>
+  <li><strong>Sector:</strong> Telecommunic ation</li>
+  <li><strong>Sector Strength:</strong> 9.0/10</li>
+  <li><strong>Relative Strength:</strong> +13.16% vs NIFTY</li>
+  <li><strong>Sector Rank:</strong> 2 of 20 sectors</li>
+  <li><strong>Structural Regime:</strong> <strong>RANGE</strong></li>
+  <li><strong>Tactical Setup Focus:</strong> <code>Range Mean Reversion</code>, <code>Failed Breakout Reversal</code>, <code>Directional Change Overshoot</code>, <code>Bollinger Band Reversal</code>, <code>Volume Capitulation Reversal</code>, <code>PDH/PDL Breakout</code>, <code>Opening Gap Fade</code></li>
+</ul>
+<h3>🔍 Conviction Score Breakdown:</h3>
+<ul>
+  <li>1. Technical Setups: +0.0 / 35 (No active technical setup and no strong daily momentum structure)</li>
+  <li>2. Fundamentals: +20.0 / 25 (Steady business growth structure (Grade B))</li>
+  <li>3. Sector Context: +18.0 / 20 (Sector Strength: 9.0/10 (Telecommunic ation))</li>
+  <li>4. Regime &amp; Momentum: +10.6 / 20 (Daily candle close location: +0.6 pts (12% of range), Market in low-volatility/range regime <code>RANGE</code>: +5.0 pts, VIX is 13.0 (Low volatility/risk): +5.0 pts)</li>
+</ul>
+<h4>📊 Conviction Rating System Matrix:</h4>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Score Range</th>
+        <th scope="col" role="columnheader">Meaning</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">90 - 100</td>
+        <td role="cell">Strong Buy</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">75 - 89</td>
+        <td role="cell">Buy</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">60 - 74</td>
+        <td role="cell">Watchlist</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">40 - 59</td>
+        <td role="cell">Neutral</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Below 40</td>
+        <td role="cell">Avoid</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<h2>📈 Fundamental Analysis &amp; Annual Guidance</h2>
+<ul>
+  <li><strong>Valuation:</strong> Trailing P/E: 15.2 | Forward P/E: 7.9 | PEG Ratio: N/A | Price/Book: 2.74</li>
+  <li><strong>Business Growth:</strong> Revenue YoY: 0.05% | Quarterly EPS: 0.01% | ROE: N/A</li>
+  <li><strong>Risk &amp; Dividend:</strong> Beta: 0.06 | Dividend Yield: N/A | Book Value: 150.33</li>
+  <li><strong>Investment Grade:</strong> <strong>Grade B (Accumulate)</strong></li>
+  <li><strong>Recommendation:</strong> Business is growing steadily. Consider accumulating on technical pullbacks. High-stability defensive profile (Beta: 0.06).</li>
+  <li><strong>Annual Entry Guidance:</strong> Do not chase breakouts. Accumulate gradually exclusively during market corrections or pullbacks to the 50-day and 200-day SMAs.</li>
+  <li><strong>Annual Exit Guidance:</strong> Liquidate if earnings growth turns negative, or if the broader market regime turns structurally bearish (NIFTY loses 200 SMA).</li>
+</ul>
+<hr>
+<h2>🔬 Historical &amp; Simulation Evidence</h2>
+<h3>Direct Stock Performance (Cash Equity)</h3>
+<h4>Intraday (Close at 15:20)</h4>
+<ul>
+  <li><strong>Trades:</strong> 7 | <strong>Win Rate:</strong> 28.6% | <strong>Net PnL:</strong> ₹-4,301.54</li>
+  <li><strong>Ending Cash:</strong> ₹95,698.46 | <strong>Max Drawdown:</strong> ₹5,281.73 (5.3%)</li>
+  <li><strong>Profit Factor:</strong> 0.23 | <strong>Sortino Ratio:</strong> -0.54 | <strong>Expectancy:</strong> ₹-614.51/trade</li>
+</ul>
+<h4>Positional (Hold Overnight)</h4>
+<ul>
+  <li><strong>Trades:</strong> 7 | <strong>Win Rate:</strong> 28.6% | <strong>Net PnL:</strong> ₹-2,661.37</li>
+  <li><strong>Ending Cash:</strong> ₹97,338.63 | <strong>Max Drawdown:</strong> ₹4,681.44 (4.7%)</li>
+  <li><strong>Profit Factor:</strong> 0.55 | <strong>Sortino Ratio:</strong> -0.32 | <strong>Expectancy:</strong> ₹-380.20/trade</li>
+</ul>
+<h4>Buy &amp; Hold Benchmark Performance (Buy on Day 1, Hold to End)</h4>
+<ul>
+  <li><strong>Strategy:</strong> Buy &amp; Hold | <strong>Net Return:</strong> -4.93% | <strong>Net PnL:</strong> ₹-4,929.01</li>
+  <li><strong>Ending Cash:</strong> ₹95,070.99 | <strong>Max Drawdown:</strong> ₹9,368.98 (-9.37%)</li>
+  <li><strong>Entry Price:</strong> ₹433.15 | <strong>Exit Price:</strong> ₹411.80</li>
+</ul>
+<p>💡 <strong>Performance Comparison:</strong> <strong>Trading outperformed Buy &amp; Hold by ₹2,267.64</strong> (reduced drawdown exposure and capitalized on intraday swings).</p>
+<ul>
+  <li><strong>Best Strategy:</strong> Mean Reversion (<code>Failed Breakout Reversal</code> Net PnL: <strong>+₹2,669.99</strong>)</li>
+</ul>
+<h5>Signal Frequency Breakdown:</h5>
+<ul>
+  <li><strong>Anchored VWAP Pullback:</strong> ~1.3 signals/month (Win Rate: 0%)</li>
+  <li><strong>Confluence: Volume Capitulation Reversal + Failed Breakout Reversal:</strong> ~0.7 signals/month (Win Rate: 0%)</li>
+  <li><strong>Failed Breakout Reversal:</strong> ~0.7 signals/month (Win Rate: 100% ✅)</li>
+  <li><strong>Volume Capitulation Reversal:</strong> ~2.0 signals/month (Win Rate: 33%)</li>
+</ul>
+<h3>Portfolio Statistics (Combined)</h3>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Metric</th>
+        <th scope="col" role="columnheader">Value</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Starting Capital</td>
+        <td role="cell">₹100,000</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Ending Capital</td>
+        <td role="cell">₹93,037.09</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Net Return</td>
+        <td role="cell">🔴 ₹-6,962.91 (-6.96%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Max Drawdown</td>
+        <td role="cell">₹8,982.98 (9.0%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Profit Factor</td>
+        <td role="cell">0.39</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Sortino Ratio</td>
+        <td role="cell">-0.43</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Expectancy</td>
+        <td role="cell">₹-497.35/trade</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Total Trades</td>
+        <td role="cell">14</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Win Rate</td>
+        <td role="cell">28.6% (4W / 10L)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Avg Win</td>
+        <td role="cell">₹1,131.55</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Avg Loss</td>
+        <td role="cell">₹1,148.91</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Largest Win</td>
+        <td role="cell">₹1,689.80</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Largest Loss</td>
+        <td role="cell">₹-1,198.82</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>Advanced Statistical Inference</h3>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Metric</th>
+        <th scope="col" role="columnheader">Value</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Avg Max Adverse Excursion (MAE)</td>
+        <td role="cell">1.37 ATR (0.59%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Avg Max Favorable Excursion (MFE)</td>
+        <td role="cell">1.01 ATR (0.43%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Monte Carlo Median Max DD</td>
+        <td role="cell">₹8,355.26</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Monte Carlo 95% Drawdown (VaR)</td>
+        <td role="cell">₹13,541.50</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Monte Carlo 99% Drawdown (VaR)</td>
+        <td role="cell">₹15,182.68</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">MC DD Ruin Probability (&gt; Actual)</td>
+        <td role="cell">42.7%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bootstrap Entry Edge Significance</td>
+        <td role="cell">0.831 (Not Statistically Significant)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>Performance by Setup (Cash Equity)</h3>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Setup Type</th>
+        <th scope="col" role="columnheader">Trades</th>
+        <th scope="col" role="columnheader">Win Rate</th>
+        <th scope="col" role="columnheader">Expectancy (R)</th>
+        <th scope="col" role="columnheader">95% Confidence Interval</th>
+        <th scope="col" role="columnheader">Net PnL</th>
+        <th scope="col" role="columnheader">Max DD</th>
+        <th scope="col" role="columnheader">Profit Factor</th>
+        <th scope="col" role="columnheader">Ending Cash</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Anchored VWAP Pullback</td>
+        <td role="cell">4</td>
+        <td role="cell">0.0%</td>
+        <td role="cell">-1.01R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🔴 ₹-4,326.19</td>
+        <td role="cell">₹4,326.19 (4.3%)</td>
+        <td role="cell">0.00</td>
+        <td role="cell">₹95,673.81</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Confluence: Volume Capitulation Reversal + Failed Breakout Reversal</td>
+        <td role="cell">2</td>
+        <td role="cell">0.0%</td>
+        <td role="cell">-1.10R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🔴 ₹-2,384.63</td>
+        <td role="cell">₹2,384.63 (2.4%)</td>
+        <td role="cell">0.00</td>
+        <td role="cell">₹97,615.37</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Failed Breakout Reversal</td>
+        <td role="cell">2</td>
+        <td role="cell">100.0%</td>
+        <td role="cell">+1.56R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🟢 ₹2,669.99</td>
+        <td role="cell">₹0.00 (0.0%)</td>
+        <td role="cell">∞</td>
+        <td role="cell">₹102,669.99</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Volume Capitulation Reversal</td>
+        <td role="cell">6</td>
+        <td role="cell">33.3%</td>
+        <td role="cell">-0.32R</td>
+        <td role="cell">Neutral (-1.50R to +0.86R)</td>
+        <td role="cell">🔴 ₹-2,922.08</td>
+        <td role="cell">₹4,444.66 (4.4%)</td>
+        <td role="cell">0.39</td>
+        <td role="cell">₹97,077.92</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>Strategy Backtest Performance Matrix (Futures &amp; Options)</h3>
+<p>Historical performance of all candidate derivative, leverage, and hedged strategies over the same setups:</p>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Industower Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Strategy</th>
+        <th scope="col" role="columnheader">Trades</th>
+        <th scope="col" role="columnheader">Win Rate</th>
+        <th scope="col" role="columnheader">Net Return (PnL)</th>
+        <th scope="col" role="columnheader">Max DD</th>
+        <th scope="col" role="columnheader">Profit Factor</th>
+        <th scope="col" role="columnheader">Sortino</th>
+        <th scope="col" role="columnheader">Avg Margin</th>
+        <th scope="col" role="columnheader">Capital Efficiency</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Cash Equity (Intraday)</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-4,301.54</td>
+        <td role="cell">₹5,281.73 (5.3%)</td>
+        <td role="cell">0.23</td>
+        <td role="cell">-0.54</td>
+        <td role="cell">₹31,556.10</td>
+        <td role="cell">-13.6%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Cash Equity (Positional)</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-2,661.37</td>
+        <td role="cell">₹4,681.44 (4.7%)</td>
+        <td role="cell">0.55</td>
+        <td role="cell">-0.32</td>
+        <td role="cell">₹157,780.52</td>
+        <td role="cell">-1.7%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Futures (Intraday)</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-30,780.38</td>
+        <td role="cell">₹42,935.38 (42.9%)</td>
+        <td role="cell">0.33</td>
+        <td role="cell">-0.47</td>
+        <td role="cell">₹208,396.93</td>
+        <td role="cell">-14.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Futures (Positional)</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-17,324.68</td>
+        <td role="cell">₹41,696.20 (41.7%)</td>
+        <td role="cell">0.65</td>
+        <td role="cell">-0.24</td>
+        <td role="cell">₹208,396.93</td>
+        <td role="cell">-8.3%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Long ATM Call (Intraday)</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-13,344.36</td>
+        <td role="cell">₹20,372.40 (20.4%)</td>
+        <td role="cell">0.41</td>
+        <td role="cell">-0.42</td>
+        <td role="cell">₹64,721.67</td>
+        <td role="cell">-20.6%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Long ATM Call (Positional)</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-5,444.92</td>
+        <td role="cell">₹20,313.78 (20.3%)</td>
+        <td role="cell">0.78</td>
+        <td role="cell">-0.15</td>
+        <td role="cell">₹64,721.67</td>
+        <td role="cell">-8.4%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Long OTM Call</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-3,913.31</td>
+        <td role="cell">₹17,612.29 (17.6%)</td>
+        <td role="cell">0.82</td>
+        <td role="cell">-0.13</td>
+        <td role="cell">₹54,174.94</td>
+        <td role="cell">-7.2%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bull Call Spread</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-2,092.06</td>
+        <td role="cell">₹3,022.32 (3.0%)</td>
+        <td role="cell">0.42</td>
+        <td role="cell">-0.37</td>
+        <td role="cell">₹10,546.73</td>
+        <td role="cell">-19.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bull Put Spread</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-1,986.88</td>
+        <td role="cell">₹3,163.14 (3.2%)</td>
+        <td role="cell">0.46</td>
+        <td role="cell">-0.34</td>
+        <td role="cell">₹41,679.39</td>
+        <td role="cell">-4.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Iron Condor</td>
+        <td role="cell">7</td>
+        <td role="cell">0.0%</td>
+        <td role="cell">🔴 ₹-1,188.27</td>
+        <td role="cell">₹1,188.27 (1.2%)</td>
+        <td role="cell">0.00</td>
+        <td role="cell">-1.00</td>
+        <td role="cell">₹27,786.26</td>
+        <td role="cell">-4.3%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Calendar Spread</td>
+        <td role="cell">7</td>
+        <td role="cell">71.4%</td>
+        <td role="cell">🔴 ₹-302.74</td>
+        <td role="cell">₹954.33 (0.9%)</td>
+        <td role="cell">0.71</td>
+        <td role="cell">-0.07</td>
+        <td role="cell">₹41,679.39</td>
+        <td role="cell">-0.7%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<blockquote>For granular trade logs, see <code>INDUSTOWER_signals.csv</code> in this folder.</blockquote>
+    </main>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading System Backtest Reports Directory</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --heading-color: #0f172a;
+            --link-color: #1d4ed8;
+            --link-hover: #1e40af;
+            --border-color: #cbd5e1;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #cbd5e1;
+                --heading-color: #f8fafc;
+                --link-color: #38bdf8;
+                --link-hover: #0ea5e9;
+                --border-color: #475569;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--heading-color);
+            border-bottom: 4px solid #0f766e;
+            padding-bottom: 12px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin-top: 2em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: none;
+        }
+
+        .dashboards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 20px 0 30px 0;
+        }
+
+        .dash-card {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: white;
+            text-decoration: none;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dash-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            color: white;
+            text-decoration: none;
+        }
+
+        .dash-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .dash-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: #ccfbf1;
+        }
+
+        .dash-icon {
+            font-size: 2rem;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 10px;
+            background: var(--link-color);
+            color: white;
+            padding: 10px 16px;
+            z-index: 100;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <main id="main-content">
+        <h1>📊 Backtest Reports Directory</h1>
+        <p>This directory indexes the generated performance reports and grid-search parameter optimizations for your trading systems.</p>
+        
+        <h2>Market Intelligence Platform</h2>
+<div class="dashboards-grid">
+  <a href="master_opportunity_report.html" class="dash-card" style="background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);">
+    <div class="dash-icon">🏆</div>
+    <h3>Master Opportunity Report</h3>
+    <p>Ranked Grade A/B leaders, sector analysis, breakouts, compressions, best risk-reward setups, and derivative trades.</p>
+  </a>
+  <a href="market_intelligence_report.html" class="dash-card">
+    <div class="dash-icon">🌍</div>
+    <h3>Market Intelligence</h3>
+    <p>Regime, volatility, breadth metrics, leadership, and risk score.</p>
+  </a>
+  <a href="sector_intelligence_report.html" class="dash-card">
+    <div class="dash-icon">📁</div>
+    <h3>Sector Intelligence</h3>
+    <p>Rankings, relative strength, momentum, breadth, and rotation quadrant.</p>
+  </a>
+  <a href="industry_intelligence_report.html" class="dash-card">
+    <div class="dash-icon">🏢</div>
+    <h3>Industry Intelligence</h3>
+    <p>Rankings, leadership score, breadth, and momentum statistics.</p>
+  </a>
+</div>
+
+        <h2>Backtest Simulation Reports</h2>
+<ul>
+  <li><a href="360ONE_report.html">360ONE Report</a></li>
+  <li><a href="3MINDIA_report.html">3MINDIA Report</a></li>
+  <li><a href="AADHARHFC_report.html">AADHARHFC Report</a></li>
+  <li><a href="AARTIIND_report.html">AARTIIND Report</a></li>
+  <li><a href="AAVAS_report.html">AAVAS Report</a></li>
+  <li><a href="ABB_report.html">ABB Report</a></li>
+  <li><a href="ABBOTINDIA_report.html">ABBOTINDIA Report</a></li>
+  <li><a href="ABCAPITAL_report.html">ABCAPITAL Report</a></li>
+  <li><a href="ABDL_report.html">ABDL Report</a></li>
+  <li><a href="ABFRL_report.html">ABFRL Report</a></li>
+  <li><a href="ABLBL_report.html">ABLBL Report</a></li>
+  <li><a href="ABREL_report.html">ABREL Report</a></li>
+  <li><a href="ABSLAMC_report.html">ABSLAMC Report</a></li>
+  <li><a href="ACC_report.html">ACC Report</a></li>
+  <li><a href="ACE_report.html">ACE Report</a></li>
+  <li><a href="ACMESOLAR_report.html">ACMESOLAR Report</a></li>
+  <li><a href="ACUTAAS_report.html">ACUTAAS Report</a></li>
+  <li><a href="ADANIENSOL_report.html">ADANIENSOL Report</a></li>
+  <li><a href="ADANIENT_report.html">ADANIENT Report</a></li>
+  <li><a href="ADANIGREEN_report.html">ADANIGREEN Report</a></li>
+  <li><a href="ADANIPORTS_report.html">ADANIPORTS Report</a></li>
+  <li><a href="ADANIPOWER_report.html">ADANIPOWER Report</a></li>
+  <li><a href="AEGISLOG_report.html">AEGISLOG Report</a></li>
+  <li><a href="AEGISVOPAK_report.html">AEGISVOPAK Report</a></li>
+  <li><a href="AFCONS_report.html">AFCONS Report</a></li>
+  <li><a href="AFFLE_report.html">AFFLE Report</a></li>
+  <li><a href="AIAENG_report.html">AIAENG Report</a></li>
+  <li><a href="AIIL_report.html">AIIL Report</a></li>
+  <li><a href="AJANTPHARM_report.html">AJANTPHARM Report</a></li>
+  <li><a href="ALKEM_report.html">ALKEM Report</a></li>
+  <li><a href="AMBER_report.html">AMBER Report</a></li>
+  <li><a href="AMBUJACEM_report.html">AMBUJACEM Report</a></li>
+  <li><a href="ANANDRATHI_report.html">ANANDRATHI Report</a></li>
+  <li><a href="ANANTRAJ_report.html">ANANTRAJ Report</a></li>
+  <li><a href="ANGELONE_report.html">ANGELONE Report</a></li>
+  <li><a href="ANTHEM_report.html">ANTHEM Report</a></li>
+  <li><a href="ANURAS_report.html">ANURAS Report</a></li>
+  <li><a href="APARINDS_report.html">APARINDS Report</a></li>
+  <li><a href="APLAPOLLO_report.html">APLAPOLLO Report</a></li>
+  <li><a href="APOLLOHOSP_report.html">APOLLOHOSP Report</a></li>
+  <li><a href="APOLLOTYRE_report.html">APOLLOTYRE Report</a></li>
+  <li><a href="APTUS_report.html">APTUS Report</a></li>
+  <li><a href="ARE&M_report.html">ARE&M Report</a></li>
+  <li><a href="ASAHIINDIA_report.html">ASAHIINDIA Report</a></li>
+  <li><a href="ASHOKLEY_report.html">ASHOKLEY Report</a></li>
+  <li><a href="ASIANPAINT_report.html">ASIANPAINT Report</a></li>
+  <li><a href="ASTERDM_report.html">ASTERDM Report</a></li>
+  <li><a href="ASTRAL_report.html">ASTRAL Report</a></li>
+  <li><a href="ATGL_report.html">ATGL Report</a></li>
+  <li><a href="ATHERENERG_report.html">ATHERENERG Report</a></li>
+  <li><a href="ATUL_report.html">ATUL Report</a></li>
+  <li><a href="AUBANK_report.html">AUBANK Report</a></li>
+  <li><a href="AUROPHARMA_report.html">AUROPHARMA Report</a></li>
+  <li><a href="AWL_report.html">AWL Report</a></li>
+  <li><a href="AXISBANK_report.html">AXISBANK Report</a></li>
+  <li><a href="BAJAJ-AUTO_report.html">BAJAJ-AUTO Report</a></li>
+  <li><a href="BAJAJFINSV_report.html">BAJAJFINSV Report</a></li>
+  <li><a href="BAJAJHFL_report.html">BAJAJHFL Report</a></li>
+  <li><a href="BAJAJHLDNG_report.html">BAJAJHLDNG Report</a></li>
+  <li><a href="BAJFINANCE_report.html">BAJFINANCE Report</a></li>
+  <li><a href="BALKRISIND_report.html">BALKRISIND Report</a></li>
+  <li><a href="BALRAMCHIN_report.html">BALRAMCHIN Report</a></li>
+  <li><a href="BANDHANBNK_report.html">BANDHANBNK Report</a></li>
+  <li><a href="BANKBARODA_report.html">BANKBARODA Report</a></li>
+  <li><a href="BANKINDIA_report.html">BANKINDIA Report</a></li>
+  <li><a href="BATAINDIA_report.html">BATAINDIA Report</a></li>
+  <li><a href="BAYERCROP_report.html">BAYERCROP Report</a></li>
+  <li><a href="BBTC_report.html">BBTC Report</a></li>
+  <li><a href="BDL_report.html">BDL Report</a></li>
+  <li><a href="BEL_report.html">BEL Report</a></li>
+  <li><a href="BELRISE_report.html">BELRISE Report</a></li>
+  <li><a href="BEML_report.html">BEML Report</a></li>
+  <li><a href="BERGEPAINT_report.html">BERGEPAINT Report</a></li>
+  <li><a href="BHARATFORG_report.html">BHARATFORG Report</a></li>
+  <li><a href="BHARTIARTL_report.html">BHARTIARTL Report</a></li>
+  <li><a href="BHARTIHEXA_report.html">BHARTIHEXA Report</a></li>
+  <li><a href="BHEL_report.html">BHEL Report</a></li>
+  <li><a href="BIKAJI_report.html">BIKAJI Report</a></li>
+  <li><a href="BIOCON_report.html">BIOCON Report</a></li>
+  <li><a href="BLS_report.html">BLS Report</a></li>
+  <li><a href="BLUEDART_report.html">BLUEDART Report</a></li>
+  <li><a href="BLUEJET_report.html">BLUEJET Report</a></li>
+  <li><a href="BLUESTARCO_report.html">BLUESTARCO Report</a></li>
+  <li><a href="BOSCHLTD_report.html">BOSCHLTD Report</a></li>
+  <li><a href="BPCL_report.html">BPCL Report</a></li>
+  <li><a href="BRIGADE_report.html">BRIGADE Report</a></li>
+  <li><a href="BRITANNIA_report.html">BRITANNIA Report</a></li>
+  <li><a href="BSE_report.html">BSE Report</a></li>
+  <li><a href="BSOFT_report.html">BSOFT Report</a></li>
+  <li><a href="CAMS_report.html">CAMS Report</a></li>
+  <li><a href="CANBK_report.html">CANBK Report</a></li>
+  <li><a href="CANFINHOME_report.html">CANFINHOME Report</a></li>
+  <li><a href="CANHLIFE_report.html">CANHLIFE Report</a></li>
+  <li><a href="CAPLIPOINT_report.html">CAPLIPOINT Report</a></li>
+  <li><a href="CARBORUNIV_report.html">CARBORUNIV Report</a></li>
+  <li><a href="CARTRADE_report.html">CARTRADE Report</a></li>
+  <li><a href="CASTROLIND_report.html">CASTROLIND Report</a></li>
+  <li><a href="CCL_report.html">CCL Report</a></li>
+  <li><a href="CDSL_report.html">CDSL Report</a></li>
+  <li><a href="CEATLTD_report.html">CEATLTD Report</a></li>
+  <li><a href="CEMPRO_report.html">CEMPRO Report</a></li>
+  <li><a href="CENTRALBK_report.html">CENTRALBK Report</a></li>
+  <li><a href="CESC_report.html">CESC Report</a></li>
+  <li><a href="CGCL_report.html">CGCL Report</a></li>
+  <li><a href="CGPOWER_report.html">CGPOWER Report</a></li>
+  <li><a href="CHALET_report.html">CHALET Report</a></li>
+  <li><a href="CHAMBLFERT_report.html">CHAMBLFERT Report</a></li>
+  <li><a href="CHENNPETRO_report.html">CHENNPETRO Report</a></li>
+  <li><a href="CHOICEIN_report.html">CHOICEIN Report</a></li>
+  <li><a href="CHOLAFIN_report.html">CHOLAFIN Report</a></li>
+  <li><a href="CHOLAHLDNG_report.html">CHOLAHLDNG Report</a></li>
+  <li><a href="CIEINDIA_report.html">CIEINDIA Report</a></li>
+  <li><a href="CIPLA_report.html">CIPLA Report</a></li>
+  <li><a href="CLEAN_report.html">CLEAN Report</a></li>
+  <li><a href="COALINDIA_report.html">COALINDIA Report</a></li>
+  <li><a href="COCHINSHIP_report.html">COCHINSHIP Report</a></li>
+  <li><a href="COFORGE_report.html">COFORGE Report</a></li>
+  <li><a href="COHANCE_report.html">COHANCE Report</a></li>
+  <li><a href="COLPAL_report.html">COLPAL Report</a></li>
+  <li><a href="CONCOR_report.html">CONCOR Report</a></li>
+  <li><a href="CONCORDBIO_report.html">CONCORDBIO Report</a></li>
+  <li><a href="COROMANDEL_report.html">COROMANDEL Report</a></li>
+  <li><a href="CPPLUS_report.html">CPPLUS Report</a></li>
+  <li><a href="CRAFTSMAN_report.html">CRAFTSMAN Report</a></li>
+  <li><a href="CREDITACC_report.html">CREDITACC Report</a></li>
+  <li><a href="CRISIL_report.html">CRISIL Report</a></li>
+  <li><a href="CROMPTON_report.html">CROMPTON Report</a></li>
+  <li><a href="CUB_report.html">CUB Report</a></li>
+  <li><a href="CUMMINSIND_report.html">CUMMINSIND Report</a></li>
+  <li><a href="CYIENT_report.html">CYIENT Report</a></li>
+  <li><a href="DABUR_report.html">DABUR Report</a></li>
+  <li><a href="DALBHARAT_report.html">DALBHARAT Report</a></li>
+  <li><a href="DATAPATTNS_report.html">DATAPATTNS Report</a></li>
+  <li><a href="DCMSHRIRAM_report.html">DCMSHRIRAM Report</a></li>
+  <li><a href="DEEPAKFERT_report.html">DEEPAKFERT Report</a></li>
+  <li><a href="DEEPAKNTR_report.html">DEEPAKNTR Report</a></li>
+  <li><a href="DELHIVERY_report.html">DELHIVERY Report</a></li>
+  <li><a href="DEVYANI_report.html">DEVYANI Report</a></li>
+  <li><a href="DIVISLAB_report.html">DIVISLAB Report</a></li>
+  <li><a href="DIXON_report.html">DIXON Report</a></li>
+  <li><a href="DLF_report.html">DLF Report</a></li>
+  <li><a href="DMART_report.html">DMART Report</a></li>
+  <li><a href="DOMS_report.html">DOMS Report</a></li>
+  <li><a href="DRREDDY_report.html">DRREDDY Report</a></li>
+  <li><a href="ECLERX_report.html">ECLERX Report</a></li>
+  <li><a href="EICHERMOT_report.html">EICHERMOT Report</a></li>
+  <li><a href="EIDPARRY_report.html">EIDPARRY Report</a></li>
+  <li><a href="EIHOTEL_report.html">EIHOTEL Report</a></li>
+  <li><a href="ELECON_report.html">ELECON Report</a></li>
+  <li><a href="ELGIEQUIP_report.html">ELGIEQUIP Report</a></li>
+  <li><a href="EMAMILTD_report.html">EMAMILTD Report</a></li>
+  <li><a href="EMCURE_report.html">EMCURE Report</a></li>
+  <li><a href="EMMVEE_report.html">EMMVEE Report</a></li>
+  <li><a href="ENDURANCE_report.html">ENDURANCE Report</a></li>
+  <li><a href="ENGINERSIN_report.html">ENGINERSIN Report</a></li>
+  <li><a href="ENRIN_report.html">ENRIN Report</a></li>
+  <li><a href="ERIS_report.html">ERIS Report</a></li>
+  <li><a href="ESCORTS_report.html">ESCORTS Report</a></li>
+  <li><a href="ETERNAL_report.html">ETERNAL Report</a></li>
+  <li><a href="EXIDEIND_report.html">EXIDEIND Report</a></li>
+  <li><a href="FACT_report.html">FACT Report</a></li>
+  <li><a href="FEDERALBNK_report.html">FEDERALBNK Report</a></li>
+  <li><a href="FINCABLES_report.html">FINCABLES Report</a></li>
+  <li><a href="FIRSTCRY_report.html">FIRSTCRY Report</a></li>
+  <li><a href="FIVESTAR_report.html">FIVESTAR Report</a></li>
+  <li><a href="FLUOROCHEM_report.html">FLUOROCHEM Report</a></li>
+  <li><a href="FORCEMOT_report.html">FORCEMOT Report</a></li>
+  <li><a href="FORTIS_report.html">FORTIS Report</a></li>
+  <li><a href="FSL_report.html">FSL Report</a></li>
+  <li><a href="GABRIEL_report.html">GABRIEL Report</a></li>
+  <li><a href="GAIL_report.html">GAIL Report</a></li>
+  <li><a href="GALLANTT_report.html">GALLANTT Report</a></li>
+  <li><a href="GESHIP_report.html">GESHIP Report</a></li>
+  <li><a href="GICRE_report.html">GICRE Report</a></li>
+  <li><a href="GILLETTE_report.html">GILLETTE Report</a></li>
+  <li><a href="GLAND_report.html">GLAND Report</a></li>
+  <li><a href="GLAXO_report.html">GLAXO Report</a></li>
+  <li><a href="GLENMARK_report.html">GLENMARK Report</a></li>
+  <li><a href="GMDCLTD_report.html">GMDCLTD Report</a></li>
+  <li><a href="GMRAIRPORT_report.html">GMRAIRPORT Report</a></li>
+  <li><a href="GODFRYPHLP_report.html">GODFRYPHLP Report</a></li>
+  <li><a href="GODIGIT_report.html">GODIGIT Report</a></li>
+  <li><a href="GODREJCP_report.html">GODREJCP Report</a></li>
+  <li><a href="GODREJIND_report.html">GODREJIND Report</a></li>
+  <li><a href="GODREJPROP_report.html">GODREJPROP Report</a></li>
+  <li><a href="GPIL_report.html">GPIL Report</a></li>
+  <li><a href="GRANULES_report.html">GRANULES Report</a></li>
+  <li><a href="GRAPHITE_report.html">GRAPHITE Report</a></li>
+  <li><a href="GRASIM_report.html">GRASIM Report</a></li>
+  <li><a href="GRAVITA_report.html">GRAVITA Report</a></li>
+  <li><a href="GROWW_report.html">GROWW Report</a></li>
+  <li><a href="GRSE_report.html">GRSE Report</a></li>
+  <li><a href="GVT&D_report.html">GVT&D Report</a></li>
+  <li><a href="HAL_report.html">HAL Report</a></li>
+  <li><a href="HAVELLS_report.html">HAVELLS Report</a></li>
+  <li><a href="HBLENGINE_report.html">HBLENGINE Report</a></li>
+  <li><a href="HCLTECH_report.html">HCLTECH Report</a></li>
+  <li><a href="HDBFS_report.html">HDBFS Report</a></li>
+  <li><a href="HDFCAMC_report.html">HDFCAMC Report</a></li>
+  <li><a href="HDFCBANK_report.html">HDFCBANK Report</a></li>
+  <li><a href="HDFCLIFE_report.html">HDFCLIFE Report</a></li>
+  <li><a href="HEG_report.html">HEG Report</a></li>
+  <li><a href="HEROMOTOCO_report.html">HEROMOTOCO Report</a></li>
+  <li><a href="HEXT_report.html">HEXT Report</a></li>
+  <li><a href="HFCL_report.html">HFCL Report</a></li>
+  <li><a href="HINDALCO_report.html">HINDALCO Report</a></li>
+  <li><a href="HINDCOPPER_report.html">HINDCOPPER Report</a></li>
+  <li><a href="HINDPETRO_report.html">HINDPETRO Report</a></li>
+  <li><a href="HINDUNILVR_report.html">HINDUNILVR Report</a></li>
+  <li><a href="HINDZINC_report.html">HINDZINC Report</a></li>
+  <li><a href="HOMEFIRST_report.html">HOMEFIRST Report</a></li>
+  <li><a href="HONASA_report.html">HONASA Report</a></li>
+  <li><a href="HONAUT_report.html">HONAUT Report</a></li>
+  <li><a href="HSCL_report.html">HSCL Report</a></li>
+  <li><a href="HUDCO_report.html">HUDCO Report</a></li>
+  <li><a href="HYUNDAI_report.html">HYUNDAI Report</a></li>
+  <li><a href="ICICIAMC_report.html">ICICIAMC Report</a></li>
+  <li><a href="ICICIBANK_report.html">ICICIBANK Report</a></li>
+  <li><a href="ICICIGI_report.html">ICICIGI Report</a></li>
+  <li><a href="ICICIPRULI_report.html">ICICIPRULI Report</a></li>
+  <li><a href="IDBI_report.html">IDBI Report</a></li>
+  <li><a href="IDEA_report.html">IDEA Report</a></li>
+  <li><a href="IDFCFIRSTB_report.html">IDFCFIRSTB Report</a></li>
+  <li><a href="IEX_report.html">IEX Report</a></li>
+  <li><a href="IFCI_report.html">IFCI Report</a></li>
+  <li><a href="IGIL_report.html">IGIL Report</a></li>
+  <li><a href="IGL_report.html">IGL Report</a></li>
+  <li><a href="IIFL_report.html">IIFL Report</a></li>
+  <li><a href="IKS_report.html">IKS Report</a></li>
+  <li><a href="INDGN_report.html">INDGN Report</a></li>
+  <li><a href="INDHOTEL_report.html">INDHOTEL Report</a></li>
+  <li><a href="INDIACEM_report.html">INDIACEM Report</a></li>
+  <li><a href="INDIAMART_report.html">INDIAMART Report</a></li>
+  <li><a href="INDIANB_report.html">INDIANB Report</a></li>
+  <li><a href="INDIGO_report.html">INDIGO Report</a></li>
+  <li><a href="INDUSINDBK_report.html">INDUSINDBK Report</a></li>
+  <li><a href="INDUSTOWER_report.html">INDUSTOWER Report</a></li>
+  <li><a href="INFY_report.html">INFY Report</a></li>
+  <li><a href="INOXWIND_report.html">INOXWIND Report</a></li>
+  <li><a href="INTELLECT_report.html">INTELLECT Report</a></li>
+  <li><a href="IOB_report.html">IOB Report</a></li>
+  <li><a href="IOC_report.html">IOC Report</a></li>
+  <li><a href="IPCALAB_report.html">IPCALAB Report</a></li>
+  <li><a href="IRB_report.html">IRB Report</a></li>
+  <li><a href="IRCON_report.html">IRCON Report</a></li>
+  <li><a href="IRCTC_report.html">IRCTC Report</a></li>
+  <li><a href="IREDA_report.html">IREDA Report</a></li>
+  <li><a href="IRFC_report.html">IRFC Report</a></li>
+  <li><a href="ITC_report.html">ITC Report</a></li>
+  <li><a href="ITCHOTELS_report.html">ITCHOTELS Report</a></li>
+  <li><a href="ITI_report.html">ITI Report</a></li>
+  <li><a href="J&KBANK_report.html">J&KBANK Report</a></li>
+  <li><a href="JAINREC_report.html">JAINREC Report</a></li>
+  <li><a href="JBCHEPHARM_report.html">JBCHEPHARM Report</a></li>
+  <li><a href="JBMA_report.html">JBMA Report</a></li>
+  <li><a href="JINDALSAW_report.html">JINDALSAW Report</a></li>
+  <li><a href="JINDALSTEL_report.html">JINDALSTEL Report</a></li>
+  <li><a href="JIOFIN_report.html">JIOFIN Report</a></li>
+  <li><a href="JKCEMENT_report.html">JKCEMENT Report</a></li>
+  <li><a href="JKTYRE_report.html">JKTYRE Report</a></li>
+  <li><a href="JMFINANCIL_report.html">JMFINANCIL Report</a></li>
+  <li><a href="JPPOWER_report.html">JPPOWER Report</a></li>
+  <li><a href="JSL_report.html">JSL Report</a></li>
+  <li><a href="JSWCEMENT_report.html">JSWCEMENT Report</a></li>
+  <li><a href="JSWDULUX_report.html">JSWDULUX Report</a></li>
+  <li><a href="JSWENERGY_report.html">JSWENERGY Report</a></li>
+  <li><a href="JSWINFRA_report.html">JSWINFRA Report</a></li>
+  <li><a href="JSWSTEEL_report.html">JSWSTEEL Report</a></li>
+  <li><a href="JUBLFOOD_report.html">JUBLFOOD Report</a></li>
+  <li><a href="JUBLINGREA_report.html">JUBLINGREA Report</a></li>
+  <li><a href="JUBLPHARMA_report.html">JUBLPHARMA Report</a></li>
+  <li><a href="JWL_report.html">JWL Report</a></li>
+  <li><a href="JYOTICNC_report.html">JYOTICNC Report</a></li>
+  <li><a href="KAJARIACER_report.html">KAJARIACER Report</a></li>
+  <li><a href="KALYANKJIL_report.html">KALYANKJIL Report</a></li>
+  <li><a href="KARURVYSYA_report.html">KARURVYSYA Report</a></li>
+  <li><a href="KAYNES_report.html">KAYNES Report</a></li>
+  <li><a href="KEC_report.html">KEC Report</a></li>
+  <li><a href="KEI_report.html">KEI Report</a></li>
+  <li><a href="KFINTECH_report.html">KFINTECH Report</a></li>
+  <li><a href="KIMS_report.html">KIMS Report</a></li>
+  <li><a href="KIRLOSENG_report.html">KIRLOSENG Report</a></li>
+  <li><a href="KOTAKBANK_report.html">KOTAKBANK Report</a></li>
+  <li><a href="KPIL_report.html">KPIL Report</a></li>
+  <li><a href="KPITTECH_report.html">KPITTECH Report</a></li>
+  <li><a href="KPRMILL_report.html">KPRMILL Report</a></li>
+  <li><a href="LALPATHLAB_report.html">LALPATHLAB Report</a></li>
+  <li><a href="LATENTVIEW_report.html">LATENTVIEW Report</a></li>
+  <li><a href="LAURUSLABS_report.html">LAURUSLABS Report</a></li>
+  <li><a href="LEMONTREE_report.html">LEMONTREE Report</a></li>
+  <li><a href="LENSKART_report.html">LENSKART Report</a></li>
+  <li><a href="LGEINDIA_report.html">LGEINDIA Report</a></li>
+  <li><a href="LICHSGFIN_report.html">LICHSGFIN Report</a></li>
+  <li><a href="LICI_report.html">LICI Report</a></li>
+  <li><a href="LINDEINDIA_report.html">LINDEINDIA Report</a></li>
+  <li><a href="LLOYDSME_report.html">LLOYDSME Report</a></li>
+  <li><a href="LODHA_report.html">LODHA Report</a></li>
+  <li><a href="LT_report.html">LT Report</a></li>
+  <li><a href="LTF_report.html">LTF Report</a></li>
+  <li><a href="LTFOODS_report.html">LTFOODS Report</a></li>
+  <li><a href="LTM_report.html">LTM Report</a></li>
+  <li><a href="LTTS_report.html">LTTS Report</a></li>
+  <li><a href="LUPIN_report.html">LUPIN Report</a></li>
+  <li><a href="M&M_report.html">M&M Report</a></li>
+  <li><a href="M&MFIN_report.html">M&MFIN Report</a></li>
+  <li><a href="MAHABANK_report.html">MAHABANK Report</a></li>
+  <li><a href="MANAPPURAM_report.html">MANAPPURAM Report</a></li>
+  <li><a href="MANKIND_report.html">MANKIND Report</a></li>
+  <li><a href="MAPMYINDIA_report.html">MAPMYINDIA Report</a></li>
+  <li><a href="MARICO_report.html">MARICO Report</a></li>
+  <li><a href="MARUTI_report.html">MARUTI Report</a></li>
+  <li><a href="master_opportunity_report.html">MASTER_OPPORTUNITY Report</a></li>
+  <li><a href="MAXHEALTH_report.html">MAXHEALTH Report</a></li>
+  <li><a href="MAZDOCK_report.html">MAZDOCK Report</a></li>
+  <li><a href="MCX_report.html">MCX Report</a></li>
+  <li><a href="MEDANTA_report.html">MEDANTA Report</a></li>
+  <li><a href="MEESHO_report.html">MEESHO Report</a></li>
+  <li><a href="MFSL_report.html">MFSL Report</a></li>
+  <li><a href="MGL_report.html">MGL Report</a></li>
+  <li><a href="MINDACORP_report.html">MINDACORP Report</a></li>
+  <li><a href="MMTC_report.html">MMTC Report</a></li>
+  <li><a href="MOTHERSON_report.html">MOTHERSON Report</a></li>
+  <li><a href="MOTILALOFS_report.html">MOTILALOFS Report</a></li>
+  <li><a href="MPHASIS_report.html">MPHASIS Report</a></li>
+  <li><a href="MRF_report.html">MRF Report</a></li>
+  <li><a href="MRPL_report.html">MRPL Report</a></li>
+  <li><a href="MSUMI_report.html">MSUMI Report</a></li>
+  <li><a href="MUTHOOTFIN_report.html">MUTHOOTFIN Report</a></li>
+  <li><a href="NAM-INDIA_report.html">NAM-INDIA Report</a></li>
+  <li><a href="NATCOPHARM_report.html">NATCOPHARM Report</a></li>
+  <li><a href="NATIONALUM_report.html">NATIONALUM Report</a></li>
+  <li><a href="NAUKRI_report.html">NAUKRI Report</a></li>
+  <li><a href="NAVA_report.html">NAVA Report</a></li>
+  <li><a href="NAVINFLUOR_report.html">NAVINFLUOR Report</a></li>
+  <li><a href="NBCC_report.html">NBCC Report</a></li>
+  <li><a href="NCC_report.html">NCC Report</a></li>
+  <li><a href="NESTLEIND_report.html">NESTLEIND Report</a></li>
+  <li><a href="NETWEB_report.html">NETWEB Report</a></li>
+  <li><a href="NEULANDLAB_report.html">NEULANDLAB Report</a></li>
+  <li><a href="NEWGEN_report.html">NEWGEN Report</a></li>
+  <li><a href="NH_report.html">NH Report</a></li>
+  <li><a href="NHPC_report.html">NHPC Report</a></li>
+  <li><a href="NIACL_report.html">NIACL Report</a></li>
+  <li><a href="NIVABUPA_report.html">NIVABUPA Report</a></li>
+  <li><a href="NLCINDIA_report.html">NLCINDIA Report</a></li>
+  <li><a href="NMDC_report.html">NMDC Report</a></li>
+  <li><a href="NSLNISP_report.html">NSLNISP Report</a></li>
+  <li><a href="NTPC_report.html">NTPC Report</a></li>
+  <li><a href="NTPCGREEN_report.html">NTPCGREEN Report</a></li>
+  <li><a href="NUVAMA_report.html">NUVAMA Report</a></li>
+  <li><a href="NUVOCO_report.html">NUVOCO Report</a></li>
+  <li><a href="NYKAA_report.html">NYKAA Report</a></li>
+  <li><a href="OBEROIRLTY_report.html">OBEROIRLTY Report</a></li>
+  <li><a href="OFSS_report.html">OFSS Report</a></li>
+  <li><a href="OIL_report.html">OIL Report</a></li>
+  <li><a href="OLAELEC_report.html">OLAELEC Report</a></li>
+  <li><a href="OLECTRA_report.html">OLECTRA Report</a></li>
+  <li><a href="ONESOURCE_report.html">ONESOURCE Report</a></li>
+  <li><a href="ONGC_report.html">ONGC Report</a></li>
+  <li><a href="opportunity_ranking_report.html">OPPORTUNITY_RANKING Report</a></li>
+  <li><a href="PAGEIND_report.html">PAGEIND Report</a></li>
+  <li><a href="PARADEEP_report.html">PARADEEP Report</a></li>
+  <li><a href="PATANJALI_report.html">PATANJALI Report</a></li>
+  <li><a href="PAYTM_report.html">PAYTM Report</a></li>
+  <li><a href="PCBL_report.html">PCBL Report</a></li>
+  <li><a href="PERSISTENT_report.html">PERSISTENT Report</a></li>
+  <li><a href="PETRONET_report.html">PETRONET Report</a></li>
+  <li><a href="PFC_report.html">PFC Report</a></li>
+  <li><a href="PFIZER_report.html">PFIZER Report</a></li>
+  <li><a href="PGEL_report.html">PGEL Report</a></li>
+  <li><a href="PHOENIXLTD_report.html">PHOENIXLTD Report</a></li>
+  <li><a href="PIDILITIND_report.html">PIDILITIND Report</a></li>
+  <li><a href="PIIND_report.html">PIIND Report</a></li>
+  <li><a href="PINELABS_report.html">PINELABS Report</a></li>
+  <li><a href="PIRAMALFIN_report.html">PIRAMALFIN Report</a></li>
+  <li><a href="PNB_report.html">PNB Report</a></li>
+  <li><a href="PNBHOUSING_report.html">PNBHOUSING Report</a></li>
+  <li><a href="POLICYBZR_report.html">POLICYBZR Report</a></li>
+  <li><a href="POLYCAB_report.html">POLYCAB Report</a></li>
+  <li><a href="POLYMED_report.html">POLYMED Report</a></li>
+  <li><a href="POONAWALLA_report.html">POONAWALLA Report</a></li>
+  <li><a href="POWERGRID_report.html">POWERGRID Report</a></li>
+  <li><a href="POWERINDIA_report.html">POWERINDIA Report</a></li>
+  <li><a href="PPLPHARMA_report.html">PPLPHARMA Report</a></li>
+  <li><a href="PREMIERENE_report.html">PREMIERENE Report</a></li>
+  <li><a href="PRESTIGE_report.html">PRESTIGE Report</a></li>
+  <li><a href="PTCIL_report.html">PTCIL Report</a></li>
+  <li><a href="PVRINOX_report.html">PVRINOX Report</a></li>
+  <li><a href="PWL_report.html">PWL Report</a></li>
+  <li><a href="RADICO_report.html">RADICO Report</a></li>
+  <li><a href="RAILTEL_report.html">RAILTEL Report</a></li>
+  <li><a href="RAINBOW_report.html">RAINBOW Report</a></li>
+  <li><a href="RAMCOCEM_report.html">RAMCOCEM Report</a></li>
+  <li><a href="RBLBANK_report.html">RBLBANK Report</a></li>
+  <li><a href="RECLTD_report.html">RECLTD Report</a></li>
+  <li><a href="REDINGTON_report.html">REDINGTON Report</a></li>
+  <li><a href="RELIANCE_report.html">RELIANCE Report</a></li>
+  <li><a href="RHIM_report.html">RHIM Report</a></li>
+  <li><a href="RITES_report.html">RITES Report</a></li>
+  <li><a href="RKFORGE_report.html">RKFORGE Report</a></li>
+  <li><a href="RPOWER_report.html">RPOWER Report</a></li>
+  <li><a href="RRKABEL_report.html">RRKABEL Report</a></li>
+  <li><a href="RVNL_report.html">RVNL Report</a></li>
+  <li><a href="SAGILITY_report.html">SAGILITY Report</a></li>
+  <li><a href="SAIL_report.html">SAIL Report</a></li>
+  <li><a href="SAILIFE_report.html">SAILIFE Report</a></li>
+  <li><a href="SAMMAANCAP_report.html">SAMMAANCAP Report</a></li>
+  <li><a href="SAPPHIRE_report.html">SAPPHIRE Report</a></li>
+  <li><a href="SARDAEN_report.html">SARDAEN Report</a></li>
+  <li><a href="SAREGAMA_report.html">SAREGAMA Report</a></li>
+  <li><a href="SBFC_report.html">SBFC Report</a></li>
+  <li><a href="SBICARD_report.html">SBICARD Report</a></li>
+  <li><a href="SBILIFE_report.html">SBILIFE Report</a></li>
+  <li><a href="SBIN_report.html">SBIN Report</a></li>
+  <li><a href="SCHAEFFLER_report.html">SCHAEFFLER Report</a></li>
+  <li><a href="SCHNEIDER_report.html">SCHNEIDER Report</a></li>
+  <li><a href="SCI_report.html">SCI Report</a></li>
+  <li><a href="SHREECEM_report.html">SHREECEM Report</a></li>
+  <li><a href="SHRIRAMFIN_report.html">SHRIRAMFIN Report</a></li>
+  <li><a href="SHYAMMETL_report.html">SHYAMMETL Report</a></li>
+  <li><a href="SIEMENS_report.html">SIEMENS Report</a></li>
+  <li><a href="SIGNATURE_report.html">SIGNATURE Report</a></li>
+  <li><a href="SJVN_report.html">SJVN Report</a></li>
+  <li><a href="SOBHA_report.html">SOBHA Report</a></li>
+  <li><a href="SOLARINDS_report.html">SOLARINDS Report</a></li>
+  <li><a href="SONACOMS_report.html">SONACOMS Report</a></li>
+  <li><a href="SONATSOFTW_report.html">SONATSOFTW Report</a></li>
+  <li><a href="SPLPETRO_report.html">SPLPETRO Report</a></li>
+  <li><a href="SRF_report.html">SRF Report</a></li>
+  <li><a href="STARHEALTH_report.html">STARHEALTH Report</a></li>
+  <li><a href="SUMICHEM_report.html">SUMICHEM Report</a></li>
+  <li><a href="SUNDARMFIN_report.html">SUNDARMFIN Report</a></li>
+  <li><a href="SUNPHARMA_report.html">SUNPHARMA Report</a></li>
+  <li><a href="SUNTV_report.html">SUNTV Report</a></li>
+  <li><a href="SUPREMEIND_report.html">SUPREMEIND Report</a></li>
+  <li><a href="SUZLON_report.html">SUZLON Report</a></li>
+  <li><a href="SWANCORP_report.html">SWANCORP Report</a></li>
+  <li><a href="SWIGGY_report.html">SWIGGY Report</a></li>
+  <li><a href="SYNGENE_report.html">SYNGENE Report</a></li>
+  <li><a href="SYRMA_report.html">SYRMA Report</a></li>
+  <li><a href="TARIL_report.html">TARIL Report</a></li>
+  <li><a href="TATACAP_report.html">TATACAP Report</a></li>
+  <li><a href="TATACHEM_report.html">TATACHEM Report</a></li>
+  <li><a href="TATACOMM_report.html">TATACOMM Report</a></li>
+  <li><a href="TATACONSUM_report.html">TATACONSUM Report</a></li>
+  <li><a href="TATAELXSI_report.html">TATAELXSI Report</a></li>
+  <li><a href="TATAINVEST_report.html">TATAINVEST Report</a></li>
+  <li><a href="TATAPOWER_report.html">TATAPOWER Report</a></li>
+  <li><a href="TATASTEEL_report.html">TATASTEEL Report</a></li>
+  <li><a href="TATATECH_report.html">TATATECH Report</a></li>
+  <li><a href="TBOTEK_report.html">TBOTEK Report</a></li>
+  <li><a href="TCS_report.html">TCS Report</a></li>
+  <li><a href="TECHM_report.html">TECHM Report</a></li>
+  <li><a href="TECHNOE_report.html">TECHNOE Report</a></li>
+  <li><a href="TEGA_report.html">TEGA Report</a></li>
+  <li><a href="TEJASNET_report.html">TEJASNET Report</a></li>
+  <li><a href="TENNIND_report.html">TENNIND Report</a></li>
+  <li><a href="THELEELA_report.html">THELEELA Report</a></li>
+  <li><a href="THERMAX_report.html">THERMAX Report</a></li>
+  <li><a href="TIINDIA_report.html">TIINDIA Report</a></li>
+  <li><a href="TIMKEN_report.html">TIMKEN Report</a></li>
+  <li><a href="TITAGARH_report.html">TITAGARH Report</a></li>
+  <li><a href="TITAN_report.html">TITAN Report</a></li>
+  <li><a href="TMCV_report.html">TMCV Report</a></li>
+  <li><a href="TMPV_report.html">TMPV Report</a></li>
+  <li><a href="TORNTPHARM_report.html">TORNTPHARM Report</a></li>
+  <li><a href="TORNTPOWER_report.html">TORNTPOWER Report</a></li>
+  <li><a href="TRAVELFOOD_report.html">TRAVELFOOD Report</a></li>
+  <li><a href="TRENT_report.html">TRENT Report</a></li>
+  <li><a href="TRIDENT_report.html">TRIDENT Report</a></li>
+  <li><a href="TRITURBINE_report.html">TRITURBINE Report</a></li>
+  <li><a href="TTML_report.html">TTML Report</a></li>
+  <li><a href="TVSMOTOR_report.html">TVSMOTOR Report</a></li>
+  <li><a href="UBL_report.html">UBL Report</a></li>
+  <li><a href="UCOBANK_report.html">UCOBANK Report</a></li>
+  <li><a href="ULTRACEMCO_report.html">ULTRACEMCO Report</a></li>
+  <li><a href="UNIONBANK_report.html">UNIONBANK Report</a></li>
+  <li><a href="UNITDSPR_report.html">UNITDSPR Report</a></li>
+  <li><a href="UNOMINDA_report.html">UNOMINDA Report</a></li>
+  <li><a href="UPL_report.html">UPL Report</a></li>
+  <li><a href="URBANCO_report.html">URBANCO Report</a></li>
+  <li><a href="USHAMART_report.html">USHAMART Report</a></li>
+  <li><a href="UTIAMC_report.html">UTIAMC Report</a></li>
+  <li><a href="VBL_report.html">VBL Report</a></li>
+  <li><a href="VEDL_report.html">VEDL Report</a></li>
+  <li><a href="VIJAYA_report.html">VIJAYA Report</a></li>
+  <li><a href="VMM_report.html">VMM Report</a></li>
+  <li><a href="VOLTAS_report.html">VOLTAS Report</a></li>
+  <li><a href="VTL_report.html">VTL Report</a></li>
+  <li><a href="WAAREEENER_report.html">WAAREEENER Report</a></li>
+  <li><a href="WELCORP_report.html">WELCORP Report</a></li>
+  <li><a href="WELSPUNLIV_report.html">WELSPUNLIV Report</a></li>
+  <li><a href="WHIRLPOOL_report.html">WHIRLPOOL Report</a></li>
+  <li><a href="WIPRO_report.html">WIPRO Report</a></li>
+  <li><a href="WOCKPHARMA_report.html">WOCKPHARMA Report</a></li>
+  <li><a href="YESBANK_report.html">YESBANK Report</a></li>
+  <li><a href="ZEEL_report.html">ZEEL Report</a></li>
+  <li><a href="ZENSARTECH_report.html">ZENSARTECH Report</a></li>
+  <li><a href="ZENTEC_report.html">ZENTEC Report</a></li>
+  <li><a href="ZFCVINDIA_report.html">ZFCVINDIA Report</a></li>
+  <li><a href="ZYDUSLIFE_report.html">ZYDUSLIFE Report</a></li>
+  <li><a href="ZYDUSWELL_report.html">ZYDUSWELL Report</a></li>
+</ul>
+
+        <p>No optimization reports found.</p>
+
+    </main>
+</body>
+</html>

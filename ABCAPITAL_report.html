@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abcapital Report</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --heading-color: #0f172a;
+            --link-color: #1d4ed8;
+            --link-hover: #1e40af;
+            --border-color: #cbd5e1;
+            --blockquote-bg: #f8fafc;
+            --blockquote-border: #475569;
+            --table-header-bg: #e2e8f0;
+            --table-stripe: #f1f5f9;
+            --code-bg: #f8fafc;
+            --code-text: #0f172a;
+            --accent-color: #0f766e;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #cbd5e1;
+                --heading-color: #f8fafc;
+                --link-color: #38bdf8;
+                --link-hover: #0ea5e9;
+                --border-color: #475569;
+                --blockquote-bg: #1e293b;
+                --blockquote-border: #94a3b8;
+                --table-header-bg: #1e293b;
+                --table-stripe: #1e293b;
+                --code-bg: #1e293b;
+                --code-text: #f8fafc;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin: 0;
+            padding: 32px 16px;
+        }
+
+        header, main, footer {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 { 
+            font-size: 2.2rem; 
+            margin-top: 0.2em; 
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 12px;
+        }
+        h2 { font-size: 1.65rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+        h3 { font-size: 1.3rem; }
+        h4 { font-size: 1.1rem; }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: none;
+        }
+
+        a:focus {
+            outline: 3px solid var(--link-color);
+            outline-offset: 2px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+            padding-left: 2em;
+        }
+
+        li {
+            margin-bottom: 0.4em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 2.5em 0;
+        }
+
+        blockquote {
+            background-color: var(--blockquote-bg);
+            border-left: 5px solid var(--blockquote-border);
+            padding: 14px 24px;
+            margin: 1.2em 0;
+            font-style: italic;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        caption {
+            font-size: 0.85rem;
+            padding: 8px;
+            color: var(--text-color);
+            caption-side: bottom;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--heading-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-stripe);
+        }
+
+        pre, code {
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+        }
+
+        code {
+            padding: 2px 5px;
+            font-size: 0.9em;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 10px;
+            background: var(--link-color);
+            color: white;
+            padding: 10px 16px;
+            z-index: 100;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        nav.index-nav {
+            margin-bottom: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+        <nav class="index-nav" aria-label="Breadcrumb">
+            <a href="index.html">← Back to Index Directory</a>
+        </nav>
+    </header>
+    <main id="main-content">
+        <h1>Aditya Birla Capital Ltd. (ABCAPITAL)</h1>
+<p><strong>Date Range:</strong> 2026-03-19 to 2026-06-19 | <strong>Starting Capital:</strong> ₹100,000</p>
+<h2>📊 Executive Summary</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Attribute</th>
+        <th scope="col" role="columnheader">Value</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell"><strong>Rating</strong></td>
+        <td role="cell"><strong>NEUTRAL</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Conviction Score</strong></td>
+        <td role="cell"><strong>51/100</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Trend</strong></td>
+        <td role="cell"><strong>Neutral / Bullish</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Sector Rank</strong></td>
+        <td role="cell"><strong>15/20</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Suitable Horizon</strong></td>
+        <td role="cell"><strong>Swing &amp; Positional &amp; Long-Term</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell"><strong>Action</strong></td>
+        <td role="cell"><strong>Wait for a clear directional breakout or regime change.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<h2>🎯 Actionable Trading Guidance</h2>
+<h3>📈 Direct Stock Setup Outlook</h3>
+<p>No active intraday setup detected for the next session.</p>
+<h3>⌥ Options Strategy Recommendation</h3>
+<p><strong>Recommended Vehicle:</strong> <strong>Iron Condor</strong></p>
+<p><strong>Reason:</strong> Volatility-adjusted options edge (EV/Risk Ratio of 4.488) with defined risk and high capital efficiency (10.2% expected return on margin), utilizing the stock's 49.5% Implied Volatility Rank.</p>
+<ul>
+  <li><strong>Volatility Dashboard:</strong> Realized Vol (RV): 37.0% | Implied Vol (IV): 38.2% | IV Rank: 49.5% | IV Percentile: 76.8%</li>
+  <li><strong>Directional Probabilities:</strong> P(up): 10% | P(down): 10% | P(flat): 80%</li>
+  <li><strong>Expected Return Distribution:</strong> Median: +3.83% (10th: -5.57%, 90th: +13.23%) | Expected Move: 0.01 ATR</li>
+</ul>
+<h5>Expected Value (EV) Payoff Matrix:</h5>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Strategy</th>
+        <th scope="col" role="columnheader">Expected Value (EV)</th>
+        <th scope="col" role="columnheader">Capital (Margin)</th>
+        <th scope="col" role="columnheader">Expected Return on Margin</th>
+        <th scope="col" role="columnheader">Risk</th>
+        <th scope="col" role="columnheader">EV / Risk</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Iron Condor</td>
+        <td role="cell">₹4143.89</td>
+        <td role="cell">₹40,597.20</td>
+        <td role="cell">10.2%</td>
+        <td role="cell">₹923.39</td>
+        <td role="cell">4.488</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bull Put Spread</td>
+        <td role="cell">₹9507.59</td>
+        <td role="cell">₹60,895.80</td>
+        <td role="cell">15.6%</td>
+        <td role="cell">₹14345.77</td>
+        <td role="cell">0.663</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Futures</td>
+        <td role="cell">₹-1105.68</td>
+        <td role="cell">₹304,478.99</td>
+        <td role="cell">-0.4%</td>
+        <td role="cell">₹170918.67</td>
+        <td role="cell">-0.006</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Cash Equity</td>
+        <td role="cell">₹-4911.66</td>
+        <td role="cell">₹2,029,859.95</td>
+        <td role="cell">-0.2%</td>
+        <td role="cell">₹174576.02</td>
+        <td role="cell">-0.028</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Synthetic Future</td>
+        <td role="cell">₹-36582.71</td>
+        <td role="cell">₹304,478.99</td>
+        <td role="cell">-12.0%</td>
+        <td role="cell">₹81234.40</td>
+        <td role="cell">-0.450</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Covered Call</td>
+        <td role="cell">₹-36596.66</td>
+        <td role="cell">₹2,029,859.95</td>
+        <td role="cell">-1.8%</td>
+        <td role="cell">₹81234.40</td>
+        <td role="cell">-0.451</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Calendar Spread</td>
+        <td role="cell">₹-36636.66</td>
+        <td role="cell">₹60,895.80</td>
+        <td role="cell">-60.2%</td>
+        <td role="cell">₹81274.40</td>
+        <td role="cell">-0.451</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Ratio Spread</td>
+        <td role="cell">₹-36636.66</td>
+        <td role="cell">₹202,985.99</td>
+        <td role="cell">-18.0%</td>
+        <td role="cell">₹81274.40</td>
+        <td role="cell">-0.451</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>🛠️ Systematic Execution Plan (Generic Framework)</h3>
+<ul>
+  <li><strong>Stop Loss:</strong> 1.5 × ATR from entry</li>
+  <li><strong>Profit Targets:</strong> Target 1 (1R) for 50% scale-out, trail remainder.</li>
+</ul>
+<hr>
+<h2>🔮 Expected Outcomes &amp; Suitability</h2>
+<h3>Expected 1 Month Outcome</h3>
+<ul>
+  <li>🟢 <strong>Bullish:</strong> 10.0%</li>
+  <li>🟡 <strong>Neutral:</strong> 80.0%</li>
+  <li>🔴 <strong>Bearish:</strong> 10.0%</li>
+</ul>
+<h3>Expected Return Range</h3>
+<ul>
+  <li><strong>Median:</strong> +3.83%</li>
+  <li><strong>25th percentile:</strong> -0.56%</li>
+  <li><strong>75th percentile:</strong> +8.65%</li>
+</ul>
+<h3>👤 Portfolio Suitability</h3>
+<p><strong>Suitable For:</strong></p>
+<ul>
+  <li>✓ Swing Traders</li>
+  <li>✓ Positional Traders</li>
+  <li>✓ Long-Term Growth Investors</li>
+  <li>✓ Low Volatility Portfolios</li>
+</ul>
+<p><strong>Not Suitable For:</strong></p>
+<ul>
+  <li>✗ Income Investors</li>
+</ul>
+<hr>
+<h2>📁 Sector &amp; Regime Context</h2>
+<ul>
+  <li><strong>Sector:</strong> Financial Services</li>
+  <li><strong>Sector Strength:</strong> 3.2/10</li>
+  <li><strong>Relative Strength:</strong> -3.84% vs NIFTY</li>
+  <li><strong>Sector Rank:</strong> 15 of 20 sectors</li>
+  <li><strong>Structural Regime:</strong> <strong>RANGE</strong></li>
+  <li><strong>Tactical Setup Focus:</strong> <code>Range Mean Reversion</code>, <code>Failed Breakout Reversal</code>, <code>Directional Change Overshoot</code>, <code>Bollinger Band Reversal</code>, <code>Volume Capitulation Reversal</code>, <code>PDH/PDL Breakout</code>, <code>Opening Gap Fade</code></li>
+</ul>
+<h3>🔍 Conviction Score Breakdown:</h3>
+<ul>
+  <li>1. Technical Setups: +10.0 / 35 (No active setup, but daily price is in a strong uptrend (Close &gt; 20 EMA &gt; 50 SMA &gt; 200 SMA))</li>
+  <li>2. Fundamentals: +20.0 / 25 (Steady business growth structure (Grade B))</li>
+  <li>3. Sector Context: +6.4 / 20 (Sector Strength: 3.2/10 (Financial Services))</li>
+  <li>4. Regime &amp; Momentum: +14.4 / 20 (Daily candle close location: +4.4 pts (88% of range), Market in low-volatility/range regime <code>RANGE</code>: +5.0 pts, VIX is 13.0 (Low volatility/risk): +5.0 pts)</li>
+</ul>
+<h4>📊 Conviction Rating System Matrix:</h4>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Score Range</th>
+        <th scope="col" role="columnheader">Meaning</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">90 - 100</td>
+        <td role="cell">Strong Buy</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">75 - 89</td>
+        <td role="cell">Buy</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">60 - 74</td>
+        <td role="cell">Watchlist</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">40 - 59</td>
+        <td role="cell">Neutral</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Below 40</td>
+        <td role="cell">Avoid</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<h2>📈 Fundamental Analysis &amp; Annual Guidance</h2>
+<ul>
+  <li><strong>Valuation:</strong> Trailing P/E: 26.4 | Forward P/E: 19.5 | PEG Ratio: N/A | Price/Book: 2.86</li>
+  <li><strong>Business Growth:</strong> Revenue YoY: 0.08% | Quarterly EPS: 0.30% | ROE: N/A</li>
+  <li><strong>Risk &amp; Dividend:</strong> Beta: 0.69 | Dividend Yield: N/A | Book Value: 131.39</li>
+  <li><strong>Investment Grade:</strong> <strong>Grade B (Accumulate)</strong></li>
+  <li><strong>Recommendation:</strong> Business is growing steadily. Consider accumulating on technical pullbacks. High-stability defensive profile (Beta: 0.69).</li>
+  <li><strong>Annual Entry Guidance:</strong> Do not chase breakouts. Accumulate gradually exclusively during market corrections or pullbacks to the 50-day and 200-day SMAs.</li>
+  <li><strong>Annual Exit Guidance:</strong> Liquidate if earnings growth turns negative, or if the broader market regime turns structurally bearish (NIFTY loses 200 SMA).</li>
+</ul>
+<hr>
+<h2>🔬 Historical &amp; Simulation Evidence</h2>
+<h3>Direct Stock Performance (Cash Equity)</h3>
+<h4>Intraday (Close at 15:20)</h4>
+<ul>
+  <li><strong>Trades:</strong> 7 | <strong>Win Rate:</strong> 14.3% | <strong>Net PnL:</strong> ₹-2,669.00</li>
+  <li><strong>Ending Cash:</strong> ₹97,331.00 | <strong>Max Drawdown:</strong> ₹2,669.00 (2.7%)</li>
+  <li><strong>Profit Factor:</strong> 0.36 | <strong>Sortino Ratio:</strong> -0.49 | <strong>Expectancy:</strong> ₹-381.29/trade</li>
+</ul>
+<h4>Positional (Hold Overnight)</h4>
+<ul>
+  <li><strong>Trades:</strong> 7 | <strong>Win Rate:</strong> 57.1% | <strong>Net PnL:</strong> ₹1,287.29</li>
+  <li><strong>Ending Cash:</strong> ₹101,287.29 | <strong>Max Drawdown:</strong> ₹1,197.21 (1.2%)</li>
+  <li><strong>Profit Factor:</strong> 1.36 | <strong>Sortino Ratio:</strong> 0.16 | <strong>Expectancy:</strong> ₹183.90/trade</li>
+</ul>
+<h4>Buy &amp; Hold Benchmark Performance (Buy on Day 1, Hold to End)</h4>
+<ul>
+  <li><strong>Strategy:</strong> Buy &amp; Hold | <strong>Net Return:</strong> 18.64% | <strong>Net PnL:</strong> ₹18,636.58</li>
+  <li><strong>Ending Cash:</strong> ₹118,636.58 | <strong>Max Drawdown:</strong> ₹8,815.21 (-8.82%)</li>
+  <li><strong>Entry Price:</strong> ₹316.85 | <strong>Exit Price:</strong> ₹375.90</li>
+</ul>
+<p>💡 <strong>Performance Comparison:</strong> <strong>Buy &amp; Hold outperformed Trading by ₹17,349.28</strong> (steady long-term appreciation beat friction/filtering rules under the simulated period).</p>
+<ul>
+  <li><strong>Best Strategy:</strong> Mean Reversion (<code>RS Leadership Breakout</code> Net PnL: <strong>+₹3,055.88</strong>)</li>
+</ul>
+<h5>Signal Frequency Breakdown:</h5>
+<ul>
+  <li><strong>Compression Retest:</strong> ~0.7 signals/month (Win Rate: 50% ✅)</li>
+  <li><strong>ORB:</strong> ~1.3 signals/month (Win Rate: 25%)</li>
+  <li><strong>RS Leadership Breakout:</strong> ~0.7 signals/month (Win Rate: 100% ✅)</li>
+  <li><strong>Theta-Decay Trap:</strong> ~1.3 signals/month (Win Rate: 25%)</li>
+  <li><strong>Volume Capitulation Reversal:</strong> ~0.7 signals/month (Win Rate: 0%)</li>
+</ul>
+<h3>Portfolio Statistics (Combined)</h3>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Metric</th>
+        <th scope="col" role="columnheader">Value</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Starting Capital</td>
+        <td role="cell">₹100,000</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Ending Capital</td>
+        <td role="cell">₹98,618.30</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Net Return</td>
+        <td role="cell">🔴 ₹-1,381.70 (-1.38%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Max Drawdown</td>
+        <td role="cell">₹2,669.00 (2.7%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Profit Factor</td>
+        <td role="cell">0.82</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Sortino Ratio</td>
+        <td role="cell">-0.11</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Expectancy</td>
+        <td role="cell">₹-98.69/trade</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Total Trades</td>
+        <td role="cell">14</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Win Rate</td>
+        <td role="cell">35.7% (5W / 9L)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Avg Win</td>
+        <td role="cell">₹1,272.88</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Avg Loss</td>
+        <td role="cell">₹860.68</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Largest Win</td>
+        <td role="cell">₹1,597.94</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Largest Loss</td>
+        <td role="cell">₹-1,197.21</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>Advanced Statistical Inference</h3>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Metric</th>
+        <th scope="col" role="columnheader">Value</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Avg Max Adverse Excursion (MAE)</td>
+        <td role="cell">1.78 ATR (0.70%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Avg Max Favorable Excursion (MFE)</td>
+        <td role="cell">2.70 ATR (1.01%)</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Monte Carlo Median Max DD</td>
+        <td role="cell">₹4,445.82</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Monte Carlo 95% Drawdown (VaR)</td>
+        <td role="cell">₹9,150.03</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Monte Carlo 99% Drawdown (VaR)</td>
+        <td role="cell">₹11,106.42</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">MC DD Ruin Probability (&gt; Actual)</td>
+        <td role="cell">84.3%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bootstrap Entry Edge Significance</td>
+        <td role="cell">0.448 (Not Statistically Significant)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>Performance by Setup (Cash Equity)</h3>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Setup Type</th>
+        <th scope="col" role="columnheader">Trades</th>
+        <th scope="col" role="columnheader">Win Rate</th>
+        <th scope="col" role="columnheader">Expectancy (R)</th>
+        <th scope="col" role="columnheader">95% Confidence Interval</th>
+        <th scope="col" role="columnheader">Net PnL</th>
+        <th scope="col" role="columnheader">Max DD</th>
+        <th scope="col" role="columnheader">Profit Factor</th>
+        <th scope="col" role="columnheader">Ending Cash</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Compression Retest</td>
+        <td role="cell">2</td>
+        <td role="cell">50.0%</td>
+        <td role="cell">+0.09R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🔴 ₹-238.60</td>
+        <td role="cell">₹414.84 (0.4%)</td>
+        <td role="cell">0.42</td>
+        <td role="cell">₹99,761.40</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">ORB</td>
+        <td role="cell">4</td>
+        <td role="cell">25.0%</td>
+        <td role="cell">-0.10R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🔴 ₹-1,044.17</td>
+        <td role="cell">₹1,482.24 (1.5%)</td>
+        <td role="cell">0.60</td>
+        <td role="cell">₹98,955.83</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">RS Leadership Breakout</td>
+        <td role="cell">2</td>
+        <td role="cell">100.0%</td>
+        <td role="cell">+1.90R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🟢 ₹3,055.88</td>
+        <td role="cell">₹0.00 (0.0%)</td>
+        <td role="cell">∞</td>
+        <td role="cell">₹103,055.88</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Theta-Decay Trap</td>
+        <td role="cell">4</td>
+        <td role="cell">25.0%</td>
+        <td role="cell">+0.01R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🔴 ₹-760.40</td>
+        <td role="cell">₹2,294.75 (2.3%)</td>
+        <td role="cell">0.67</td>
+        <td role="cell">₹99,239.60</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Volume Capitulation Reversal</td>
+        <td role="cell">2</td>
+        <td role="cell">0.0%</td>
+        <td role="cell">-1.10R</td>
+        <td role="cell">Insufficient Data (n &lt; 5)</td>
+        <td role="cell">🔴 ₹-2,394.42</td>
+        <td role="cell">₹2,394.42 (2.4%)</td>
+        <td role="cell">0.00</td>
+        <td role="cell">₹97,605.58</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>Strategy Backtest Performance Matrix (Futures &amp; Options)</h3>
+<p>Historical performance of all candidate derivative, leverage, and hedged strategies over the same setups:</p>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Abcapital Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Strategy</th>
+        <th scope="col" role="columnheader">Trades</th>
+        <th scope="col" role="columnheader">Win Rate</th>
+        <th scope="col" role="columnheader">Net Return (PnL)</th>
+        <th scope="col" role="columnheader">Max DD</th>
+        <th scope="col" role="columnheader">Profit Factor</th>
+        <th scope="col" role="columnheader">Sortino</th>
+        <th scope="col" role="columnheader">Avg Margin</th>
+        <th scope="col" role="columnheader">Capital Efficiency</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Cash Equity (Intraday)</td>
+        <td role="cell">7</td>
+        <td role="cell">14.3%</td>
+        <td role="cell">🔴 ₹-2,669.00</td>
+        <td role="cell">₹2,669.00 (2.7%)</td>
+        <td role="cell">0.36</td>
+        <td role="cell">-0.49</td>
+        <td role="cell">₹34,230.38</td>
+        <td role="cell">-7.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Cash Equity (Positional)</td>
+        <td role="cell">7</td>
+        <td role="cell">57.1%</td>
+        <td role="cell">🟢 ₹1,287.29</td>
+        <td role="cell">₹1,197.21 (1.2%)</td>
+        <td role="cell">1.36</td>
+        <td role="cell">0.16</td>
+        <td role="cell">₹171,151.88</td>
+        <td role="cell">0.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Futures (Intraday)</td>
+        <td role="cell">7</td>
+        <td role="cell">14.3%</td>
+        <td role="cell">🔴 ₹-22,999.36</td>
+        <td role="cell">₹22,999.36 (23.0%)</td>
+        <td role="cell">0.42</td>
+        <td role="cell">-0.42</td>
+        <td role="cell">₹267,421.50</td>
+        <td role="cell">-8.6%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Futures (Positional)</td>
+        <td role="cell">7</td>
+        <td role="cell">57.1%</td>
+        <td role="cell">🟢 ₹17,100.48</td>
+        <td role="cell">₹13,833.34 (10.6%)</td>
+        <td role="cell">1.48</td>
+        <td role="cell">0.21</td>
+        <td role="cell">₹267,421.50</td>
+        <td role="cell">6.4%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Long ATM Call (Intraday)</td>
+        <td role="cell">7</td>
+        <td role="cell">14.3%</td>
+        <td role="cell">🔴 ₹-8,485.46</td>
+        <td role="cell">₹9,861.52 (9.9%)</td>
+        <td role="cell">0.53</td>
+        <td role="cell">-0.32</td>
+        <td role="cell">₹66,412.81</td>
+        <td role="cell">-12.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Long ATM Call (Positional)</td>
+        <td role="cell">7</td>
+        <td role="cell">57.1%</td>
+        <td role="cell">🟢 ₹12,098.48</td>
+        <td role="cell">₹6,879.48 (5.8%)</td>
+        <td role="cell">1.65</td>
+        <td role="cell">0.27</td>
+        <td role="cell">₹66,412.81</td>
+        <td role="cell">18.2%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Long OTM Call</td>
+        <td role="cell">7</td>
+        <td role="cell">57.1%</td>
+        <td role="cell">🟢 ₹10,364.75</td>
+        <td role="cell">₹6,142.99 (5.3%)</td>
+        <td role="cell">1.62</td>
+        <td role="cell">0.27</td>
+        <td role="cell">₹54,393.06</td>
+        <td role="cell">19.1%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bull Call Spread</td>
+        <td role="cell">7</td>
+        <td role="cell">57.1%</td>
+        <td role="cell">🟢 ₹1,174.30</td>
+        <td role="cell">₹860.98 (0.8%)</td>
+        <td role="cell">1.49</td>
+        <td role="cell">0.21</td>
+        <td role="cell">₹12,019.74</td>
+        <td role="cell">9.8%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Bull Put Spread</td>
+        <td role="cell">7</td>
+        <td role="cell">57.1%</td>
+        <td role="cell">🟢 ₹1,048.05</td>
+        <td role="cell">₹890.38 (0.9%)</td>
+        <td role="cell">1.41</td>
+        <td role="cell">0.18</td>
+        <td role="cell">₹53,484.30</td>
+        <td role="cell">2.0%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Iron Condor</td>
+        <td role="cell">7</td>
+        <td role="cell">0.0%</td>
+        <td role="cell">🔴 ₹-1,164.18</td>
+        <td role="cell">₹1,164.18 (1.2%)</td>
+        <td role="cell">0.00</td>
+        <td role="cell">-1.00</td>
+        <td role="cell">₹35,656.20</td>
+        <td role="cell">-3.3%</td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Calendar Spread</td>
+        <td role="cell">7</td>
+        <td role="cell">28.6%</td>
+        <td role="cell">🔴 ₹-1,257.45</td>
+        <td role="cell">₹1,481.87 (1.5%)</td>
+        <td role="cell">0.25</td>
+        <td role="cell">-0.52</td>
+        <td role="cell">₹53,484.30</td>
+        <td role="cell">-2.4%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<blockquote>For granular trade logs, see <code>ABCAPITAL_signals.csv</code> in this folder.</blockquote>
+    </main>
+</body>
+</html>

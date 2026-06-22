@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Opportunity Report</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --heading-color: #0f172a;
+            --link-color: #1d4ed8;
+            --link-hover: #1e40af;
+            --border-color: #cbd5e1;
+            --blockquote-bg: #f8fafc;
+            --blockquote-border: #475569;
+            --table-header-bg: #e2e8f0;
+            --table-stripe: #f1f5f9;
+            --code-bg: #f8fafc;
+            --code-text: #0f172a;
+            --accent-color: #0f766e;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #cbd5e1;
+                --heading-color: #f8fafc;
+                --link-color: #38bdf8;
+                --link-hover: #0ea5e9;
+                --border-color: #475569;
+                --blockquote-bg: #1e293b;
+                --blockquote-border: #94a3b8;
+                --table-header-bg: #1e293b;
+                --table-stripe: #1e293b;
+                --code-bg: #1e293b;
+                --code-text: #f8fafc;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin: 0;
+            padding: 32px 16px;
+        }
+
+        header, main, footer {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 { 
+            font-size: 2.2rem; 
+            margin-top: 0.2em; 
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 12px;
+        }
+        h2 { font-size: 1.65rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+        h3 { font-size: 1.3rem; }
+        h4 { font-size: 1.1rem; }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: none;
+        }
+
+        a:focus {
+            outline: 3px solid var(--link-color);
+            outline-offset: 2px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+            padding-left: 2em;
+        }
+
+        li {
+            margin-bottom: 0.4em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 2.5em 0;
+        }
+
+        blockquote {
+            background-color: var(--blockquote-bg);
+            border-left: 5px solid var(--blockquote-border);
+            padding: 14px 24px;
+            margin: 1.2em 0;
+            font-style: italic;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        caption {
+            font-size: 0.85rem;
+            padding: 8px;
+            color: var(--text-color);
+            caption-side: bottom;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--heading-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-stripe);
+        }
+
+        pre, code {
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+        }
+
+        code {
+            padding: 2px 5px;
+            font-size: 0.9em;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 10px;
+            background: var(--link-color);
+            color: white;
+            padding: 10px 16px;
+            z-index: 100;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        nav.index-nav {
+            margin-bottom: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+        <nav class="index-nav" aria-label="Breadcrumb">
+            <a href="index.html">← Back to Index Directory</a>
+        </nav>
+    </header>
+    <main id="main-content">
+        <h1>🏆 Master Opportunity Report</h1>
+<p><strong>Report Generation Date:</strong> 2026-06-21 09:03:43 | <strong>Market Risk:</strong> Moderate Risk</p>
+<hr>
+<h2>🏆 Top 20 Strong Buy</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Symbol</th>
+        <th scope="col" role="columnheader">Conviction Score</th>
+        <th scope="col" role="columnheader">Rating</th>
+        <th scope="col" role="columnheader">Sector</th>
+        <th scope="col" role="columnheader">Active Technical Setup</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<p><em>No Strong Buy opportunities detected in this scan interval.</em></p>
+<hr>
+<h2>📈 Top 20 Buy</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Symbol</th>
+        <th scope="col" role="columnheader">Conviction Score</th>
+        <th scope="col" role="columnheader">Rating</th>
+        <th scope="col" role="columnheader">Sector</th>
+        <th scope="col" role="columnheader">Active Technical Setup</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<p><em>No Buy opportunities detected in this scan interval.</em></p>
+<hr>
+<h2>📁 Top Sector Leaders</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Sector Name</th>
+        <th scope="col" role="columnheader">Mem. Count</th>
+        <th scope="col" role="columnheader">Breadth (200 SMA)</th>
+        <th scope="col" role="columnheader">RS Score</th>
+        <th scope="col" role="columnheader">Momentum (20d)</th>
+        <th scope="col" role="columnheader">Quadrant</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">1</td>
+        <td role="cell"><strong>Telecommunic ation</strong></td>
+        <td role="cell">7</td>
+        <td role="cell">75.0%</td>
+        <td role="cell">+12.24%</td>
+        <td role="cell">+13.36%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">2</td>
+        <td role="cell"><strong>Textiles</strong></td>
+        <td role="cell">9</td>
+        <td role="cell">50.0%</td>
+        <td role="cell">+6.14%</td>
+        <td role="cell">+7.25%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">3</td>
+        <td role="cell"><strong>Metals &amp; Mining</strong></td>
+        <td role="cell">20</td>
+        <td role="cell">100.0%</td>
+        <td role="cell">+2.28%</td>
+        <td role="cell">+3.40%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">4</td>
+        <td role="cell"><strong>Chemicals</strong></td>
+        <td role="cell">19</td>
+        <td role="cell">88.9%</td>
+        <td role="cell">+2.23%</td>
+        <td role="cell">+3.35%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">5</td>
+        <td role="cell"><strong>Utilities</strong></td>
+        <td role="cell">14</td>
+        <td role="cell">55.6%</td>
+        <td role="cell">+1.97%</td>
+        <td role="cell">+3.08%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">6</td>
+        <td role="cell"><strong>Healthcare</strong></td>
+        <td role="cell">51</td>
+        <td role="cell">76.2%</td>
+        <td role="cell">+1.52%</td>
+        <td role="cell">+2.63%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">7</td>
+        <td role="cell"><strong>Information Technology</strong></td>
+        <td role="cell">30</td>
+        <td role="cell">25.0%</td>
+        <td role="cell">+1.29%</td>
+        <td role="cell">+2.40%</td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">8</td>
+        <td role="cell"><strong>Services</strong></td>
+        <td role="cell">2</td>
+        <td role="cell">50.0%</td>
+        <td role="cell">+0.00%</td>
+        <td role="cell">+0.00%</td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">9</td>
+        <td role="cell"><strong>Oil, Gas &amp; Consumable Fuels</strong></td>
+        <td role="cell">15</td>
+        <td role="cell">55.6%</td>
+        <td role="cell">-0.12%</td>
+        <td role="cell">+0.99%</td>
+        <td role="cell"><strong>Improving</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">10</td>
+        <td role="cell"><strong>Power</strong></td>
+        <td role="cell">7</td>
+        <td role="cell">100.0%</td>
+        <td role="cell">-0.56%</td>
+        <td role="cell">+0.55%</td>
+        <td role="cell"><strong>Improving</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<h2>🚀 Top Breakouts</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Symbol</th>
+        <th scope="col" role="columnheader">Conviction Score</th>
+        <th scope="col" role="columnheader">Rating</th>
+        <th scope="col" role="columnheader">Active Setup</th>
+        <th scope="col" role="columnheader">Direction</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<p><em>No active breakout setups detected in this scan interval.</em></p>
+<hr>
+<h2>🔍 Top Mean Reversion Opportunities</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Symbol</th>
+        <th scope="col" role="columnheader">Conviction Score</th>
+        <th scope="col" role="columnheader">Rating</th>
+        <th scope="col" role="columnheader">Active Setup</th>
+        <th scope="col" role="columnheader">Direction</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<p><em>No active mean reversion opportunities detected in this scan interval.</em></p>
+<hr>
+<h2>⌥ Top Derivative Opportunities</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Symbol</th>
+        <th scope="col" role="columnheader">Option Strategy</th>
+        <th scope="col" role="columnheader">Expected Value (EV)</th>
+        <th scope="col" role="columnheader">EV / Risk Ratio</th>
+        <th scope="col" role="columnheader">Required Margin</th>
+        <th scope="col" role="columnheader">Detailed Report</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">1</td>
+        <td role="cell"><a href="APTUS_report.html"><strong>APTUS</strong></a></td>
+        <td role="cell"><strong>Bull Put Spread</strong></td>
+        <td role="cell">₹4052.14</td>
+        <td role="cell">126.220</td>
+        <td role="cell">₹18612.75</td>
+        <td role="cell"><a href="APTUS_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">2</td>
+        <td role="cell"><a href="JBCHEPHARM_report.html"><strong>JBCHEPHARM</strong></a></td>
+        <td role="cell"><strong>Bear Call Spread</strong></td>
+        <td role="cell">₹2898.86</td>
+        <td role="cell">18.279</td>
+        <td role="cell">₹16437.37</td>
+        <td role="cell"><a href="JBCHEPHARM_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">3</td>
+        <td role="cell"><a href="GODREJIND_report.html"><strong>GODREJIND</strong></a></td>
+        <td role="cell"><strong>Bull Put Spread</strong></td>
+        <td role="cell">₹8842.42</td>
+        <td role="cell">14.510</td>
+        <td role="cell">₹18173.92</td>
+        <td role="cell"><a href="GODREJIND_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">4</td>
+        <td role="cell"><a href="ABDL_report.html"><strong>ABDL</strong></a></td>
+        <td role="cell"><strong>Bear Call Spread</strong></td>
+        <td role="cell">₹2975.10</td>
+        <td role="cell">11.920</td>
+        <td role="cell">₹17055.90</td>
+        <td role="cell"><a href="ABDL_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">5</td>
+        <td role="cell"><a href="ANANDRATHI_report.html"><strong>ANANDRATHI</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹2537.29</td>
+        <td role="cell">8.593</td>
+        <td role="cell">₹12220.00</td>
+        <td role="cell"><a href="ANANDRATHI_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">6</td>
+        <td role="cell"><a href="HAVELLS_report.html"><strong>HAVELLS</strong></a></td>
+        <td role="cell"><strong>Bull Put Spread</strong></td>
+        <td role="cell">₹2130.70</td>
+        <td role="cell">7.013</td>
+        <td role="cell">₹17660.25</td>
+        <td role="cell"><a href="HAVELLS_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">7</td>
+        <td role="cell"><a href="CHENNPETRO_report.html"><strong>CHENNPETRO</strong></a></td>
+        <td role="cell"><strong>Bear Call Spread</strong></td>
+        <td role="cell">₹2848.88</td>
+        <td role="cell">6.671</td>
+        <td role="cell">₹18118.65</td>
+        <td role="cell"><a href="CHENNPETRO_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">8</td>
+        <td role="cell"><a href="NATIONALUM_report.html"><strong>NATIONALUM</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹5454.67</td>
+        <td role="cell">6.363</td>
+        <td role="cell">₹56505.00</td>
+        <td role="cell"><a href="NATIONALUM_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">9</td>
+        <td role="cell"><a href="CUMMINSIND_report.html"><strong>CUMMINSIND</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹2687.10</td>
+        <td role="cell">6.115</td>
+        <td role="cell">₹35116.20</td>
+        <td role="cell"><a href="CUMMINSIND_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">10</td>
+        <td role="cell"><a href="LICI_report.html"><strong>LICI</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1117.61</td>
+        <td role="cell">5.887</td>
+        <td role="cell">₹11907.00</td>
+        <td role="cell"><a href="LICI_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">11</td>
+        <td role="cell"><a href="TRENT_report.html"><strong>TRENT</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1400.78</td>
+        <td role="cell">5.506</td>
+        <td role="cell">₹9612.75</td>
+        <td role="cell"><a href="TRENT_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">12</td>
+        <td role="cell"><a href="SBFC_report.html"><strong>SBFC</strong></a></td>
+        <td role="cell"><strong>Bull Put Spread</strong></td>
+        <td role="cell">₹4443.17</td>
+        <td role="cell">5.316</td>
+        <td role="cell">₹17011.80</td>
+        <td role="cell"><a href="SBFC_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">13</td>
+        <td role="cell"><a href="MUTHOOTFIN_report.html"><strong>MUTHOOTFIN</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹2401.96</td>
+        <td role="cell">5.268</td>
+        <td role="cell">₹34342.00</td>
+        <td role="cell"><a href="MUTHOOTFIN_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">14</td>
+        <td role="cell"><a href="IFCI_report.html"><strong>IFCI</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1946.69</td>
+        <td role="cell">5.042</td>
+        <td role="cell">₹12456.95</td>
+        <td role="cell"><a href="IFCI_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">15</td>
+        <td role="cell"><a href="BRIGADE_report.html"><strong>BRIGADE</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1274.89</td>
+        <td role="cell">4.888</td>
+        <td role="cell">₹11979.00</td>
+        <td role="cell"><a href="BRIGADE_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">16</td>
+        <td role="cell"><a href="POWERINDIA_report.html"><strong>POWERINDIA</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹14291.96</td>
+        <td role="cell">4.832</td>
+        <td role="cell">₹110385.00</td>
+        <td role="cell"><a href="POWERINDIA_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">17</td>
+        <td role="cell"><a href="WOCKPHARMA_report.html"><strong>WOCKPHARMA</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1390.51</td>
+        <td role="cell">4.780</td>
+        <td role="cell">₹12090.00</td>
+        <td role="cell"><a href="WOCKPHARMA_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">18</td>
+        <td role="cell"><a href="NETWEB_report.html"><strong>NETWEB</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1697.51</td>
+        <td role="cell">4.697</td>
+        <td role="cell">₹12700.00</td>
+        <td role="cell"><a href="NETWEB_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">19</td>
+        <td role="cell"><a href="BSE_report.html"><strong>BSE</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1647.40</td>
+        <td role="cell">4.674</td>
+        <td role="cell">₹24149.40</td>
+        <td role="cell"><a href="BSE_report.html">View Report</a></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">20</td>
+        <td role="cell"><a href="COCHINSHIP_report.html"><strong>COCHINSHIP</strong></a></td>
+        <td role="cell"><strong>Iron Condor</strong></td>
+        <td role="cell">₹1863.53</td>
+        <td role="cell">4.604</td>
+        <td role="cell">₹23406.40</td>
+        <td role="cell"><a href="COCHINSHIP_report.html">View Report</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<h2>⚠️ Worst Ranked Stocks</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Master Opportunity Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Rank</th>
+        <th scope="col" role="columnheader">Symbol</th>
+        <th scope="col" role="columnheader">Conviction Score</th>
+        <th scope="col" role="columnheader">Rating</th>
+        <th scope="col" role="columnheader">Sector</th>
+        <th scope="col" role="columnheader">Active Technical Setup</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">1</td>
+        <td role="cell"><a href="ABREL_report.html"><strong>ABREL</strong></a></td>
+        <td role="cell">15.2</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Realty</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">2</td>
+        <td role="cell"><a href="ITC_report.html"><strong>ITC</strong></a></td>
+        <td role="cell">18.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Fast Moving Consumer Goods</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">3</td>
+        <td role="cell"><a href="BRIGADE_report.html"><strong>BRIGADE</strong></a></td>
+        <td role="cell">20.2</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Realty</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">4</td>
+        <td role="cell"><a href="PINELABS_report.html"><strong>PINELABS</strong></a></td>
+        <td role="cell">20.5</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Information Technology</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">5</td>
+        <td role="cell"><a href="ICICIPRULI_report.html"><strong>ICICIPRULI</strong></a></td>
+        <td role="cell">21.7</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">6</td>
+        <td role="cell"><a href="RECLTD_report.html"><strong>RECLTD</strong></a></td>
+        <td role="cell">21.8</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">7</td>
+        <td role="cell"><a href="DLF_report.html"><strong>DLF</strong></a></td>
+        <td role="cell">21.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Realty</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">8</td>
+        <td role="cell"><a href="HDFCLIFE_report.html"><strong>HDFCLIFE</strong></a></td>
+        <td role="cell">22.4</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">9</td>
+        <td role="cell"><a href="ITCHOTELS_report.html"><strong>ITCHOTELS</strong></a></td>
+        <td role="cell">22.5</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Textiles</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">10</td>
+        <td role="cell"><a href="BAJAJHLDNG_report.html"><strong>BAJAJHLDNG</strong></a></td>
+        <td role="cell">22.6</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">11</td>
+        <td role="cell"><a href="SBILIFE_report.html"><strong>SBILIFE</strong></a></td>
+        <td role="cell">22.8</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">12</td>
+        <td role="cell"><a href="EMAMILTD_report.html"><strong>EMAMILTD</strong></a></td>
+        <td role="cell">23.2</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Fast Moving Consumer Goods</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">13</td>
+        <td role="cell"><a href="ABSLAMC_report.html"><strong>ABSLAMC</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">14</td>
+        <td role="cell"><a href="AIIL_report.html"><strong>AIIL</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">15</td>
+        <td role="cell"><a href="CANHLIFE_report.html"><strong>CANHLIFE</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">16</td>
+        <td role="cell"><a href="GICRE_report.html"><strong>GICRE</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">17</td>
+        <td role="cell"><a href="IFCI_report.html"><strong>IFCI</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">18</td>
+        <td role="cell"><a href="IIFL_report.html"><strong>IIFL</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">19</td>
+        <td role="cell"><a href="J&amp;KBANK_report.html"><strong>J&amp;KBANK</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">20</td>
+        <td role="cell"><a href="PIRAMALFIN_report.html"><strong>PIRAMALFIN</strong></a></td>
+        <td role="cell">23.9</td>
+        <td role="cell"><code>Avoid</code></td>
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>None</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </main>
+</body>
+</html>

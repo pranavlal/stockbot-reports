@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sector Intelligence Report</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --heading-color: #0f172a;
+            --link-color: #1d4ed8;
+            --link-hover: #1e40af;
+            --border-color: #cbd5e1;
+            --blockquote-bg: #f8fafc;
+            --blockquote-border: #475569;
+            --table-header-bg: #e2e8f0;
+            --table-stripe: #f1f5f9;
+            --code-bg: #f8fafc;
+            --code-text: #0f172a;
+            --accent-color: #0f766e;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #cbd5e1;
+                --heading-color: #f8fafc;
+                --link-color: #38bdf8;
+                --link-hover: #0ea5e9;
+                --border-color: #475569;
+                --blockquote-bg: #1e293b;
+                --blockquote-border: #94a3b8;
+                --table-header-bg: #1e293b;
+                --table-stripe: #1e293b;
+                --code-bg: #1e293b;
+                --code-text: #f8fafc;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin: 0;
+            padding: 32px 16px;
+        }
+
+        header, main, footer {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 { 
+            font-size: 2.2rem; 
+            margin-top: 0.2em; 
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 12px;
+        }
+        h2 { font-size: 1.65rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+        h3 { font-size: 1.3rem; }
+        h4 { font-size: 1.1rem; }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: none;
+        }
+
+        a:focus {
+            outline: 3px solid var(--link-color);
+            outline-offset: 2px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+            padding-left: 2em;
+        }
+
+        li {
+            margin-bottom: 0.4em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 2.5em 0;
+        }
+
+        blockquote {
+            background-color: var(--blockquote-bg);
+            border-left: 5px solid var(--blockquote-border);
+            padding: 14px 24px;
+            margin: 1.2em 0;
+            font-style: italic;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        caption {
+            font-size: 0.85rem;
+            padding: 8px;
+            color: var(--text-color);
+            caption-side: bottom;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--heading-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-stripe);
+        }
+
+        pre, code {
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+        }
+
+        code {
+            padding: 2px 5px;
+            font-size: 0.9em;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 10px;
+            background: var(--link-color);
+            color: white;
+            padding: 10px 16px;
+            z-index: 100;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        nav.index-nav {
+            margin-bottom: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+        <nav class="index-nav" aria-label="Breadcrumb">
+            <a href="index.html">← Back to Index Directory</a>
+        </nav>
+    </header>
+    <main id="main-content">
+        <h1>📁 Sector Intelligence Dashboard</h1>
+<p>This dashboard ranks and tracks sectors across the NSE based on breadth, momentum, relative strength, and structural rotation.</p>
+<h2>📊 Sector Rankings &amp; Rotation Matrix</h2>
+<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
+  <table role="table">
+    <caption>Summary table for Sector Intelligence Report</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader">Sector Name</th>
+        <th scope="col" role="columnheader">Code</th>
+        <th scope="col" role="columnheader">Member Count</th>
+        <th scope="col" role="columnheader">Breadth (200 SMA)</th>
+        <th scope="col" role="columnheader">Relative Strength</th>
+        <th scope="col" role="columnheader">Momentum (20d)</th>
+        <th scope="col" role="columnheader">Regime</th>
+        <th scope="col" role="columnheader">Rotation Quadrant</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell">Telecommunic ation</td>
+        <td role="cell"><code>IN1001</code></td>
+        <td role="cell">7</td>
+        <td role="cell">75.0%</td>
+        <td role="cell">+12.24%</td>
+        <td role="cell">+13.36%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Textiles</td>
+        <td role="cell"><code>IN0203</code></td>
+        <td role="cell">9</td>
+        <td role="cell">50.0%</td>
+        <td role="cell">+6.14%</td>
+        <td role="cell">+7.25%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Metals &amp; Mining</td>
+        <td role="cell"><code>IN0103</code></td>
+        <td role="cell">20</td>
+        <td role="cell">100.0%</td>
+        <td role="cell">+2.28%</td>
+        <td role="cell">+3.40%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Chemicals</td>
+        <td role="cell"><code>IN0101</code></td>
+        <td role="cell">19</td>
+        <td role="cell">88.9%</td>
+        <td role="cell">+2.23%</td>
+        <td role="cell">+3.35%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Utilities</td>
+        <td role="cell"><code>IN1102</code></td>
+        <td role="cell">14</td>
+        <td role="cell">55.6%</td>
+        <td role="cell">+1.97%</td>
+        <td role="cell">+3.08%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Healthcare</td>
+        <td role="cell"><code>IN0601</code></td>
+        <td role="cell">51</td>
+        <td role="cell">76.2%</td>
+        <td role="cell">+1.52%</td>
+        <td role="cell">+2.63%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Information Technology</td>
+        <td role="cell"><code>IN0801</code></td>
+        <td role="cell">30</td>
+        <td role="cell">25.0%</td>
+        <td role="cell">+1.29%</td>
+        <td role="cell">+2.40%</td>
+        <td role="cell"><code>TREND_DOWN</code></td>
+        <td role="cell"><strong>Leading</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Services</td>
+        <td role="cell"><code>IN0901</code></td>
+        <td role="cell">2</td>
+        <td role="cell">50.0%</td>
+        <td role="cell">+0.00%</td>
+        <td role="cell">+0.00%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Oil, Gas &amp; Consumable Fuels</td>
+        <td role="cell"><code>IN0301</code></td>
+        <td role="cell">15</td>
+        <td role="cell">55.6%</td>
+        <td role="cell">-0.12%</td>
+        <td role="cell">+0.99%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Improving</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Power</td>
+        <td role="cell"><code>IN1101</code></td>
+        <td role="cell">7</td>
+        <td role="cell">100.0%</td>
+        <td role="cell">-0.56%</td>
+        <td role="cell">+0.55%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Improving</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Automobile and Auto Components</td>
+        <td role="cell"><code>IN0201</code></td>
+        <td role="cell">39</td>
+        <td role="cell">53.3%</td>
+        <td role="cell">-1.17%</td>
+        <td role="cell">-0.06%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Capital Goods</td>
+        <td role="cell"><code>IN0702</code></td>
+        <td role="cell">68</td>
+        <td role="cell">50.0%</td>
+        <td role="cell">-1.62%</td>
+        <td role="cell">-0.50%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Realty</td>
+        <td role="cell"><code>IN0205</code></td>
+        <td role="cell">11</td>
+        <td role="cell">33.3%</td>
+        <td role="cell">-2.03%</td>
+        <td role="cell">-0.91%</td>
+        <td role="cell"><code>TREND_DOWN</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Construction Materials</td>
+        <td role="cell"><code>IN0102</code></td>
+        <td role="cell">14</td>
+        <td role="cell">63.6%</td>
+        <td role="cell">-2.50%</td>
+        <td role="cell">-1.39%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Financial Services</td>
+        <td role="cell"><code>IN0501</code></td>
+        <td role="cell">97</td>
+        <td role="cell">45.1%</td>
+        <td role="cell">-2.80%</td>
+        <td role="cell">-1.69%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Diversified</td>
+        <td role="cell"><code>IN1201</code></td>
+        <td role="cell">9</td>
+        <td role="cell">66.7%</td>
+        <td role="cell">-2.93%</td>
+        <td role="cell">-1.82%</td>
+        <td role="cell"><code>TREND_UP</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Consumer Durables</td>
+        <td role="cell"><code>IN0202</code></td>
+        <td role="cell">5</td>
+        <td role="cell">25.0%</td>
+        <td role="cell">-3.14%</td>
+        <td role="cell">-2.02%</td>
+        <td role="cell"><code>TREND_DOWN</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Fast Moving Consumer Goods</td>
+        <td role="cell"><code>IN0401</code></td>
+        <td role="cell">25</td>
+        <td role="cell">33.3%</td>
+        <td role="cell">-3.32%</td>
+        <td role="cell">-2.21%</td>
+        <td role="cell"><code>TREND_DOWN</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Construction</td>
+        <td role="cell"><code>IN0701</code></td>
+        <td role="cell">37</td>
+        <td role="cell">42.9%</td>
+        <td role="cell">-4.14%</td>
+        <td role="cell">-3.02%</td>
+        <td role="cell"><code>RANGE</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Consumer Services</td>
+        <td role="cell"><code>IN0206</code></td>
+        <td role="cell">18</td>
+        <td role="cell">18.2%</td>
+        <td role="cell">-6.70%</td>
+        <td role="cell">-5.58%</td>
+        <td role="cell"><code>TREND_DOWN</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+      <tr role="row">
+        <td role="cell">Media, Entertainment &amp; Publication</td>
+        <td role="cell"><code>IN0204</code></td>
+        <td role="cell">3</td>
+        <td role="cell">0.0%</td>
+        <td role="cell">-15.15%</td>
+        <td role="cell">-14.04%</td>
+        <td role="cell"><code>TREND_DOWN</code></td>
+        <td role="cell"><strong>Lagging</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h2>🎯 Sector Opportunities &amp; Actionable Setups</h2>
+<h3>Telecommunic ation (<code>IN1001</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+13.36%</code> | <strong>Relative Strength:</strong> <code>+12.24%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Telecommunic ation Stocks</strong></p>
+<p>1. TATACOMM</p>
+<p>2. IDEA</p>
+<p>3. INDUSTOWER</p>
+<p>4. BHARTIARTL</p>
+<p>5. TTML</p>
+<p><strong>Best setup:</strong></p>
+<p>Failed Breakout Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹1232/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Textiles (<code>IN0203</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+7.25%</code> | <strong>Relative Strength:</strong> <code>+6.14%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Textiles Stocks</strong></p>
+<p>1. CROMPTON</p>
+<p>2. VOLTAS</p>
+<p>3. WHIRLPOOL</p>
+<p>4. WELSPUNLIV</p>
+<p>5. VTL</p>
+<p><strong>Best setup:</strong></p>
+<p>N/A</p>
+<p><strong>Average expectancy:</strong></p>
+<p>N/A</p>
+<p><strong>Confidence:</strong></p>
+<p>N/A</p>
+<hr>
+<h3>Metals &amp; Mining (<code>IN0103</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+3.40%</code> | <strong>Relative Strength:</strong> <code>+2.28%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Metals &amp; Mining Stocks</strong></p>
+<p>1. HINDCOPPER</p>
+<p>2. SAIL</p>
+<p>3. NMDC</p>
+<p>4. HINDALCO</p>
+<p>5. JSWSTEEL</p>
+<p><strong>Best setup:</strong></p>
+<p>Theta-Decay Trap</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹879/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Chemicals (<code>IN0101</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+3.35%</code> | <strong>Relative Strength:</strong> <code>+2.23%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Chemicals Stocks</strong></p>
+<p>1. SOLARINDS</p>
+<p>2. TATACHEM</p>
+<p>3. ASIANPAINT</p>
+<p>4. DEEPAKNTR</p>
+<p>5. PIDILITIND</p>
+<p><strong>Best setup:</strong></p>
+<p>Volume Capitulation Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹749/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Utilities (<code>IN1102</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+3.08%</code> | <strong>Relative Strength:</strong> <code>+1.97%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Utilities Stocks</strong></p>
+<p>1. ADANIGREEN</p>
+<p>2. ENRIN</p>
+<p>3. MGL</p>
+<p>4. IGL</p>
+<p>5. GAIL</p>
+<p><strong>Best setup:</strong></p>
+<p>ORB</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹150/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Healthcare (<code>IN0601</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+2.63%</code> | <strong>Relative Strength:</strong> <code>+1.52%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Healthcare Stocks</strong></p>
+<p>1. ZYDUSLIFE</p>
+<p>2. MANKIND</p>
+<p>3. LAURUSLABS</p>
+<p>4. MAXHEALTH</p>
+<p>5. CIPLA</p>
+<p><strong>Best setup:</strong></p>
+<p>Volume Capitulation Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹621/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Information Technology (<code>IN0801</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+2.40%</code> | <strong>Relative Strength:</strong> <code>+1.29%</code> | <strong>Regime:</strong> <code>TREND_DOWN</code> | <strong>Quadrant:</strong> <strong>Leading</strong></li>
+</ul>
+<p><strong>Top Information Technology Stocks</strong></p>
+<p>1. INTELLECT</p>
+<p>2. BSOFT</p>
+<p>3. MPHASIS</p>
+<p>4. OFSS</p>
+<p>5. TECHM</p>
+<p><strong>Best setup:</strong></p>
+<p>Failed Breakout Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹783/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Services (<code>IN0901</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+0.00%</code> | <strong>Relative Strength:</strong> <code>+0.00%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Services Stocks</strong></p>
+<p>1. PWL</p>
+<p>2. LATENTVIEW</p>
+<p><strong>Best setup:</strong></p>
+<p>ORB</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹1655/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Oil, Gas &amp; Consumable Fuels (<code>IN0301</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+0.99%</code> | <strong>Relative Strength:</strong> <code>-0.12%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Improving</strong></li>
+</ul>
+<p><strong>Top Oil, Gas &amp; Consumable Fuels Stocks</strong></p>
+<p>1. OIL</p>
+<p>2. ADANIENT</p>
+<p>3. PETRONET</p>
+<p>4. HINDPETRO</p>
+<p>5. COALINDIA</p>
+<p><strong>Best setup:</strong></p>
+<p>RS Leadership</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹169/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Power (<code>IN1101</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>+0.55%</code> | <strong>Relative Strength:</strong> <code>-0.56%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Improving</strong></li>
+</ul>
+<p><strong>Top Power Stocks</strong></p>
+<p>1. ADANIPOWER</p>
+<p>2. ADANIENSOL</p>
+<p>3. JSWENERGY</p>
+<p>4. TATAPOWER</p>
+<p>5. TORNTPOWER</p>
+<p><strong>Best setup:</strong></p>
+<p>RS Leadership Breakout</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹4/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Low</p>
+<hr>
+<h3>Automobile and Auto Components (<code>IN0201</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-0.06%</code> | <strong>Relative Strength:</strong> <code>-1.17%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Automobile and Auto Components Stocks</strong></p>
+<p>1. MOTHERSON</p>
+<p>2. EXIDEIND</p>
+<p>3. BOSCHLTD</p>
+<p>4. APOLLOTYRE</p>
+<p>5. BALKRISIND</p>
+<p><strong>Best setup:</strong></p>
+<p>Failed Breakout Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹1050/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Capital Goods (<code>IN0702</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-0.50%</code> | <strong>Relative Strength:</strong> <code>-1.62%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Capital Goods Stocks</strong></p>
+<p>1. POWERINDIA</p>
+<p>2. GVT&amp;D</p>
+<p>3. PAGEIND</p>
+<p>4. CHAMBLFERT</p>
+<p>5. CUMMINSIND</p>
+<p><strong>Best setup:</strong></p>
+<p>Volume Capitulation Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹94/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Realty (<code>IN0205</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-0.91%</code> | <strong>Relative Strength:</strong> <code>-2.03%</code> | <strong>Regime:</strong> <code>TREND_DOWN</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Realty Stocks</strong></p>
+<p>1. DLF</p>
+<p>2. OBEROIRLTY</p>
+<p>3. LODHA</p>
+<p>4. PRESTIGE</p>
+<p>5. GODREJPROP</p>
+<p><strong>Best setup:</strong></p>
+<p>Theta-Decay Trap</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹1002/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Construction Materials (<code>IN0102</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-1.39%</code> | <strong>Relative Strength:</strong> <code>-2.50%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Construction Materials Stocks</strong></p>
+<p>1. GRASIM</p>
+<p>2. HINDZINC</p>
+<p>3. JKCEMENT</p>
+<p>4. VEDL</p>
+<p>5. AMBUJACEM</p>
+<p><strong>Best setup:</strong></p>
+<p>Theta-Decay Trap</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹229/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Financial Services (<code>IN0501</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-1.69%</code> | <strong>Relative Strength:</strong> <code>-2.80%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Financial Services Stocks</strong></p>
+<p>1. BSE</p>
+<p>2. POLICYBZR</p>
+<p>3. FEDERALBNK</p>
+<p>4. YESBANK</p>
+<p>5. IEX</p>
+<p><strong>Best setup:</strong></p>
+<p>Opening Gap Fade</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹266/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Diversified (<code>IN1201</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-1.82%</code> | <strong>Relative Strength:</strong> <code>-2.93%</code> | <strong>Regime:</strong> <code>TREND_UP</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Diversified Stocks</strong></p>
+<p>1. SUNTV</p>
+<p>2. BALRAMCHIN</p>
+<p>3. ZEEL</p>
+<p>4. THELEELA</p>
+<p>5. LEMONTREE</p>
+<p><strong>Best setup:</strong></p>
+<p>N/A</p>
+<p><strong>Average expectancy:</strong></p>
+<p>N/A</p>
+<p><strong>Confidence:</strong></p>
+<p>N/A</p>
+<hr>
+<h3>Consumer Durables (<code>IN0202</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-2.02%</code> | <strong>Relative Strength:</strong> <code>-3.14%</code> | <strong>Regime:</strong> <code>TREND_DOWN</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Consumer Durables Stocks</strong></p>
+<p>1. DIXON</p>
+<p>2. TITAN</p>
+<p>3. BATAINDIA</p>
+<p>4. LGEINDIA</p>
+<p>5. KALYANKJIL</p>
+<p><strong>Best setup:</strong></p>
+<p>Theta-Decay Trap</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹900/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Fast Moving Consumer Goods (<code>IN0401</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-2.21%</code> | <strong>Relative Strength:</strong> <code>-3.32%</code> | <strong>Regime:</strong> <code>TREND_DOWN</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Fast Moving Consumer Goods Stocks</strong></p>
+<p>1. RADICO</p>
+<p>2. GODFRYPHLP</p>
+<p>3. UBL</p>
+<p>4. VBL</p>
+<p>5. PATANJALI</p>
+<p><strong>Best setup:</strong></p>
+<p>Volume Capitulation Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹1295/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>High</p>
+<hr>
+<h3>Construction (<code>IN0701</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-3.02%</code> | <strong>Relative Strength:</strong> <code>-4.14%</code> | <strong>Regime:</strong> <code>RANGE</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Construction Stocks</strong></p>
+<p>1. INDIGO</p>
+<p>2. ADANIPORTS</p>
+<p>3. LT</p>
+<p>4. TIINDIA</p>
+<p>5. SRF</p>
+<p><strong>Best setup:</strong></p>
+<p>Momentum Gap</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹349/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Consumer Services (<code>IN0206</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-5.58%</code> | <strong>Relative Strength:</strong> <code>-6.70%</code> | <strong>Regime:</strong> <code>TREND_DOWN</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Consumer Services Stocks</strong></p>
+<p>1. NYKAA</p>
+<p>2. INDHOTEL</p>
+<p>3. NAUKRI</p>
+<p>4. VMM</p>
+<p>5. IRCTC</p>
+<p><strong>Best setup:</strong></p>
+<p>ORB</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹209/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+<h3>Media, Entertainment &amp; Publication (<code>IN0204</code>)</h3>
+<ul>
+  <li><strong>Momentum (20d):</strong> <code>-14.04%</code> | <strong>Relative Strength:</strong> <code>-15.15%</code> | <strong>Regime:</strong> <code>TREND_DOWN</code> | <strong>Quadrant:</strong> <strong>Lagging</strong></li>
+</ul>
+<p><strong>Top Media, Entertainment &amp; Publication Stocks</strong></p>
+<p>1. PVRINOX</p>
+<p>2. SAREGAMA</p>
+<p>3. AFFLE</p>
+<p><strong>Best setup:</strong></p>
+<p>Volume Capitulation Reversal</p>
+<p><strong>Average expectancy:</strong></p>
+<p>₹239/trade</p>
+<p><strong>Confidence:</strong></p>
+<p>Medium</p>
+<hr>
+    </main>
+</body>
+</html>

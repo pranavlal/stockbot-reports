@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Intelligence Report</title>
+    <title>Methodology</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -257,105 +257,75 @@
         <div class="search-box-container">
             <input type="text" id="table-search" placeholder="Search tables (by symbol, sector, or setup)..." aria-label="Search tables">
         </div>
-        <h1>Market Intelligence Dashboard</h1>
-<p><strong>Market Risk Score:</strong> <code>35.3/100</code> | <strong>Risk Level:</strong> <strong>Moderate Risk</strong></p>
+        <h1>Quantamental Analysis Methodology &amp; Capital Feasibility</h1>
+<p>This page outlines the core quantitative indicators, formulas, risk management stop distances, and capital allocation feasibility guidelines utilized across the Market Intelligence Platform.</p>
 <hr>
-<h2>Market Regime &amp; Volatility</h2>
+<h2>1. Core Quantitative Metrics</h2>
+<p>Our screener gauges rotation, momentum, and relative strength using mathematically separated dimensions:</p>
+<h3>A. Relative Strength (RS) Leadership Score</h3>
 <ul>
-  <li><strong>Nifty Benchmark Regime:</strong> <code>NO_TRADE</code></li>
-  <li><strong>India VIX Level:</strong> <code>13.05</code> (Low Volatility)</li>
+  <li><strong>Purpose</strong>: Identifies medium-term outperformance compared to the benchmark index (Nifty 50).</li>
+  <li><strong>Calculation Window</strong>: <strong>60 Days</strong> (approx. 3 months).</li>
+  <li><strong>Formula</strong>:</li>
 </ul>
-<h2>Market Breadth Statistics</h2>
+<p>$$\text{RS Leadership Score} = \text{Stock Return (60d)} - \text{Nifty 50 Return (60d)}$$</p>
 <ul>
-  <li><strong>Stocks Above 20 EMA:</strong> <code>43.2%</code> (Short-term Trend)</li>
-  <li><strong>Stocks Above 50 SMA:</strong> <code>54.3%</code> (Intermediate-term Trend)</li>
-  <li><strong>Stocks Above 200 SMA:</strong> <code>51.9%</code> (Long-term Macro Trend)</li>
+  <li><strong>Interpretation</strong>: A positive score indicates relative strength and institutional capital accumulation. High-RS stocks tend to break out stronger and hold pullbacks better.</li>
 </ul>
-<h2>Market Leadership</h2>
-<h3>Leading Sectors</h3>
-<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
-  <table role="table">
-    <caption>Summary table for Market Intelligence Report</caption>
-    <thead role="rowgroup">
-      <tr role="row">
-        <th scope="col" role="columnheader">Sector</th>
-        <th scope="col" role="columnheader">Trend/Momentum Score</th>
-        <th scope="col" role="columnheader">Relative Strength (vs Nifty)</th>
-      </tr>
-    </thead>
-    <tbody role="rowgroup">
-      <tr role="row">
-        <td role="cell">Power</td>
-        <td role="cell">1.19</td>
-        <td role="cell">+11.37%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Telecommunication</td>
-        <td role="cell">13.36</td>
-        <td role="cell">+11.21%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Metals &amp; Mining</td>
-        <td role="cell">3.40</td>
-        <td role="cell">+6.34%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Utilities</td>
-        <td role="cell">4.81</td>
-        <td role="cell">+2.06%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Capital Goods</td>
-        <td role="cell">-0.67</td>
-        <td role="cell">+1.83%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<h3>Leading Industries</h3>
-<div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
-  <table role="table">
-    <caption>Summary table for Market Intelligence Report</caption>
-    <thead role="rowgroup">
-      <tr role="row">
-        <th scope="col" role="columnheader">Industry</th>
-        <th scope="col" role="columnheader">Momentum Score</th>
-        <th scope="col" role="columnheader">Leadership Score (vs Nifty)</th>
-      </tr>
-    </thead>
-    <tbody role="rowgroup">
-      <tr role="row">
-        <td role="cell">Exchange and Data Platform</td>
-        <td role="cell">4.44</td>
-        <td role="cell">+25.71%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Coal</td>
-        <td role="cell">4.19</td>
-        <td role="cell">+21.70%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Heavy Electrical Equipment</td>
-        <td role="cell">4.83</td>
-        <td role="cell">+14.78%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Power Generation</td>
-        <td role="cell">1.19</td>
-        <td role="cell">+11.37%</td>
-      </tr>
-      <tr role="row">
-        <td role="cell">Telecom - Cellular &amp; Fixed line services</td>
-        <td role="cell">13.36</td>
-        <td role="cell">+11.21%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<h2>⚙️ Tactical Edge</h2>
+<h3>B. Momentum Score</h3>
 <ul>
-  <li><strong>Highest Expectancy Setup Currently:</strong> <code>Confluence: RS Leadership Breakout + ORB</code></li>
-  <li><strong>Expectancy:</strong> <code>₹1721.33/trade</code> | <strong>Win Rate:</strong> <code>100.0%</code></li>
+  <li><strong>Purpose</strong>: Tracks short-term price velocity and trend strength.</li>
+  <li><strong>Calculation Window</strong>: <strong>20 Days</strong> (approx. 1 month).</li>
+  <li><strong>Formula</strong>:</li>
+</ul>
+<p>$$\text{Momentum Score} = \text{Stock Return (20d)}$$</p>
+<ul>
+  <li><strong>Interpretation</strong>: Gauges immediate momentum and explosive trend runs.</li>
+</ul>
+<h3>C. Market Breadth</h3>
+<ul>
+  <li><strong>EMA 20 / SMA 50 / SMA 200 Breadth</strong>:</li>
+  <li>Measured as the percentage of component stocks in a group trading above their respective Moving Averages.</li>
+  <li>Used to evaluate the structural participation of the broader sector or industry. Low breadth indicates high sector concentration (few heavyweights carrying the group), whereas high breadth indicates a healthy, broad-based rally.</li>
+</ul>
+<hr>
+<h2>2. Institutional Trade Setups &amp; Confidence Levels</h2>
+<p>Signals are tracked across seven custom algorithmic setups:</p>
+<p>1. <strong>Opening Range Breakout (ORB)</strong>: Enters the direction of the high/low breakout of the first 30 minutes of trading.</p>
+<p>2. <strong>Theta-Decay Trap</strong>: Catches quick reversion moves when option premium decay forces short-covering spikes.</p>
+<p>3. <strong>Compression Breakout</strong>: Enters on Bollinger Band squeeze breakouts (Bollinger bandwidth in bottom 20% + ATR in bottom 30%).</p>
+<p>4. <strong>Volume Capitulation Reversal</strong>: Enters on high-volume climaxes (&gt;2x average volume + &gt;3.0 ATR candle sizes) signaling seller exhaustion.</p>
+<p>5. <strong>Failed Breakout Reversal</strong>: Enters mean-reversion counter-trades when breakouts fail to sustain for 2 consecutive candles.</p>
+<p>6. <strong>Anchored VWAP Pullback</strong>: Re-enters strong trends at the Anchored Volume-Weighted Average Price line.</p>
+<p>7. <strong>Overnight Premium</strong>: Capitalizes on post-close gaps based on late-session volume spikes.</p>
+<h3>Confidence Level Assignment</h3>
+<ul>
+  <li><strong>High Confidence</strong>: Win Rate $\ge 55\%$ AND trade sample size $\ge 5$ trades.</li>
+  <li><strong>Medium Confidence</strong>: Win Rate $\ge 45\%$ AND trade sample size $\ge 3$ trades.</li>
+  <li><strong>Low Confidence (Auto-Filtered)</strong>: Setups with win rates $&lt; 45\%$ or trade sample size $&lt; 3$ are flagged as <code>"No Trade (Low Confidence)"</code>.</li>
+</ul>
+<hr>
+<h2>3. Capital Feasibility &amp; Risk Allocation Guidelines</h2>
+<p>To implement these setups in a live trading account, the following capital budget guidelines are mathematically enforced:</p>
+<h3>A. Trade Sizing (ATR-Based Sizing)</h3>
+<p>All trades utilize <strong>Average True Range (ATR)</strong> to determine the stop loss distance and share size, ensuring equal dollar risk across highly volatile and low-volatility assets.</p>
+<ul>
+  <li><strong>Risk Capital per Trade</strong>: Configured to <strong>₹1,000</strong> (or $1,000 depending on region).</li>
+  <li><strong>Stop Loss Distance</strong>: Variable, between <strong>1.2x ATR</strong> and <strong>1.5x ATR</strong> (with a hard cap at <strong>1.5%</strong> of entry price).</li>
+  <li><strong>Position Sizing Formula</strong>:</li>
+</ul>
+<p>$$\text{Position Size (Shares)} = \frac{\text{Risk Capital per Trade}}{\text{Stop Loss Distance (Rupees)}}$$</p>
+<h3>B. Minimum Capital Feasibility Check</h3>
+<p>Because stop loss distances are bounded by risk controls:</p>
+<ul>
+  <li>At a maximum stop loss of <strong>1.5%</strong>, to risk exactly <strong>₹1,000</strong> per trade, the total cash allocation required for that single trade is:</li>
+</ul>
+<p>$$\text{Capital Required per Trade} = \frac{\text{₹1,000}}{0.015} = \text{₹66,667}$$</p>
+<ul>
+  <li><strong>Capital Requirement Verdict</strong>:</li>
+  <li>Under standard backtest settings with a <strong>₹100,000 starting cash</strong> pool, the portfolio can support <strong>at most 1 active trade</strong> simultaneously without leverage.</li>
+  <li>Taking more than 1 concurrent trade will violate the standard risk rules or trigger partial allocation constraints.</li>
+  <li>To run the portfolio with standard diversification (e.g. 5 concurrent active positions of ₹1,000 risk each), a minimum starting capital of <strong>₹333,335</strong> is required.</li>
 </ul>
     </main>
     <footer>

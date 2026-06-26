@@ -138,6 +138,7 @@
             color: var(--text-color);
             caption-side: bottom;
             text-align: right;
+            display: none; /* Screen reader only */
         }
 
         th, td {
@@ -198,6 +199,49 @@
             margin-bottom: 30px;
             padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+        }
+
+        footer {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-color);
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                color: #94a3b8;
+            }
+        }
+
+        .disclaimer-container p {
+            margin-bottom: 0.8em;
+            line-height: 1.5;
+        }
+
+        .search-box-container {
+            margin: 20px 0;
+            display: flex;
+            width: 100%;
+        }
+
+        .search-box-container input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.05);
+        }
+
+        .search-box-container input:focus {
+            outline: 2px solid var(--accent-color);
+            border-color: transparent;
         }
     </style>
 </head>
@@ -206,9 +250,13 @@
     <header>
         <nav class="index-nav" aria-label="Breadcrumb">
             <a href="index.html">← Back to Index Directory</a>
+            <a href="methodology.html">Methodology & Feasibility</a>
         </nav>
     </header>
     <main id="main-content">
+        <div class="search-box-container">
+            <input type="text" id="table-search" placeholder="Search tables (by symbol, sector, or setup)..." aria-label="Search tables">
+        </div>
         <h1>Steel Authority of India Ltd. (SAIL)</h1>
 <p><strong>Date Range:</strong> 2026-03-22 to 2026-06-22 | <strong>Starting Capital:</strong> ₹100,000</p>
 <h2>Executive Summary</h2>
@@ -371,14 +419,14 @@
 </ul>
 <p><strong>Not Suitable For:</strong></p>
 <ul>
-  <li>✗ Low Volatility Portfolios</li>
+  <li>None</li>
 </ul>
 <hr>
 <h2>Sector &amp; Regime Context</h2>
 <ul>
   <li><strong>Sector:</strong> Metals &amp; Mining</li>
   <li><strong>Sector Strength:</strong> 10.0/10</li>
-  <li><strong>Relative Strength:</strong> +9.55% vs NIFTY</li>
+  <li><strong>Relative Strength:</strong> +9.54% vs NIFTY</li>
   <li><strong>Sector Rank:</strong> 3 of 19 sectors</li>
   <li><strong>Structural Regime:</strong> <strong>HIGH_VOLATILITY_UNCERTAIN</strong></li>
   <li><strong>Tactical Setup Focus:</strong> No specific setups.</li>
@@ -440,15 +488,15 @@
 <h3>Direct Stock Performance (Cash Equity)</h3>
 <h4>Intraday (Close at 15:20)</h4>
 <ul>
-  <li><strong>Trades:</strong> 14 | <strong>Win Rate:</strong> 28.6% | <strong>Net PnL:</strong> ₹-11,863.78</li>
-  <li><strong>Ending Cash:</strong> ₹88,136.22 | <strong>Max Drawdown:</strong> ₹12,568.42 (12.5%)</li>
-  <li><strong>Profit Factor:</strong> 0.30 | <strong>Sortino Ratio:</strong> -0.34 | <strong>Expectancy:</strong> ₹-847.41/trade</li>
+  <li><strong>Trades:</strong> 13 | <strong>Win Rate:</strong> 30.8% | <strong>Net PnL:</strong> ₹-10,680.98</li>
+  <li><strong>Ending Cash:</strong> ₹89,319.02 | <strong>Max Drawdown:</strong> ₹11,385.62 (11.3%)</li>
+  <li><strong>Profit Factor:</strong> 0.32 | <strong>Sortino Ratio:</strong> -0.32 | <strong>Expectancy:</strong> ₹-821.61/trade</li>
 </ul>
 <h4>Positional (Hold Overnight)</h4>
 <ul>
-  <li><strong>Trades:</strong> 16 | <strong>Win Rate:</strong> 25.0% | <strong>Net PnL:</strong> ₹-13,609.14</li>
-  <li><strong>Ending Cash:</strong> ₹86,390.86 | <strong>Max Drawdown:</strong> ₹15,848.64 (15.5%)</li>
-  <li><strong>Profit Factor:</strong> 0.32 | <strong>Sortino Ratio:</strong> -0.37 | <strong>Expectancy:</strong> ₹-850.57/trade</li>
+  <li><strong>Trades:</strong> 15 | <strong>Win Rate:</strong> 26.7% | <strong>Net PnL:</strong> ₹-12,426.35</li>
+  <li><strong>Ending Cash:</strong> ₹87,573.65 | <strong>Max Drawdown:</strong> ₹14,665.84 (14.3%)</li>
+  <li><strong>Profit Factor:</strong> 0.34 | <strong>Sortino Ratio:</strong> -0.35 | <strong>Expectancy:</strong> ₹-828.42/trade</li>
 </ul>
 <h4>Buy &amp; Hold Benchmark Performance (Buy on Day 1, Hold to End)</h4>
 <ul>
@@ -456,7 +504,7 @@
   <li><strong>Ending Cash:</strong> ₹114,026.23 | <strong>Max Drawdown:</strong> ₹15,587.38 (-15.59%)</li>
   <li><strong>Entry Price:</strong> ₹152.50 | <strong>Exit Price:</strong> ₹173.89</li>
 </ul>
-<p><strong>Performance Comparison:</strong> <strong>Buy &amp; Hold outperformed Trading by ₹25,890.01</strong> (steady long-term appreciation beat friction/filtering rules under the simulated period).</p>
+<p><strong>Performance Comparison:</strong> <strong>Buy &amp; Hold outperformed Trading by ₹24,707.21</strong> (steady long-term appreciation beat friction/filtering rules under the simulated period).</p>
 <ul>
   <li><strong>Best Strategy:</strong> Mean Reversion (<code>Theta-Decay Trap</code> Net PnL: <strong>+₹6,165.92</strong>)</li>
 </ul>
@@ -466,7 +514,6 @@
   <li><strong>Extended Base Breakout:</strong> ~0.7 signals/month (Win Rate: 0%)</li>
   <li><strong>ORB:</strong> ~0.7 signals/month (Win Rate: 0%)</li>
   <li><strong>Overnight Premium:</strong> ~0.7 signals/month (Win Rate: 50% (Pass))</li>
-  <li><strong>RS Leadership:</strong> ~0.7 signals/month (Win Rate: 0%)</li>
   <li><strong>RS Leadership Breakout:</strong> ~2.7 signals/month (Win Rate: 0%)</li>
   <li><strong>Theta-Decay Trap:</strong> ~1.3 signals/month (Win Rate: 100% (Pass))</li>
   <li><strong>Volume Capitulation Reversal:</strong> ~2.7 signals/month (Win Rate: 38%)</li>
@@ -488,35 +535,35 @@
       </tr>
       <tr role="row">
         <td role="cell">Ending Capital</td>
-        <td role="cell">₹74,527.08</td>
+        <td role="cell">₹76,892.67</td>
       </tr>
       <tr role="row">
         <td role="cell">Net Return</td>
-        <td role="cell">- ₹-25,472.92 (-25.47%)</td>
+        <td role="cell">- ₹-23,107.33 (-23.11%)</td>
       </tr>
       <tr role="row">
         <td role="cell">Max Drawdown</td>
-        <td role="cell">₹26,177.56 (26.0%)</td>
+        <td role="cell">₹23,811.97 (23.6%)</td>
       </tr>
       <tr role="row">
         <td role="cell">Profit Factor</td>
-        <td role="cell">0.31</td>
+        <td role="cell">0.33</td>
       </tr>
       <tr role="row">
         <td role="cell">Sortino Ratio</td>
-        <td role="cell">-0.36</td>
+        <td role="cell">-0.33</td>
       </tr>
       <tr role="row">
         <td role="cell">Expectancy</td>
-        <td role="cell">₹-849.10/trade</td>
+        <td role="cell">₹-825.26/trade</td>
       </tr>
       <tr role="row">
         <td role="cell">Total Trades</td>
-        <td role="cell">30</td>
+        <td role="cell">28</td>
       </tr>
       <tr role="row">
         <td role="cell">Win Rate</td>
-        <td role="cell">26.7% (8W / 22L)</td>
+        <td role="cell">28.6% (8W / 20L)</td>
       </tr>
       <tr role="row">
         <td role="cell">Avg Win</td>
@@ -524,7 +571,7 @@
       </tr>
       <tr role="row">
         <td role="cell">Avg Loss</td>
-        <td role="cell">₹1,672.88</td>
+        <td role="cell">₹1,721.89</td>
       </tr>
       <tr role="row">
         <td role="cell">Largest Win</td>
@@ -550,31 +597,31 @@
     <tbody role="rowgroup">
       <tr role="row">
         <td role="cell">Avg Max Adverse Excursion (MAE)</td>
-        <td role="cell">1.22 ATR (0.51%)</td>
+        <td role="cell">1.21 ATR (0.50%)</td>
       </tr>
       <tr role="row">
         <td role="cell">Avg Max Favorable Excursion (MFE)</td>
-        <td role="cell">1.17 ATR (0.51%)</td>
+        <td role="cell">1.26 ATR (0.54%)</td>
       </tr>
       <tr role="row">
         <td role="cell">Monte Carlo Median Max DD</td>
-        <td role="cell">₹26,613.62</td>
+        <td role="cell">₹24,357.23</td>
       </tr>
       <tr role="row">
         <td role="cell">Monte Carlo 95% Drawdown (VaR)</td>
-        <td role="cell">₹45,861.41</td>
+        <td role="cell">₹42,700.25</td>
       </tr>
       <tr role="row">
         <td role="cell">Monte Carlo 99% Drawdown (VaR)</td>
-        <td role="cell">₹54,757.39</td>
+        <td role="cell">₹51,548.40</td>
       </tr>
       <tr role="row">
         <td role="cell">MC DD Ruin Probability (&gt; Actual)</td>
-        <td role="cell">51.8%</td>
+        <td role="cell">52.4%</td>
       </tr>
       <tr role="row">
         <td role="cell">Bootstrap Entry Edge Significance</td>
-        <td role="cell">0.991 (Not Statistically Significant)</td>
+        <td role="cell">0.979 (Not Statistically Significant)</td>
       </tr>
     </tbody>
   </table>
@@ -642,17 +689,6 @@
         <td role="cell">₹100,369.45</td>
       </tr>
       <tr role="row">
-        <td role="cell">RS Leadership</td>
-        <td role="cell">2</td>
-        <td role="cell">0.0%</td>
-        <td role="cell">-1.09R</td>
-        <td role="cell">Insufficient Data (n &lt; 5)</td>
-        <td role="cell">- ₹-2,365.59</td>
-        <td role="cell">₹2,365.59 (2.4%)</td>
-        <td role="cell">0.00</td>
-        <td role="cell">₹97,634.41</td>
-      </tr>
-      <tr role="row">
         <td role="cell">RS Leadership Breakout</td>
         <td role="cell">8</td>
         <td role="cell">0.0%</td>
@@ -709,129 +745,160 @@
     <tbody role="rowgroup">
       <tr role="row">
         <td role="cell">Cash Equity (Intraday)</td>
-        <td role="cell">14</td>
-        <td role="cell">28.6%</td>
-        <td role="cell">-  ₹-11,863.78</td>
-        <td role="cell">₹12,568.42 (12.5%)</td>
-        <td role="cell">0.30</td>
-        <td role="cell">-0.34</td>
-        <td role="cell">₹31,809.14</td>
-        <td role="cell">-37.3%</td>
+        <td role="cell">13</td>
+        <td role="cell">30.8%</td>
+        <td role="cell">-  ₹-10,680.98</td>
+        <td role="cell">₹11,385.62 (11.3%)</td>
+        <td role="cell">0.32</td>
+        <td role="cell">-0.32</td>
+        <td role="cell">₹31,682.20</td>
+        <td role="cell">-33.7%</td>
       </tr>
       <tr role="row">
         <td role="cell">Cash Equity (Positional)</td>
-        <td role="cell">16</td>
-        <td role="cell">25.0%</td>
-        <td role="cell">-  ₹-13,609.14</td>
-        <td role="cell">₹15,848.64 (15.5%)</td>
-        <td role="cell">0.32</td>
-        <td role="cell">-0.37</td>
-        <td role="cell">₹159,755.02</td>
-        <td role="cell">-8.5%</td>
+        <td role="cell">15</td>
+        <td role="cell">26.7%</td>
+        <td role="cell">-  ₹-12,426.35</td>
+        <td role="cell">₹14,665.84 (14.3%)</td>
+        <td role="cell">0.34</td>
+        <td role="cell">-0.35</td>
+        <td role="cell">₹159,252.25</td>
+        <td role="cell">-7.8%</td>
       </tr>
       <tr role="row">
         <td role="cell">Futures (Intraday)</td>
-        <td role="cell">14</td>
-        <td role="cell">28.6%</td>
-        <td role="cell">-  ₹-92,968.37</td>
-        <td role="cell">₹103,095.91 (93.6%)</td>
-        <td role="cell">0.34</td>
-        <td role="cell">-0.31</td>
-        <td role="cell">₹211,537.71</td>
-        <td role="cell">-43.9%</td>
+        <td role="cell">13</td>
+        <td role="cell">30.8%</td>
+        <td role="cell">-  ₹-82,653.66</td>
+        <td role="cell">₹92,781.20 (84.2%)</td>
+        <td role="cell">0.36</td>
+        <td role="cell">-0.29</td>
+        <td role="cell">₹209,556.00</td>
+        <td role="cell">-39.4%</td>
       </tr>
       <tr role="row">
         <td role="cell">Futures (Positional)</td>
-        <td role="cell">16</td>
-        <td role="cell">25.0%</td>
-        <td role="cell">-  ₹-120,091.62</td>
-        <td role="cell">₹140,889.15 (116.6%)</td>
-        <td role="cell">0.31</td>
-        <td role="cell">-0.37</td>
-        <td role="cell">₹209,925.00</td>
-        <td role="cell">-57.2%</td>
+        <td role="cell">15</td>
+        <td role="cell">26.7%</td>
+        <td role="cell">-  ₹-109,776.92</td>
+        <td role="cell">₹130,574.44 (108.1%)</td>
+        <td role="cell">0.33</td>
+        <td role="cell">-0.35</td>
+        <td role="cell">₹208,100.00</td>
+        <td role="cell">-52.8%</td>
       </tr>
       <tr role="row">
         <td role="cell">Long ATM Call (Intraday)</td>
-        <td role="cell">14</td>
-        <td role="cell">28.6%</td>
-        <td role="cell">-  ₹-40,687.60</td>
-        <td role="cell">₹49,816.87 (45.6%)</td>
-        <td role="cell">0.41</td>
-        <td role="cell">-0.28</td>
-        <td role="cell">₹62,262.25</td>
-        <td role="cell">-65.3%</td>
+        <td role="cell">13</td>
+        <td role="cell">30.8%</td>
+        <td role="cell">-  ₹-35,742.01</td>
+        <td role="cell">₹44,871.28 (41.1%)</td>
+        <td role="cell">0.44</td>
+        <td role="cell">-0.25</td>
+        <td role="cell">₹62,362.06</td>
+        <td role="cell">-57.3%</td>
       </tr>
       <tr role="row">
         <td role="cell">Long ATM Call (Positional)</td>
-        <td role="cell">16</td>
-        <td role="cell">25.0%</td>
-        <td role="cell">-  ₹-54,339.92</td>
-        <td role="cell">₹69,596.16 (60.4%)</td>
-        <td role="cell">0.36</td>
-        <td role="cell">-0.34</td>
-        <td role="cell">₹59,957.80</td>
-        <td role="cell">-90.6%</td>
+        <td role="cell">15</td>
+        <td role="cell">26.7%</td>
+        <td role="cell">-  ₹-49,394.33</td>
+        <td role="cell">₹64,650.56 (56.1%)</td>
+        <td role="cell">0.39</td>
+        <td role="cell">-0.31</td>
+        <td role="cell">₹59,890.67</td>
+        <td role="cell">-82.5%</td>
       </tr>
       <tr role="row">
         <td role="cell">Long OTM Call</td>
-        <td role="cell">16</td>
-        <td role="cell">25.0%</td>
-        <td role="cell">-  ₹-48,461.12</td>
-        <td role="cell">₹62,509.26 (54.8%)</td>
-        <td role="cell">0.36</td>
-        <td role="cell">-0.32</td>
-        <td role="cell">₹49,111.81</td>
-        <td role="cell">-98.7%</td>
+        <td role="cell">15</td>
+        <td role="cell">26.7%</td>
+        <td role="cell">-  ₹-44,123.50</td>
+        <td role="cell">₹58,171.64 (51.0%)</td>
+        <td role="cell">0.38</td>
+        <td role="cell">-0.30</td>
+        <td role="cell">₹49,049.57</td>
+        <td role="cell">-90.0%</td>
       </tr>
       <tr role="row">
         <td role="cell">Bull Call Spread</td>
-        <td role="cell">16</td>
-        <td role="cell">25.0%</td>
-        <td role="cell">-  ₹-7,160.59</td>
-        <td role="cell">₹8,592.13 (8.5%)</td>
-        <td role="cell">0.34</td>
-        <td role="cell">-0.46</td>
-        <td role="cell">₹10,845.99</td>
-        <td role="cell">-66.0%</td>
+        <td role="cell">15</td>
+        <td role="cell">26.7%</td>
+        <td role="cell">-  ₹-6,472.43</td>
+        <td role="cell">₹7,903.98 (7.8%)</td>
+        <td role="cell">0.36</td>
+        <td role="cell">-0.43</td>
+        <td role="cell">₹10,841.10</td>
+        <td role="cell">-59.7%</td>
       </tr>
       <tr role="row">
         <td role="cell">Bull Put Spread</td>
-        <td role="cell">16</td>
-        <td role="cell">25.0%</td>
-        <td role="cell">-  ₹-7,768.27</td>
-        <td role="cell">₹8,922.65 (8.8%)</td>
-        <td role="cell">0.30</td>
-        <td role="cell">-0.49</td>
-        <td role="cell">₹41,985.00</td>
-        <td role="cell">-18.5%</td>
+        <td role="cell">15</td>
+        <td role="cell">26.7%</td>
+        <td role="cell">-  ₹-6,869.69</td>
+        <td role="cell">₹8,024.07 (7.9%)</td>
+        <td role="cell">0.33</td>
+        <td role="cell">-0.46</td>
+        <td role="cell">₹41,620.00</td>
+        <td role="cell">-16.5%</td>
       </tr>
       <tr role="row">
         <td role="cell">Iron Condor</td>
-        <td role="cell">16</td>
+        <td role="cell">15</td>
         <td role="cell">0.0%</td>
-        <td role="cell">-  ₹-2,725.65</td>
-        <td role="cell">₹2,725.65 (2.7%)</td>
+        <td role="cell">-  ₹-2,557.03</td>
+        <td role="cell">₹2,557.03 (2.6%)</td>
         <td role="cell">0.00</td>
         <td role="cell">-1.00</td>
-        <td role="cell">₹27,990.00</td>
-        <td role="cell">-9.7%</td>
+        <td role="cell">₹27,746.67</td>
+        <td role="cell">-9.2%</td>
       </tr>
       <tr role="row">
         <td role="cell">Calendar Spread</td>
-        <td role="cell">16</td>
-        <td role="cell">75.0%</td>
-        <td role="cell">+  ₹3,287.31</td>
+        <td role="cell">15</td>
+        <td role="cell">73.3%</td>
+        <td role="cell">+  ₹3,135.38</td>
         <td role="cell">₹902.47 (0.9%)</td>
-        <td role="cell">3.65</td>
-        <td role="cell">0.61</td>
-        <td role="cell">₹41,985.00</td>
-        <td role="cell">7.8%</td>
+        <td role="cell">3.53</td>
+        <td role="cell">0.62</td>
+        <td role="cell">₹41,620.00</td>
+        <td role="cell">7.5%</td>
       </tr>
     </tbody>
   </table>
 </div>
 <blockquote>For granular trade logs, see <code>SAIL_signals.csv</code> in this folder.</blockquote>
     </main>
+    <footer>
+        <div class="disclaimer-container">
+            <p><strong>Regulatory Disclaimer & Risk Warning:</strong> Equity, futures, options, and derivative trading involve substantial risk of loss and are not suitable for every investor. The trading strategies, signals, and performance metrics generated by this quantitative analysis engine are simulated backtest results and do not represent actual live-account execution. Past performance is not indicative of future results.</p>
+            <p><strong>Simulated Friction & Cost Disclosures:</strong> Brokerage: 0.03% | Slippage: 0.05% | Round-trip trading friction: 0.16% included in all performance metrics.</p>
+            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-26 19:09:58</code> (Local Time).</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Live client-side search filtering for tables
+            const tableSearch = document.getElementById('table-search');
+            if (tableSearch) {
+                tableSearch.addEventListener('keyup', function() {
+                    const query = this.value.toLowerCase();
+                    const tables = document.querySelectorAll('table');
+                    tables.forEach(table => {
+                        const rows = table.querySelectorAll('tbody tr');
+                        rows.forEach(row => {
+                            const text = row.textContent.toLowerCase();
+                            if (text.includes(query)) {
+                                row.style.display = '';
+                            } else {
+                                row.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

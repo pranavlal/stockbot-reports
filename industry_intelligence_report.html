@@ -138,6 +138,7 @@
             color: var(--text-color);
             caption-side: bottom;
             text-align: right;
+            display: none; /* Screen reader only */
         }
 
         th, td {
@@ -198,6 +199,49 @@
             margin-bottom: 30px;
             padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+        }
+
+        footer {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-color);
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                color: #94a3b8;
+            }
+        }
+
+        .disclaimer-container p {
+            margin-bottom: 0.8em;
+            line-height: 1.5;
+        }
+
+        .search-box-container {
+            margin: 20px 0;
+            display: flex;
+            width: 100%;
+        }
+
+        .search-box-container input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.05);
+        }
+
+        .search-box-container input:focus {
+            outline: 2px solid var(--accent-color);
+            border-color: transparent;
         }
     </style>
 </head>
@@ -206,9 +250,13 @@
     <header>
         <nav class="index-nav" aria-label="Breadcrumb">
             <a href="index.html">← Back to Index Directory</a>
+            <a href="methodology.html">Methodology & Feasibility</a>
         </nav>
     </header>
     <main id="main-content">
+        <div class="search-box-container">
+            <input type="text" id="table-search" placeholder="Search tables (by symbol, sector, or setup)..." aria-label="Search tables">
+        </div>
         <h1>Industry Intelligence Dashboard</h1>
 <p>This dashboard ranks industry groups across the market.</p>
 <h2>Industry Rankings &amp; Leadership Matrix</h2>
@@ -231,7 +279,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">3</td>
         <td role="cell">50.0%</td>
-        <td role="cell">+25.72%</td>
+        <td role="cell">+25.71%</td>
         <td role="cell">+4.44%</td>
       </tr>
       <tr role="row">
@@ -239,7 +287,7 @@
         <td role="cell">Oil, Gas &amp; Consumable Fuels</td>
         <td role="cell">3</td>
         <td role="cell">100.0%</td>
-        <td role="cell">+21.72%</td>
+        <td role="cell">+21.70%</td>
         <td role="cell">+4.19%</td>
       </tr>
       <tr role="row">
@@ -247,7 +295,7 @@
         <td role="cell">Capital Goods</td>
         <td role="cell">33</td>
         <td role="cell">81.8%</td>
-        <td role="cell">+14.79%</td>
+        <td role="cell">+14.78%</td>
         <td role="cell">+4.83%</td>
       </tr>
       <tr role="row">
@@ -255,7 +303,7 @@
         <td role="cell">Power</td>
         <td role="cell">17</td>
         <td role="cell">66.7%</td>
-        <td role="cell">+11.39%</td>
+        <td role="cell">+11.37%</td>
         <td role="cell">+1.19%</td>
       </tr>
       <tr role="row">
@@ -263,7 +311,7 @@
         <td role="cell">Telecommunication</td>
         <td role="cell">7</td>
         <td role="cell">50.0%</td>
-        <td role="cell">+11.22%</td>
+        <td role="cell">+11.21%</td>
         <td role="cell">+13.36%</td>
       </tr>
       <tr role="row">
@@ -271,7 +319,7 @@
         <td role="cell">Chemicals</td>
         <td role="cell">15</td>
         <td role="cell">83.3%</td>
-        <td role="cell">+5.81%</td>
+        <td role="cell">+5.80%</td>
         <td role="cell">+4.05%</td>
       </tr>
       <tr role="row">
@@ -279,7 +327,7 @@
         <td role="cell">Fast Moving Consumer Goods</td>
         <td role="cell">5</td>
         <td role="cell">75.0%</td>
-        <td role="cell">+5.57%</td>
+        <td role="cell">+5.55%</td>
         <td role="cell">+2.77%</td>
       </tr>
       <tr role="row">
@@ -287,7 +335,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">5</td>
         <td role="cell">50.0%</td>
-        <td role="cell">+2.78%</td>
+        <td role="cell">+2.76%</td>
         <td role="cell">+6.26%</td>
       </tr>
       <tr role="row">
@@ -295,7 +343,7 @@
         <td role="cell">Healthcare</td>
         <td role="cell">32</td>
         <td role="cell">68.8%</td>
-        <td role="cell">+2.58%</td>
+        <td role="cell">+2.57%</td>
         <td role="cell">+2.95%</td>
       </tr>
       <tr role="row">
@@ -303,7 +351,7 @@
         <td role="cell">Utilities</td>
         <td role="cell">4</td>
         <td role="cell">100.0%</td>
-        <td role="cell">+2.07%</td>
+        <td role="cell">+2.06%</td>
         <td role="cell">+4.81%</td>
       </tr>
       <tr role="row">
@@ -311,7 +359,7 @@
         <td role="cell">Diversified</td>
         <td role="cell">15</td>
         <td role="cell">50.0%</td>
-        <td role="cell">+1.68%</td>
+        <td role="cell">+1.67%</td>
         <td role="cell">+1.08%</td>
       </tr>
       <tr role="row">
@@ -319,7 +367,7 @@
         <td role="cell">Construction</td>
         <td role="cell">37</td>
         <td role="cell">57.1%</td>
-        <td role="cell">+0.84%</td>
+        <td role="cell">+0.83%</td>
         <td role="cell">-3.02%</td>
       </tr>
       <tr role="row">
@@ -327,7 +375,7 @@
         <td role="cell">Consumer Services</td>
         <td role="cell">4</td>
         <td role="cell">100.0%</td>
-        <td role="cell">+0.16%</td>
+        <td role="cell">+0.15%</td>
         <td role="cell">-1.50%</td>
       </tr>
       <tr role="row">
@@ -335,7 +383,7 @@
         <td role="cell">Capital Goods</td>
         <td role="cell">4</td>
         <td role="cell">66.7%</td>
-        <td role="cell">-0.73%</td>
+        <td role="cell">-0.74%</td>
         <td role="cell">+0.90%</td>
       </tr>
       <tr role="row">
@@ -343,7 +391,7 @@
         <td role="cell">Construction Materials</td>
         <td role="cell">14</td>
         <td role="cell">54.5%</td>
-        <td role="cell">-0.79%</td>
+        <td role="cell">-0.80%</td>
         <td role="cell">-1.39%</td>
       </tr>
       <tr role="row">
@@ -351,7 +399,7 @@
         <td role="cell">Capital Goods</td>
         <td role="cell">13</td>
         <td role="cell">42.9%</td>
-        <td role="cell">-0.89%</td>
+        <td role="cell">-0.91%</td>
         <td role="cell">-5.50%</td>
       </tr>
       <tr role="row">
@@ -359,7 +407,7 @@
         <td role="cell">Information Technology</td>
         <td role="cell">19</td>
         <td role="cell">45.5%</td>
-        <td role="cell">-1.10%</td>
+        <td role="cell">-1.11%</td>
         <td role="cell">+1.94%</td>
       </tr>
       <tr role="row">
@@ -367,7 +415,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">9</td>
         <td role="cell">50.0%</td>
-        <td role="cell">-1.16%</td>
+        <td role="cell">-1.17%</td>
         <td role="cell">-2.11%</td>
       </tr>
       <tr role="row">
@@ -375,7 +423,7 @@
         <td role="cell">Metals &amp; Mining</td>
         <td role="cell">16</td>
         <td role="cell">50.0%</td>
-        <td role="cell">-1.21%</td>
+        <td role="cell">-1.22%</td>
         <td role="cell">-1.81%</td>
       </tr>
       <tr role="row">
@@ -383,7 +431,7 @@
         <td role="cell">Healthcare</td>
         <td role="cell">10</td>
         <td role="cell">75.0%</td>
-        <td role="cell">-1.45%</td>
+        <td role="cell">-1.47%</td>
         <td role="cell">+2.29%</td>
       </tr>
       <tr role="row">
@@ -391,7 +439,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">19</td>
         <td role="cell">77.8%</td>
-        <td role="cell">-2.37%</td>
+        <td role="cell">-2.38%</td>
         <td role="cell">-2.70%</td>
       </tr>
       <tr role="row">
@@ -399,7 +447,7 @@
         <td role="cell">Information Technology</td>
         <td role="cell">10</td>
         <td role="cell">80.0%</td>
-        <td role="cell">-3.01%</td>
+        <td role="cell">-3.03%</td>
         <td role="cell">+3.42%</td>
       </tr>
       <tr role="row">
@@ -407,7 +455,7 @@
         <td role="cell">Chemicals</td>
         <td role="cell">7</td>
         <td role="cell">33.3%</td>
-        <td role="cell">-5.67%</td>
+        <td role="cell">-5.68%</td>
         <td role="cell">-0.28%</td>
       </tr>
       <tr role="row">
@@ -415,7 +463,7 @@
         <td role="cell">Automobile and Auto Components</td>
         <td role="cell">35</td>
         <td role="cell">56.2%</td>
-        <td role="cell">-5.79%</td>
+        <td role="cell">-5.81%</td>
         <td role="cell">-0.06%</td>
       </tr>
       <tr role="row">
@@ -423,7 +471,7 @@
         <td role="cell">Healthcare</td>
         <td role="cell">4</td>
         <td role="cell">50.0%</td>
-        <td role="cell">-6.41%</td>
+        <td role="cell">-6.42%</td>
         <td role="cell">+0.76%</td>
       </tr>
       <tr role="row">
@@ -431,7 +479,7 @@
         <td role="cell">Consumer Durables</td>
         <td role="cell">4</td>
         <td role="cell">50.0%</td>
-        <td role="cell">-6.85%</td>
+        <td role="cell">-6.86%</td>
         <td role="cell">+7.25%</td>
       </tr>
       <tr role="row">
@@ -439,7 +487,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">26</td>
         <td role="cell">57.9%</td>
-        <td role="cell">-7.29%</td>
+        <td role="cell">-7.31%</td>
         <td role="cell">+0.08%</td>
       </tr>
       <tr role="row">
@@ -447,7 +495,7 @@
         <td role="cell">Fast Moving Consumer Goods</td>
         <td role="cell">8</td>
         <td role="cell">40.0%</td>
-        <td role="cell">-8.15%</td>
+        <td role="cell">-8.16%</td>
         <td role="cell">-4.57%</td>
       </tr>
       <tr role="row">
@@ -455,7 +503,7 @@
         <td role="cell">Fast Moving Consumer Goods</td>
         <td role="cell">10</td>
         <td role="cell">25.0%</td>
-        <td role="cell">-8.66%</td>
+        <td role="cell">-8.67%</td>
         <td role="cell">-5.47%</td>
       </tr>
       <tr role="row">
@@ -463,7 +511,7 @@
         <td role="cell">Realty</td>
         <td role="cell">11</td>
         <td role="cell">50.0%</td>
-        <td role="cell">-9.12%</td>
+        <td role="cell">-9.13%</td>
         <td role="cell">-0.91%</td>
       </tr>
       <tr role="row">
@@ -471,7 +519,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">25</td>
         <td role="cell">35.7%</td>
-        <td role="cell">-10.98%</td>
+        <td role="cell">-10.99%</td>
         <td role="cell">-5.04%</td>
       </tr>
       <tr role="row">
@@ -479,7 +527,7 @@
         <td role="cell">Oil, Gas &amp; Consumable Fuels</td>
         <td role="cell">9</td>
         <td role="cell">40.0%</td>
-        <td role="cell">-12.82%</td>
+        <td role="cell">-12.83%</td>
         <td role="cell">+0.96%</td>
       </tr>
       <tr role="row">
@@ -487,7 +535,7 @@
         <td role="cell">Financial Services</td>
         <td role="cell">8</td>
         <td role="cell">0.0%</td>
-        <td role="cell">-13.02%</td>
+        <td role="cell">-13.04%</td>
         <td role="cell">-3.02%</td>
       </tr>
       <tr role="row">
@@ -495,7 +543,7 @@
         <td role="cell">Consumer Services</td>
         <td role="cell">7</td>
         <td role="cell">40.0%</td>
-        <td role="cell">-13.49%</td>
+        <td role="cell">-13.50%</td>
         <td role="cell">-3.54%</td>
       </tr>
       <tr role="row">
@@ -503,7 +551,7 @@
         <td role="cell">Consumer Services</td>
         <td role="cell">4</td>
         <td role="cell">0.0%</td>
-        <td role="cell">-17.87%</td>
+        <td role="cell">-17.88%</td>
         <td role="cell">-4.31%</td>
       </tr>
       <tr role="row">
@@ -511,7 +559,7 @@
         <td role="cell">Capital Goods</td>
         <td role="cell">5</td>
         <td role="cell">0.0%</td>
-        <td role="cell">-19.06%</td>
+        <td role="cell">-19.07%</td>
         <td role="cell">-6.26%</td>
       </tr>
       <tr role="row">
@@ -519,7 +567,7 @@
         <td role="cell">Capital Goods</td>
         <td role="cell">4</td>
         <td role="cell">0.0%</td>
-        <td role="cell">-24.53%</td>
+        <td role="cell">-24.54%</td>
         <td role="cell">-7.99%</td>
       </tr>
     </tbody>
@@ -528,7 +576,7 @@
 <h2>Industry Opportunities &amp; Actionable Setups</h2>
 <h3>Exchange and Data Platform (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+4.44%</code> | <strong>Leadership Score:</strong> <code>+25.72%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+4.44%</code> | <strong>Leadership Score:</strong> <code>+25.71%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Exchange and Data Platform Stocks</strong></p>
 <p>1. BSE</p>
@@ -543,7 +591,7 @@
 <hr>
 <h3>Coal (Sector: Oil, Gas &amp; Consumable Fuels)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+4.19%</code> | <strong>Leadership Score:</strong> <code>+21.72%</code> | <strong>Breadth (50 SMA):</strong> <code>100.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+4.19%</code> | <strong>Leadership Score:</strong> <code>+21.70%</code> | <strong>Breadth (50 SMA):</strong> <code>100.0%</code></li>
 </ul>
 <p><strong>Top Coal Stocks</strong></p>
 <p>1. ADANIENT</p>
@@ -558,7 +606,7 @@
 <hr>
 <h3>Heavy Electrical Equipment (Sector: Capital Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+4.83%</code> | <strong>Leadership Score:</strong> <code>+14.79%</code> | <strong>Breadth (50 SMA):</strong> <code>81.8%</code></li>
+  <li><strong>Momentum:</strong> <code>+4.83%</code> | <strong>Leadership Score:</strong> <code>+14.78%</code> | <strong>Breadth (50 SMA):</strong> <code>81.8%</code></li>
 </ul>
 <p><strong>Top Heavy Electrical Equipment Stocks</strong></p>
 <p>1. POWERINDIA</p>
@@ -575,7 +623,7 @@
 <hr>
 <h3>Power Generation (Sector: Power)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+1.19%</code> | <strong>Leadership Score:</strong> <code>+11.39%</code> | <strong>Breadth (50 SMA):</strong> <code>66.7%</code></li>
+  <li><strong>Momentum:</strong> <code>+1.19%</code> | <strong>Leadership Score:</strong> <code>+11.37%</code> | <strong>Breadth (50 SMA):</strong> <code>66.7%</code></li>
 </ul>
 <p><strong>Top Power Generation Stocks</strong></p>
 <p>1. ADANIGREEN</p>
@@ -592,7 +640,7 @@
 <hr>
 <h3>Telecom - Cellular &amp; Fixed line services (Sector: Telecommunication)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+13.36%</code> | <strong>Leadership Score:</strong> <code>+11.22%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+13.36%</code> | <strong>Leadership Score:</strong> <code>+11.21%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Telecom - Cellular &amp; Fixed line services Stocks</strong></p>
 <p>1. TATACOMM</p>
@@ -609,7 +657,7 @@
 <hr>
 <h3>Specialty Chemicals (Sector: Chemicals)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+4.05%</code> | <strong>Leadership Score:</strong> <code>+5.81%</code> | <strong>Breadth (50 SMA):</strong> <code>83.3%</code></li>
+  <li><strong>Momentum:</strong> <code>+4.05%</code> | <strong>Leadership Score:</strong> <code>+5.80%</code> | <strong>Breadth (50 SMA):</strong> <code>83.3%</code></li>
 </ul>
 <p><strong>Top Specialty Chemicals Stocks</strong></p>
 <p>1. SOLARINDS</p>
@@ -626,7 +674,7 @@
 <hr>
 <h3>Breweries &amp; Distilleries (Sector: Fast Moving Consumer Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+2.77%</code> | <strong>Leadership Score:</strong> <code>+5.57%</code> | <strong>Breadth (50 SMA):</strong> <code>75.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+2.77%</code> | <strong>Leadership Score:</strong> <code>+5.55%</code> | <strong>Breadth (50 SMA):</strong> <code>75.0%</code></li>
 </ul>
 <p><strong>Top Breweries &amp; Distilleries Stocks</strong></p>
 <p>1. RADICO</p>
@@ -643,7 +691,7 @@
 <hr>
 <h3>General Insurance (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+6.26%</code> | <strong>Leadership Score:</strong> <code>+2.78%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+6.26%</code> | <strong>Leadership Score:</strong> <code>+2.76%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top General Insurance Stocks</strong></p>
 <p>1. POLICYBZR</p>
@@ -660,7 +708,7 @@
 <hr>
 <h3>Biotechnology (Sector: Healthcare)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+2.95%</code> | <strong>Leadership Score:</strong> <code>+2.58%</code> | <strong>Breadth (50 SMA):</strong> <code>68.8%</code></li>
+  <li><strong>Momentum:</strong> <code>+2.95%</code> | <strong>Leadership Score:</strong> <code>+2.57%</code> | <strong>Breadth (50 SMA):</strong> <code>68.8%</code></li>
 </ul>
 <p><strong>Top Biotechnology Stocks</strong></p>
 <p>1. ZYDUSLIFE</p>
@@ -677,7 +725,7 @@
 <hr>
 <h3>Water Supply &amp; Management (Sector: Utilities)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+4.81%</code> | <strong>Leadership Score:</strong> <code>+2.07%</code> | <strong>Breadth (50 SMA):</strong> <code>100.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+4.81%</code> | <strong>Leadership Score:</strong> <code>+2.06%</code> | <strong>Breadth (50 SMA):</strong> <code>100.0%</code></li>
 </ul>
 <p><strong>Top Water Supply &amp; Management Stocks</strong></p>
 <p>1. MGL</p>
@@ -693,7 +741,7 @@
 <hr>
 <h3>Diversified (Sector: Diversified)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+1.08%</code> | <strong>Leadership Score:</strong> <code>+1.68%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+1.08%</code> | <strong>Leadership Score:</strong> <code>+1.67%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Diversified Stocks</strong></p>
 <p>1. CHAMBLFERT</p>
@@ -710,7 +758,7 @@
 <hr>
 <h3>Civil Construction (Sector: Construction)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-3.02%</code> | <strong>Leadership Score:</strong> <code>+0.84%</code> | <strong>Breadth (50 SMA):</strong> <code>57.1%</code></li>
+  <li><strong>Momentum:</strong> <code>-3.02%</code> | <strong>Leadership Score:</strong> <code>+0.83%</code> | <strong>Breadth (50 SMA):</strong> <code>57.1%</code></li>
 </ul>
 <p><strong>Top Civil Construction Stocks</strong></p>
 <p>1. INDIGO</p>
@@ -727,7 +775,7 @@
 <hr>
 <h3>Hotels &amp; Resorts (Sector: Consumer Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-1.50%</code> | <strong>Leadership Score:</strong> <code>+0.16%</code> | <strong>Breadth (50 SMA):</strong> <code>100.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-1.50%</code> | <strong>Leadership Score:</strong> <code>+0.15%</code> | <strong>Breadth (50 SMA):</strong> <code>100.0%</code></li>
 </ul>
 <p><strong>Top Hotels &amp; Resorts Stocks</strong></p>
 <p>1. INDHOTEL</p>
@@ -743,7 +791,7 @@
 <hr>
 <h3>Ship Building &amp; Allied Services (Sector: Capital Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+0.90%</code> | <strong>Leadership Score:</strong> <code>-0.73%</code> | <strong>Breadth (50 SMA):</strong> <code>66.7%</code></li>
+  <li><strong>Momentum:</strong> <code>+0.90%</code> | <strong>Leadership Score:</strong> <code>-0.74%</code> | <strong>Breadth (50 SMA):</strong> <code>66.7%</code></li>
 </ul>
 <p><strong>Top Ship Building &amp; Allied Services Stocks</strong></p>
 <p>1. PAGEIND</p>
@@ -759,7 +807,7 @@
 <hr>
 <h3>Other Construct Materials (Sector: Construction Materials)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-1.39%</code> | <strong>Leadership Score:</strong> <code>-0.79%</code> | <strong>Breadth (50 SMA):</strong> <code>54.5%</code></li>
+  <li><strong>Momentum:</strong> <code>-1.39%</code> | <strong>Leadership Score:</strong> <code>-0.80%</code> | <strong>Breadth (50 SMA):</strong> <code>54.5%</code></li>
 </ul>
 <p><strong>Top Other Construct Materials Stocks</strong></p>
 <p>1. GRASIM</p>
@@ -768,15 +816,15 @@
 <p>4. VEDL</p>
 <p>5. AMBUJACEM</p>
 <p><strong>Best setup:</strong></p>
-<p>Theta-Decay Trap</p>
+<p>Momentum Gap</p>
 <p><strong>Average expectancy:</strong></p>
-<p>₹229/trade</p>
+<p>₹352/trade</p>
 <p><strong>Confidence:</strong></p>
 <p>Medium</p>
 <hr>
 <h3>Aerospace &amp; Defense (Sector: Capital Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-5.50%</code> | <strong>Leadership Score:</strong> <code>-0.89%</code> | <strong>Breadth (50 SMA):</strong> <code>42.9%</code></li>
+  <li><strong>Momentum:</strong> <code>-5.50%</code> | <strong>Leadership Score:</strong> <code>-0.91%</code> | <strong>Breadth (50 SMA):</strong> <code>42.9%</code></li>
 </ul>
 <p><strong>Top Aerospace &amp; Defense Stocks</strong></p>
 <p>1. PREMIERENE</p>
@@ -785,15 +833,15 @@
 <p>4. COCHINSHIP</p>
 <p>5. HAL</p>
 <p><strong>Best setup:</strong></p>
-<p>RS Leadership</p>
+<p>No Trade (Low Confidence)</p>
 <p><strong>Average expectancy:</strong></p>
-<p>₹170/trade</p>
+<p>₹93/trade</p>
 <p><strong>Confidence:</strong></p>
-<p>Medium</p>
+<p>Low</p>
 <hr>
 <h3>IT Enabled Services (Sector: Information Technology)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+1.94%</code> | <strong>Leadership Score:</strong> <code>-1.10%</code> | <strong>Breadth (50 SMA):</strong> <code>45.5%</code></li>
+  <li><strong>Momentum:</strong> <code>+1.94%</code> | <strong>Leadership Score:</strong> <code>-1.11%</code> | <strong>Breadth (50 SMA):</strong> <code>45.5%</code></li>
 </ul>
 <p><strong>Top IT Enabled Services Stocks</strong></p>
 <p>1. BSOFT</p>
@@ -810,7 +858,7 @@
 <hr>
 <h3>Financial Institutions (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-2.11%</code> | <strong>Leadership Score:</strong> <code>-1.16%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-2.11%</code> | <strong>Leadership Score:</strong> <code>-1.17%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Financial Institutions Stocks</strong></p>
 <p>1. CANFINHOME</p>
@@ -827,7 +875,7 @@
 <hr>
 <h3>Iron &amp; Steel (Sector: Metals &amp; Mining)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-1.81%</code> | <strong>Leadership Score:</strong> <code>-1.21%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-1.81%</code> | <strong>Leadership Score:</strong> <code>-1.22%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Iron &amp; Steel Stocks</strong></p>
 <p>1. SAIL</p>
@@ -836,15 +884,15 @@
 <p>4. TATASTEEL</p>
 <p>5. JINDALSTEL</p>
 <p><strong>Best setup:</strong></p>
-<p>Theta-Decay Trap</p>
+<p>Momentum Gap</p>
 <p><strong>Average expectancy:</strong></p>
-<p>₹639/trade</p>
+<p>₹1151/trade</p>
 <p><strong>Confidence:</strong></p>
-<p>High</p>
+<p>Medium</p>
 <hr>
 <h3>Medical Equipment &amp; Supplies (Sector: Healthcare)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+2.29%</code> | <strong>Leadership Score:</strong> <code>-1.45%</code> | <strong>Breadth (50 SMA):</strong> <code>75.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+2.29%</code> | <strong>Leadership Score:</strong> <code>-1.47%</code> | <strong>Breadth (50 SMA):</strong> <code>75.0%</code></li>
 </ul>
 <p><strong>Top Medical Equipment &amp; Supplies Stocks</strong></p>
 <p>1. MAXHEALTH</p>
@@ -861,7 +909,7 @@
 <hr>
 <h3>Asset Management Company (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-2.70%</code> | <strong>Leadership Score:</strong> <code>-2.37%</code> | <strong>Breadth (50 SMA):</strong> <code>77.8%</code></li>
+  <li><strong>Momentum:</strong> <code>-2.70%</code> | <strong>Leadership Score:</strong> <code>-2.38%</code> | <strong>Breadth (50 SMA):</strong> <code>77.8%</code></li>
 </ul>
 <p><strong>Top Asset Management Company Stocks</strong></p>
 <p>1. IEX</p>
@@ -878,7 +926,7 @@
 <hr>
 <h3>Computers - Software &amp; Consulting (Sector: Information Technology)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+3.42%</code> | <strong>Leadership Score:</strong> <code>-3.01%</code> | <strong>Breadth (50 SMA):</strong> <code>80.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+3.42%</code> | <strong>Leadership Score:</strong> <code>-3.03%</code> | <strong>Breadth (50 SMA):</strong> <code>80.0%</code></li>
 </ul>
 <p><strong>Top Computers - Software &amp; Consulting Stocks</strong></p>
 <p>1. INTELLECT</p>
@@ -895,7 +943,7 @@
 <hr>
 <h3>Commodity Chemicals (Sector: Chemicals)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-0.28%</code> | <strong>Leadership Score:</strong> <code>-5.67%</code> | <strong>Breadth (50 SMA):</strong> <code>33.3%</code></li>
+  <li><strong>Momentum:</strong> <code>-0.28%</code> | <strong>Leadership Score:</strong> <code>-5.68%</code> | <strong>Breadth (50 SMA):</strong> <code>33.3%</code></li>
 </ul>
 <p><strong>Top Commodity Chemicals Stocks</strong></p>
 <p>1. TATACHEM</p>
@@ -912,7 +960,7 @@
 <hr>
 <h3>Auto Dealer (Sector: Automobile and Auto Components)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-0.06%</code> | <strong>Leadership Score:</strong> <code>-5.79%</code> | <strong>Breadth (50 SMA):</strong> <code>56.2%</code></li>
+  <li><strong>Momentum:</strong> <code>-0.06%</code> | <strong>Leadership Score:</strong> <code>-5.81%</code> | <strong>Breadth (50 SMA):</strong> <code>56.2%</code></li>
 </ul>
 <p><strong>Top Auto Dealer Stocks</strong></p>
 <p>1. MOTHERSON</p>
@@ -929,7 +977,7 @@
 <hr>
 <h3>Healthcare Research, Analytics &amp; Technology (Sector: Healthcare)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+0.76%</code> | <strong>Leadership Score:</strong> <code>-6.41%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+0.76%</code> | <strong>Leadership Score:</strong> <code>-6.42%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Healthcare Research, Analytics &amp; Technology Stocks</strong></p>
 <p>1. SYNGENE</p>
@@ -945,7 +993,7 @@
 <hr>
 <h3>Household Appliances (Sector: Consumer Durables)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+7.25%</code> | <strong>Leadership Score:</strong> <code>-6.85%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+7.25%</code> | <strong>Leadership Score:</strong> <code>-6.86%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Household Appliances Stocks</strong></p>
 <p>1. CROMPTON</p>
@@ -961,7 +1009,7 @@
 <hr>
 <h3>Public Sector Bank (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+0.08%</code> | <strong>Leadership Score:</strong> <code>-7.29%</code> | <strong>Breadth (50 SMA):</strong> <code>57.9%</code></li>
+  <li><strong>Momentum:</strong> <code>+0.08%</code> | <strong>Leadership Score:</strong> <code>-7.31%</code> | <strong>Breadth (50 SMA):</strong> <code>57.9%</code></li>
 </ul>
 <p><strong>Top Public Sector Bank Stocks</strong></p>
 <p>1. FEDERALBNK</p>
@@ -978,7 +1026,7 @@
 <hr>
 <h3>Household Products (Sector: Fast Moving Consumer Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-4.57%</code> | <strong>Leadership Score:</strong> <code>-8.15%</code> | <strong>Breadth (50 SMA):</strong> <code>40.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-4.57%</code> | <strong>Leadership Score:</strong> <code>-8.16%</code> | <strong>Breadth (50 SMA):</strong> <code>40.0%</code></li>
 </ul>
 <p><strong>Top Household Products Stocks</strong></p>
 <p>1. GODREJCP</p>
@@ -995,7 +1043,7 @@
 <hr>
 <h3>Packaged Foods (Sector: Fast Moving Consumer Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-5.47%</code> | <strong>Leadership Score:</strong> <code>-8.66%</code> | <strong>Breadth (50 SMA):</strong> <code>25.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-5.47%</code> | <strong>Leadership Score:</strong> <code>-8.67%</code> | <strong>Breadth (50 SMA):</strong> <code>25.0%</code></li>
 </ul>
 <p><strong>Top Packaged Foods Stocks</strong></p>
 <p>1. PATANJALI</p>
@@ -1012,7 +1060,7 @@
 <hr>
 <h3>Real Estate relat services (Sector: Realty)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-0.91%</code> | <strong>Leadership Score:</strong> <code>-9.12%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-0.91%</code> | <strong>Leadership Score:</strong> <code>-9.13%</code> | <strong>Breadth (50 SMA):</strong> <code>50.0%</code></li>
 </ul>
 <p><strong>Top Real Estate relat services Stocks</strong></p>
 <p>1. DLF</p>
@@ -1029,7 +1077,7 @@
 <hr>
 <h3>Other Financial Services (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-5.04%</code> | <strong>Leadership Score:</strong> <code>-10.98%</code> | <strong>Breadth (50 SMA):</strong> <code>35.7%</code></li>
+  <li><strong>Momentum:</strong> <code>-5.04%</code> | <strong>Leadership Score:</strong> <code>-10.99%</code> | <strong>Breadth (50 SMA):</strong> <code>35.7%</code></li>
 </ul>
 <p><strong>Top Other Financial Services Stocks</strong></p>
 <p>1. HUDCO</p>
@@ -1046,7 +1094,7 @@
 <hr>
 <h3>Refineries &amp; Marketing (Sector: Oil, Gas &amp; Consumable Fuels)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>+0.96%</code> | <strong>Leadership Score:</strong> <code>-12.82%</code> | <strong>Breadth (50 SMA):</strong> <code>40.0%</code></li>
+  <li><strong>Momentum:</strong> <code>+0.96%</code> | <strong>Leadership Score:</strong> <code>-12.83%</code> | <strong>Breadth (50 SMA):</strong> <code>40.0%</code></li>
 </ul>
 <p><strong>Top Refineries &amp; Marketing Stocks</strong></p>
 <p>1. PETRONET</p>
@@ -1063,7 +1111,7 @@
 <hr>
 <h3>Life Insurance (Sector: Financial Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-3.02%</code> | <strong>Leadership Score:</strong> <code>-13.02%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-3.02%</code> | <strong>Leadership Score:</strong> <code>-13.04%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
 </ul>
 <p><strong>Top Life Insurance Stocks</strong></p>
 <p>1. ICICIPRULI</p>
@@ -1080,7 +1128,7 @@
 <hr>
 <h3>Internet &amp; Catalogue Retail (Sector: Consumer Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-3.54%</code> | <strong>Leadership Score:</strong> <code>-13.49%</code> | <strong>Breadth (50 SMA):</strong> <code>40.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-3.54%</code> | <strong>Leadership Score:</strong> <code>-13.50%</code> | <strong>Breadth (50 SMA):</strong> <code>40.0%</code></li>
 </ul>
 <p><strong>Top Internet &amp; Catalogue Retail Stocks</strong></p>
 <p>1. NYKAA</p>
@@ -1097,7 +1145,7 @@
 <hr>
 <h3>Restaurants (Sector: Consumer Services)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-4.31%</code> | <strong>Leadership Score:</strong> <code>-17.87%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-4.31%</code> | <strong>Leadership Score:</strong> <code>-17.88%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
 </ul>
 <p><strong>Top Restaurants Stocks</strong></p>
 <p>1. JUBLFOOD</p>
@@ -1113,7 +1161,7 @@
 <hr>
 <h3>Iron &amp; Steel Products (Sector: Capital Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-6.26%</code> | <strong>Leadership Score:</strong> <code>-19.06%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-6.26%</code> | <strong>Leadership Score:</strong> <code>-19.07%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
 </ul>
 <p><strong>Top Iron &amp; Steel Products Stocks</strong></p>
 <p>1. ASTRAL</p>
@@ -1130,7 +1178,7 @@
 <hr>
 <h3>Tractors (Sector: Capital Goods)</h3>
 <ul>
-  <li><strong>Momentum:</strong> <code>-7.99%</code> | <strong>Leadership Score:</strong> <code>-24.53%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
+  <li><strong>Momentum:</strong> <code>-7.99%</code> | <strong>Leadership Score:</strong> <code>-24.54%</code> | <strong>Breadth (50 SMA):</strong> <code>0.0%</code></li>
 </ul>
 <p><strong>Top Tractors Stocks</strong></p>
 <p>1. ESCORTS</p>
@@ -1145,5 +1193,36 @@
 <p>High</p>
 <hr>
     </main>
+    <footer>
+        <div class="disclaimer-container">
+            <p><strong>Regulatory Disclaimer & Risk Warning:</strong> Equity, futures, options, and derivative trading involve substantial risk of loss and are not suitable for every investor. The trading strategies, signals, and performance metrics generated by this quantitative analysis engine are simulated backtest results and do not represent actual live-account execution. Past performance is not indicative of future results.</p>
+            <p><strong>Simulated Friction & Cost Disclosures:</strong> Brokerage: 0.03% | Slippage: 0.05% | Round-trip trading friction: 0.16% included in all performance metrics.</p>
+            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-26 19:09:58</code> (Local Time).</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Live client-side search filtering for tables
+            const tableSearch = document.getElementById('table-search');
+            if (tableSearch) {
+                tableSearch.addEventListener('keyup', function() {
+                    const query = this.value.toLowerCase();
+                    const tables = document.querySelectorAll('table');
+                    tables.forEach(table => {
+                        const rows = table.querySelectorAll('tbody tr');
+                        rows.forEach(row => {
+                            const text = row.textContent.toLowerCase();
+                            if (text.includes(query)) {
+                                row.style.display = '';
+                            } else {
+                                row.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

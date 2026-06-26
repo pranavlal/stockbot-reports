@@ -138,6 +138,7 @@
             color: var(--text-color);
             caption-side: bottom;
             text-align: right;
+            display: none; /* Screen reader only */
         }
 
         th, td {
@@ -198,6 +199,49 @@
             margin-bottom: 30px;
             padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+        }
+
+        footer {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-color);
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                color: #94a3b8;
+            }
+        }
+
+        .disclaimer-container p {
+            margin-bottom: 0.8em;
+            line-height: 1.5;
+        }
+
+        .search-box-container {
+            margin: 20px 0;
+            display: flex;
+            width: 100%;
+        }
+
+        .search-box-container input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.05);
+        }
+
+        .search-box-container input:focus {
+            outline: 2px solid var(--accent-color);
+            border-color: transparent;
         }
     </style>
 </head>
@@ -206,11 +250,15 @@
     <header>
         <nav class="index-nav" aria-label="Breadcrumb">
             <a href="index.html">← Back to Index Directory</a>
+            <a href="methodology.html">Methodology & Feasibility</a>
         </nav>
     </header>
     <main id="main-content">
+        <div class="search-box-container">
+            <input type="text" id="table-search" placeholder="Search tables (by symbol, sector, or setup)..." aria-label="Search tables">
+        </div>
         <h1>Master Opportunity Report</h1>
-<p><strong>Report Generation Date:</strong> 2026-06-26 08:11:29 | <strong>Market Risk:</strong> Moderate Risk</p>
+<p><strong>Report Generation Date:</strong> 2026-06-26 19:08:29 | <strong>Market Risk:</strong> Moderate Risk</p>
 <hr>
 <h2>Top 20 Strong Buy</h2>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
@@ -269,7 +317,7 @@
         <td role="cell"><strong>Power</strong></td>
         <td role="cell">17</td>
         <td role="cell">77.8%</td>
-        <td role="cell">+11.39%</td>
+        <td role="cell">+11.37%</td>
         <td role="cell">+1.19%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -278,7 +326,7 @@
         <td role="cell"><strong>Telecommunication</strong></td>
         <td role="cell">7</td>
         <td role="cell">75.0%</td>
-        <td role="cell">+11.22%</td>
+        <td role="cell">+11.21%</td>
         <td role="cell">+13.36%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -287,7 +335,7 @@
         <td role="cell"><strong>Metals &amp; Mining</strong></td>
         <td role="cell">20</td>
         <td role="cell">100.0%</td>
-        <td role="cell">+6.35%</td>
+        <td role="cell">+6.34%</td>
         <td role="cell">+3.40%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -296,7 +344,7 @@
         <td role="cell"><strong>Utilities</strong></td>
         <td role="cell">4</td>
         <td role="cell">50.0%</td>
-        <td role="cell">+2.07%</td>
+        <td role="cell">+2.06%</td>
         <td role="cell">+4.81%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -305,7 +353,7 @@
         <td role="cell"><strong>Capital Goods</strong></td>
         <td role="cell">59</td>
         <td role="cell">53.8%</td>
-        <td role="cell">+1.85%</td>
+        <td role="cell">+1.83%</td>
         <td role="cell">-0.67%</td>
         <td role="cell"><strong>Weakening</strong></td>
       </tr>
@@ -314,7 +362,7 @@
         <td role="cell"><strong>Diversified</strong></td>
         <td role="cell">15</td>
         <td role="cell">75.0%</td>
-        <td role="cell">+1.68%</td>
+        <td role="cell">+1.67%</td>
         <td role="cell">+1.08%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -323,7 +371,7 @@
         <td role="cell"><strong>Healthcare</strong></td>
         <td role="cell">51</td>
         <td role="cell">76.2%</td>
-        <td role="cell">+1.03%</td>
+        <td role="cell">+1.02%</td>
         <td role="cell">+2.63%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -332,7 +380,7 @@
         <td role="cell"><strong>Construction</strong></td>
         <td role="cell">37</td>
         <td role="cell">42.9%</td>
-        <td role="cell">+0.84%</td>
+        <td role="cell">+0.83%</td>
         <td role="cell">-3.02%</td>
         <td role="cell"><strong>Weakening</strong></td>
       </tr>
@@ -341,7 +389,7 @@
         <td role="cell"><strong>Chemicals</strong></td>
         <td role="cell">22</td>
         <td role="cell">66.7%</td>
-        <td role="cell">+0.07%</td>
+        <td role="cell">+0.06%</td>
         <td role="cell">+1.89%</td>
         <td role="cell"><strong>Leading</strong></td>
       </tr>
@@ -350,7 +398,7 @@
         <td role="cell"><strong>Construction Materials</strong></td>
         <td role="cell">14</td>
         <td role="cell">63.6%</td>
-        <td role="cell">-0.79%</td>
+        <td role="cell">-0.80%</td>
         <td role="cell">-1.39%</td>
         <td role="cell"><strong>Lagging</strong></td>
       </tr>
@@ -773,5 +821,36 @@
   </table>
 </div>
     </main>
+    <footer>
+        <div class="disclaimer-container">
+            <p><strong>Regulatory Disclaimer & Risk Warning:</strong> Equity, futures, options, and derivative trading involve substantial risk of loss and are not suitable for every investor. The trading strategies, signals, and performance metrics generated by this quantitative analysis engine are simulated backtest results and do not represent actual live-account execution. Past performance is not indicative of future results.</p>
+            <p><strong>Simulated Friction & Cost Disclosures:</strong> Brokerage: 0.03% | Slippage: 0.05% | Round-trip trading friction: 0.16% included in all performance metrics.</p>
+            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-26 19:09:59</code> (Local Time).</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Live client-side search filtering for tables
+            const tableSearch = document.getElementById('table-search');
+            if (tableSearch) {
+                tableSearch.addEventListener('keyup', function() {
+                    const query = this.value.toLowerCase();
+                    const tables = document.querySelectorAll('table');
+                    tables.forEach(table => {
+                        const rows = table.querySelectorAll('tbody tr');
+                        rows.forEach(row => {
+                            const text = row.textContent.toLowerCase();
+                            if (text.includes(query)) {
+                                row.style.display = '';
+                            } else {
+                                row.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

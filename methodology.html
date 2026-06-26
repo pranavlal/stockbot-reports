@@ -327,12 +327,94 @@
   <li>Taking more than 1 concurrent trade will violate the standard risk rules or trigger partial allocation constraints.</li>
   <li>To run the portfolio with standard diversification (e.g. 5 concurrent active positions of ₹1,000 risk each), a minimum starting capital of <strong>₹333,335</strong> is required.</li>
 </ul>
+<hr>
+<h2>4. Conviction Scoring Model</h2>
+<p>The platform computes a unified <strong>Conviction Score (0 to 100)</strong> to grade opportunities. This score systematically combines fundamental value, technical price action, sector rotation, and index regime alignment.</p>
+<h3>Score Weighting Structure</h3>
+<p>1. <strong>Technical Setup Quality (35% Weight)</strong>:</p>
+<ul>
+  <li>Active setups are graded from 0 to 10 based on:</li>
+  <li>Trend slope steepness (20% of setup score)</li>
+  <li>Breakout candle volume and ATR expansion (20% of setup score)</li>
+  <li>Pullback retracement depth and declining volume (20% of setup score)</li>
+  <li>Trigger candle body ratio and volume confirmation (20% of setup score)</li>
+  <li>Path clearance / structural support-resistance distance (20% of setup score)</li>
+  <li>Scaled to a maximum of 35 conviction points. If no active setup is present, a trend-following baseline of 10 points is applied if the price lies in a perfect long EMA configuration.</li>
+</ul>
+<p>2. <strong>Fundamental Business Growth (25% Weight)</strong>:</p>
+<ul>
+  <li>Maps dynamic growth ratings (Grade A to D) based on quarterly Revenue growth (&gt;10%), Earnings stability, Price-to-Earnings-to-Growth (PEG $\le 1.2$), and Price-to-Book (P/B) ratios.</li>
+</ul>
+<p>3. <strong>Sector Rotation Strength (20% Weight)</strong>:</p>
+<ul>
+  <li>Awarded based on the sector's aggregate relative strength score and breadth.</li>
+</ul>
+<p>4. <strong>Regime &amp; Volatility Context (20% Weight)</strong>:</p>
+<ul>
+  <li>Daily Candle Position (5%): Where the daily price closes relative to its intraday high-low range.</li>
+  <li>Market Regime Alignment (10%): Match between the trade direction and Nifty 50 SMA trend.</li>
+  <li>VIX Risk Contribution (5%): Graded risk buffer. VIX $\le 15$ awards a full 5 points, whereas VIX $\ge 25$ cancels all volatility points.</li>
+</ul>
+<h3>Grading Scale</h3>
+<ul>
+  <li><strong>Grade A (Conviction $\ge 90$)</strong>: Strong Buy. Peak technical-fundamental alignment.</li>
+  <li><strong>Grade B (Conviction $75\text{ to }89$)</strong>: Buy. Reliable trend setup with solid fundamentals.</li>
+  <li><strong>Grade C (Conviction $60\text{ to }74$)</strong>: Watchlist. Structurally sound but lacks immediate setup triggers.</li>
+  <li><strong>Grade D (Conviction $&lt; 40$)</strong>: Avoid. Weak fundamentals, negative regime, or poor setup metrics.</li>
+</ul>
+<hr>
+<h2>5. Walk-Forward Testing &amp; Dynamic Parameter Tuning</h2>
+<p>To ensure that performance metrics are not the result of historical curve-fitting or hindsight bias, the engine runs rolling <strong>Walk-Forward Testing (WFT)</strong>.</p>
+<h3>The Walk-Forward Process</h3>
+<p>1. <strong>In-Sample (IS) Optimization</strong>:</p>
+<ul>
+  <li>Slices historical data into an in-sample window (adaptive 288 days or 80% of data).</li>
+  <li>Executes a grid-search parameter sweep to identify the configuration that maximizes Calmar Ratio and Net Return.</li>
+  <li>Parameters tuned specifically per symbol:</li>
+  <li><code>max_stop_atr</code>: Maximum ATR stop-loss distance (1.2x to 1.5x)</li>
+  <li><code>min_reward_risk</code>: Target profit threshold (1.5R to 2.5R)</li>
+  <li><code>friction_min_target_pct</code>: Minimum trade reward buffer to override fee friction (0.2% to 0.5%)</li>
+  <li><code>allow_positional_hold</code>: Overnight holding permission (True / False)</li>
+</ul>
+<p>2. <strong>Out-of-Sample (OOS) Forward Run</strong>:</p>
+<ul>
+  <li>Extracts the optimized parameter settings from the IS phase.</li>
+  <li>Runs a forward simulation on the subsequent out-of-sample window (adaptive 72 days or 20% of data).</li>
+</ul>
+<p>3. <strong>Rolling Stepping</strong>:</p>
+<ul>
+  <li>Steps forward by the OOS interval, repeating the optimization and testing loop. The aggregate equity curve represents only Out-of-Sample (unseen) execution.</li>
+</ul>
+<hr>
+<h2>6. Risk-Adjusted Return Analysis (Sortino vs. Sharpe Ratio)</h2>
+<p>We evaluate all backtests using the <strong>Sortino Ratio</strong> rather than the Sharpe Ratio.</p>
+<h3>Sharpe Ratio Limitations in Trading</h3>
+<p>The Sharpe Ratio calculates risk-adjusted return by dividing excess returns by total portfolio standard deviation:</p>
+<p>$$\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}$$</p>
+<ul>
+  <li><strong>The Problem</strong>: Sharpe treats <em>all</em> volatility as risk. If a strategy experiences massive, explosive upside runs, the standard deviation ($\sigma_p$) spikes, which decreases the Sharpe Ratio. This penalizes strategies for positive, highly profitable volatility.</li>
+</ul>
+<h3>The Sortino Solution</h3>
+<p>The Sortino Ratio resolves this by penalizing only downside deviation:</p>
+<p>$$\text{Sortino Ratio} = \frac{R_p - R_f}{\sigma_d}$$</p>
+<p>$$\text{Downside Deviation } (\sigma_d) = \sqrt{\frac{1}{N} \sum_{i=1}^{N} \min(0, R_i - T)^2}$$</p>
+<ul>
+  <li><strong>Where</strong>: $R_i$ is daily returns, $T$ is target/minimum acceptable return (assumed at 0%), and $R_f$ is risk-free rate (assumed at 0%).</li>
+  <li><strong>Benefit</strong>: Sortino isolates downside risk. A high Sortino ratio guarantees that the strategy maximizes profits while minimizing tail drawdown risk, without being penalized for large winning trades.</li>
+</ul>
+<hr>
+<h2>7. System Assumptions &amp; Simulation Friction</h2>
+<p>To keep results realistic for capital allocation, all backtests enforce strict execution constraints:</p>
+<ul>
+  <li><strong>Friction Rate</strong>: A flat <strong>0.16% per round-trip trade</strong> is deducted from all PnL. This aggregates standard brokerage commissions (0.03%), execution slippage (0.05%), and government/regulatory taxes (STT, GST, exchange fees).</li>
+  <li><strong>Execution Timing</strong>: Trades enter at the close of 5-minute trigger bars to match institutional execution constraints.</li>
+</ul>
     </main>
     <footer>
         <div class="disclaimer-container">
             <p><strong>Regulatory Disclaimer & Risk Warning:</strong> Equity, futures, options, and derivative trading involve substantial risk of loss and are not suitable for every investor. The trading strategies, signals, and performance metrics generated by this quantitative analysis engine are simulated backtest results and do not represent actual live-account execution. Past performance is not indicative of future results.</p>
             <p><strong>Simulated Friction & Cost Disclosures:</strong> Brokerage: 0.03% | Slippage: 0.05% | Round-trip trading friction: 0.16% included in all performance metrics.</p>
-            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-26 19:09:58</code> (Local Time).</p>
+            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-26 21:11:14</code> (Local Time).</p>
         </div>
     </footer>
 

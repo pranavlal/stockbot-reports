@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphite Report</title>
+    <title>GRAPHITE Report</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -272,7 +272,7 @@
 <h2>Executive Summary</h2>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Attribute</th>
@@ -312,7 +312,7 @@
 <p>To validate the conviction score recommendations, the system ran historical simulation backtests for <strong>GRAPHITE</strong> under institutional execution assumptions:</p>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Metric</th>
@@ -330,7 +330,7 @@
       </tr>
       <tr role="row">
         <td role="cell"><strong>Historical Win Rate</strong></td>
-        <td role="cell"><code>50.0%</code> (4W / 4L)</td>
+        <td role="cell"><code>50.0%</code> (4W / 4L) &lt;span style="font-size: 0.8rem; padding: 2px 6px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 6px;" aria-label="Low reliability: fewer than 10 trades"&gt;Exploratory&lt;/span&gt;</td>
       </tr>
       <tr role="row">
         <td role="cell"><strong>Average Trade Expectancy</strong></td>
@@ -385,7 +385,7 @@
 <h5>Expected Value (EV) Payoff Matrix:</h5>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Strategy</th>
@@ -514,7 +514,7 @@
 <h4>Conviction Rating System Matrix:</h4>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Score Range</th>
@@ -560,17 +560,21 @@
 <h2>Historical &amp; Simulation Evidence</h2>
 <h3>Direct Stock Performance (Cash Equity)</h3>
 <h4>Intraday (Close at 15:20)</h4>
+<p>&lt;div style="color: #64748b; font-style: italic;" class="low-reliability-block"&gt;</p>
 <ul>
-  <li><strong>Trades:</strong> 4 | <strong>Win Rate:</strong> 50.0% (n=4) | <strong>Net PnL:</strong> ₹-1,480.10</li>
+  <li><strong>Trades:</strong> 4 | <strong>Win Rate:</strong> 50.0% (n=4) - <strong><em>Exploratory</strong></em> | <strong>Net PnL:</strong> ₹-1,480.10</li>
   <li><strong>Ending Cash:</strong> ₹98,519.90 | <strong>Max Drawdown:</strong> ₹4,806.80 (4.7%)</li>
   <li><strong>Profit Factor:</strong> 0.69 | <strong>Sortino Ratio:</strong> -0.14 | <strong>Expectancy:</strong> ₹-370.02/trade</li>
 </ul>
+<p>&lt;/div&gt;</p>
 <h4>Positional (Hold Overnight)</h4>
+<p>&lt;div style="color: #64748b; font-style: italic;" class="low-reliability-block"&gt;</p>
 <ul>
-  <li><strong>Trades:</strong> 4 | <strong>Win Rate:</strong> 50.0% (n=4) | <strong>Net PnL:</strong> ₹-1,480.10</li>
+  <li><strong>Trades:</strong> 4 | <strong>Win Rate:</strong> 50.0% (n=4) - <strong><em>Exploratory</strong></em> | <strong>Net PnL:</strong> ₹-1,480.10</li>
   <li><strong>Ending Cash:</strong> ₹98,519.90 | <strong>Max Drawdown:</strong> ₹4,806.80 (4.7%)</li>
   <li><strong>Profit Factor:</strong> 0.69 | <strong>Sortino Ratio:</strong> -0.14 | <strong>Expectancy:</strong> ₹-370.02/trade</li>
 </ul>
+<p>&lt;/div&gt;</p>
 <h4>Buy &amp; Hold Benchmark Performance (Buy on Day 1, Hold to End)</h4>
 <ul>
   <li><strong>Strategy:</strong> Buy &amp; Hold | <strong>Net Return:</strong> 9.30% | <strong>Net PnL:</strong> ₹9,299.93</li>
@@ -591,7 +595,7 @@
 <h3>Portfolio Statistics (Combined)</h3>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Metric</th>
@@ -657,7 +661,7 @@
 <h3>Advanced Statistical Inference</h3>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Metric</th>
@@ -675,23 +679,23 @@
       </tr>
       <tr role="row">
         <td role="cell">Monte Carlo Median Max DD</td>
-        <td role="cell">₹6,746.33</td>
+        <td role="cell">₹6,805.37</td>
       </tr>
       <tr role="row">
         <td role="cell">Monte Carlo 95% Drawdown (VaR)</td>
-        <td role="cell">₹14,894.33</td>
+        <td role="cell">₹15,185.53</td>
       </tr>
       <tr role="row">
         <td role="cell">Monte Carlo 99% Drawdown (VaR)</td>
-        <td role="cell">₹18,817.93</td>
+        <td role="cell">₹18,876.97</td>
       </tr>
       <tr role="row">
         <td role="cell">MC DD Ruin Probability (&gt; Actual)</td>
-        <td role="cell">52.1%</td>
+        <td role="cell">52.6%</td>
       </tr>
       <tr role="row">
         <td role="cell">Bootstrap Entry Edge Significance</td>
-        <td role="cell">0.707 (Not Statistically Significant)</td>
+        <td role="cell">0.715 (Not Statistically Significant)</td>
       </tr>
     </tbody>
   </table>
@@ -699,7 +703,7 @@
 <h3>Performance by Setup (Cash Equity)</h3>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Setup Type</th>
@@ -715,48 +719,48 @@
     </thead>
     <tbody role="rowgroup">
       <tr role="row">
-        <td role="cell">Compression Breakout</td>
-        <td role="cell">2</td>
-        <td role="cell">0.0%</td>
-        <td role="cell">-3.78R</td>
-        <td role="cell">Insufficient Data (n &lt; 5)</td>
-        <td role="cell">- ₹-7,264.80</td>
-        <td role="cell">₹7,264.80 (7.3%)</td>
-        <td role="cell">0.00</td>
-        <td role="cell">₹92,735.20</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Compression Breakout&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;2&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 2 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-3.78R&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Insufficient Data (n &lt; 5)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;- ₹-7,264.80&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹7,264.80 (7.3%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.00&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹92,735.20&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Momentum Gap</td>
-        <td role="cell">2</td>
-        <td role="cell">100.0%</td>
-        <td role="cell">+1.94R</td>
-        <td role="cell">Insufficient Data (n &lt; 5)</td>
-        <td role="cell">+ ₹3,385.74</td>
-        <td role="cell">₹0.00 (0.0%)</td>
-        <td role="cell">∞</td>
-        <td role="cell">₹103,385.74</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Momentum Gap&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;2&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;100.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 2 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+1.94R&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Insufficient Data (n &lt; 5)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+ ₹3,385.74&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹0.00 (0.0%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;∞&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹103,385.74&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">RS Leadership Breakout</td>
-        <td role="cell">2</td>
-        <td role="cell">0.0%</td>
-        <td role="cell">-1.09R</td>
-        <td role="cell">Insufficient Data (n &lt; 5)</td>
-        <td role="cell">- ₹-2,348.81</td>
-        <td role="cell">₹2,348.81 (2.3%)</td>
-        <td role="cell">0.00</td>
-        <td role="cell">₹97,651.19</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;RS Leadership Breakout&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;2&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 2 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-1.09R&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Insufficient Data (n &lt; 5)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;- ₹-2,348.81&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹2,348.81 (2.3%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.00&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹97,651.19&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Volume Capitulation Reversal</td>
-        <td role="cell">2</td>
-        <td role="cell">100.0%</td>
-        <td role="cell">+1.92R</td>
-        <td role="cell">Insufficient Data (n &lt; 5)</td>
-        <td role="cell">+ ₹3,267.67</td>
-        <td role="cell">₹0.00 (0.0%)</td>
-        <td role="cell">∞</td>
-        <td role="cell">₹103,267.67</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Volume Capitulation Reversal&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;2&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;100.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 2 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+1.92R&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Insufficient Data (n &lt; 5)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+ ₹3,267.67&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹0.00 (0.0%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;∞&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹103,267.67&lt;/span&gt;</td>
       </tr>
     </tbody>
   </table>
@@ -765,7 +769,7 @@
 <p>Historical performance of all candidate derivative, leverage, and hedged strategies over the same setups:</p>
 <div class="table-container" tabindex="0" role="region" aria-label="Scrollable table">
   <table role="table">
-    <caption>Summary table for Graphite Report</caption>
+    <caption>Summary table for GRAPHITE Report</caption>
     <thead role="rowgroup">
       <tr role="row">
         <th scope="col" role="columnheader">Strategy</th>
@@ -781,125 +785,125 @@
     </thead>
     <tbody role="rowgroup">
       <tr role="row">
-        <td role="cell">Cash Equity (Intraday)</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">-  ₹-1,480.10</td>
-        <td role="cell">₹4,806.80 (4.7%)</td>
-        <td role="cell">0.69</td>
-        <td role="cell">-0.14</td>
-        <td role="cell">₹29,637.01</td>
-        <td role="cell">-5.0%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Cash Equity (Intraday)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-  ₹-1,480.10&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹4,806.80 (4.7%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.69&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-0.14&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹29,637.01&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-5.0%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Cash Equity (Positional)</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">-  ₹-1,480.10</td>
-        <td role="cell">₹4,806.80 (4.7%)</td>
-        <td role="cell">0.69</td>
-        <td role="cell">-0.14</td>
-        <td role="cell">₹148,185.06</td>
-        <td role="cell">-1.0%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Cash Equity (Positional)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-  ₹-1,480.10&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹4,806.80 (4.7%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.69&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-0.14&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹148,185.06&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-1.0%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Futures (Intraday)</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">+  ₹1,433.65</td>
-        <td role="cell">₹15,939.98 (13.6%)</td>
-        <td role="cell">1.09</td>
-        <td role="cell">0.04</td>
-        <td role="cell">₹92,236.50</td>
-        <td role="cell">1.6%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Futures (Intraday)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+  ₹1,433.65&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹15,939.98 (13.6%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.09&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.04&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹92,236.50&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.6%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Futures (Positional)</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">+  ₹1,433.65</td>
-        <td role="cell">₹15,939.98 (13.6%)</td>
-        <td role="cell">1.09</td>
-        <td role="cell">0.04</td>
-        <td role="cell">₹92,236.50</td>
-        <td role="cell">1.6%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Futures (Positional)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+  ₹1,433.65&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹15,939.98 (13.6%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.09&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.04&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹92,236.50&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.6%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Long ATM Call (Intraday)</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">+  ₹2,329.10</td>
-        <td role="cell">₹7,702.54 (7.0%)</td>
-        <td role="cell">1.30</td>
-        <td role="cell">0.14</td>
-        <td role="cell">₹38,502.40</td>
-        <td role="cell">6.0%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Long ATM Call (Intraday)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+  ₹2,329.10&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹7,702.54 (7.0%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.30&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.14&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹38,502.40&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;6.0%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Long ATM Call (Positional)</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">+  ₹2,329.10</td>
-        <td role="cell">₹7,702.54 (7.0%)</td>
-        <td role="cell">1.30</td>
-        <td role="cell">0.14</td>
-        <td role="cell">₹38,502.40</td>
-        <td role="cell">6.0%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Long ATM Call (Positional)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+  ₹2,329.10&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹7,702.54 (7.0%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.30&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.14&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹38,502.40&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;6.0%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Long OTM Call</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">+  ₹2,435.60</td>
-        <td role="cell">₹6,721.37 (6.2%)</td>
-        <td role="cell">1.36</td>
-        <td role="cell">0.16</td>
-        <td role="cell">₹33,007.53</td>
-        <td role="cell">7.4%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Long OTM Call&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;+  ₹2,435.60&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹6,721.37 (6.2%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;1.36&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.16&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹33,007.53&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;7.4%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Bull Call Spread</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">-  ₹-426.53</td>
-        <td role="cell">₹1,141.47 (1.1%)</td>
-        <td role="cell">0.63</td>
-        <td role="cell">-0.17</td>
-        <td role="cell">₹5,494.87</td>
-        <td role="cell">-7.8%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Bull Call Spread&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-  ₹-426.53&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹1,141.47 (1.1%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.63&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-0.17&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹5,494.87&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-7.8%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Bull Put Spread</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">-  ₹-523.81</td>
-        <td role="cell">₹1,219.59 (1.2%)</td>
-        <td role="cell">0.57</td>
-        <td role="cell">-0.20</td>
-        <td role="cell">₹18,447.30</td>
-        <td role="cell">-2.8%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Bull Put Spread&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-  ₹-523.81&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹1,219.59 (1.2%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.57&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-0.20&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹18,447.30&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-2.8%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Iron Condor</td>
-        <td role="cell">4</td>
-        <td role="cell">0.0%</td>
-        <td role="cell">-  ₹-658.56</td>
-        <td role="cell">₹658.56 (0.7%)</td>
-        <td role="cell">0.00</td>
-        <td role="cell">-1.00</td>
-        <td role="cell">₹12,298.20</td>
-        <td role="cell">-5.4%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Iron Condor&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-  ₹-658.56&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹658.56 (0.7%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.00&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-1.00&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹12,298.20&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-5.4%&lt;/span&gt;</td>
       </tr>
       <tr role="row">
-        <td role="cell">Calendar Spread</td>
-        <td role="cell">4</td>
-        <td role="cell">50.0%</td>
-        <td role="cell">-  ₹-403.82</td>
-        <td role="cell">₹762.81 (0.8%)</td>
-        <td role="cell">0.47</td>
-        <td role="cell">-0.25</td>
-        <td role="cell">₹18,447.30</td>
-        <td role="cell">-2.2%</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;Calendar Spread&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;4&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;50.0%&lt;/span&gt; &lt;span style="font-size: 0.72rem; padding: 2px 4px; border-radius: 4px; background-color: #ef444420; color: #ef4444; font-weight: bold; margin-left: 4px;" aria-label="Exploratory reliability: 4 trades"&gt;Exploratory&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-  ₹-403.82&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹762.81 (0.8%)&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;0.47&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-0.25&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;₹18,447.30&lt;/span&gt;</td>
+        <td role="cell">&lt;span style="color: #64748b; font-style: italic;"&gt;-2.2%&lt;/span&gt;</td>
       </tr>
     </tbody>
   </table>
@@ -910,7 +914,7 @@
         <div class="disclaimer-container">
             <p><strong>Regulatory Disclaimer & Legal Compliance Warning:</strong> Equity, futures, options, and derivative trading involve extreme risk of capital loss and are not suitable for every investor. The trading strategies, signals, indicators, and historical performance metrics generated by this quantitative analysis engine are simulated, hypothetical backtest results produced for research and educational purposes only. They do not represent actual live-account execution, and no real capital has been traded. Past performance is in no way indicative or a guarantee of future returns. This tool does not provide investment, investment advice, legal, tax, or financial advice. The user assumes all risk and financial responsibility for any decisions made based on the data herein. Consult a registered investment advisor and conduct thorough independent due diligence before placing any trades.</p>
             <p><strong>Simulated Friction & Cost Disclosures:</strong> Brokerage: 0.03% | Slippage: 0.05% | Round-trip trading friction: 0.16% included in all performance metrics.</p>
-            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-27 13:09:59</code> (Local Time).</p>
+            <p><strong>Report Freshness & Data Snapshot:</strong> Compiled dynamically on the basis of historical market data. Generated at: <code>2026-06-27 23:59:27</code> (Local Time).</p>
         </div>
     </footer>
 
